@@ -692,28 +692,25 @@ function detectModel() {
 }
 
 // ── Determine base path from current location ──
-function getBasePath() {
-  const path = window.location.pathname;
-  // Check if we're in any model subfolder (not root)
-  const allFolders = [];
+function getAllSubfolders() {
+  const folders = ['pages']; // legacy folder — always treat as subfolder
   for (const brand of Object.values(BRANDS)) {
     for (const model of Object.values(brand.models)) {
-      allFolders.push(model.folder);
+      folders.push(model.folder);
     }
   }
-  const inSubfolder = allFolders.some(f => path.includes('/' + f + '/'));
+  return folders;
+}
+
+function getBasePath() {
+  const path = window.location.pathname;
+  const inSubfolder = getAllSubfolders().some(f => path.includes('/' + f + '/'));
   return inSubfolder ? '../' : './';
 }
 
 function isInPages() {
   const path = window.location.pathname;
-  const allFolders = [];
-  for (const brand of Object.values(BRANDS)) {
-    for (const model of Object.values(brand.models)) {
-      allFolders.push(model.folder);
-    }
-  }
-  return allFolders.some(f => path.includes('/' + f + '/'));
+  return getAllSubfolders().some(f => path.includes('/' + f + '/'));
 }
 
 function getCurrentPage() {
