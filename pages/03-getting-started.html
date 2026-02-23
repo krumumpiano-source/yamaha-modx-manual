@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เริ่มต้นใช้งาน MODX — ต่อสาย ตั้งค่า เปิดเครื่อง</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css">
+</head>
+<body>
+<div id="page-body">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">บทที่ 03 — เริ่มต้น</div>
+    <h1>เริ่มต้นใช้งาน MODX</h1>
+    <p class="lead">ขั้นตอนตั้งแต่เปิดกล่องจนพร้อมเล่น — การต่อสาย, เปิดเครื่อง, Navigate หน้าจอ และ Load เสียงตัวแรก</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-all">ทุกรุ่น</span>
+    </div>
+  </div>
+
+  <h2>สิ่งที่ต้องเตรียม</h2>
+  <div class="spec-grid">
+    <div class="spec-item">
+      <div class="spec-label">สายสัญญาณ Audio</div>
+      <div class="spec-value">TRS 6.35 มม. (สายแจ๊ค)</div>
+      <div class="spec-note">สำหรับ Output L/R ไปยัง Mixer หรือ Audio Interface อย่างน้อย 2 เส้น (Stereo) หรือ 1 เส้น (Mono)</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-label">Sustain Pedal</div>
+      <div class="spec-value">FC4A หรือ FC5 (แนะนำ)</div>
+      <div class="spec-note">Yamaha FC4A หรือ FC5 เสียบที่ช่อง SUSTAIN PEDAL สำหรับ Damper / Sustain การแสดงออก</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-label">Headphone ทดสอบ</div>
+      <div class="spec-value">Jack 6.35 มม.</div>
+      <div class="spec-note">ใช้ Headphone 6.35 มม. ทดสอบเสียงโดยตรงได้จากช่อง PHONES</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-label">สาย USB (MODX+/MODXM)</div>
+      <div class="spec-value">USB Type-B ไปยัง Computer</div>
+      <div class="spec-note">สำหรับ MIDI + Audio Interface ต่อ MODX+/MODXM กับ Computer</div>
+    </div>
+  </div>
+
+  <h2>การต่อสายอย่างละเอียด</h2>
+  <h3>ด้านหลังของ MODX — Port แต่ละตัว</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>ช่อง/Port</th><th>ใช้สำหรับ</th><th>สาย/อุปกรณ์</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>OUTPUT L/MONO</code></td><td>Output ซ้าย หรือ Mono (ถ้าต่อเพียงเส้นเดียว)</td><td>TRS 6.35 มม. → Mixer CH1 หรือ Speaker</td></tr>
+        <tr><td><code>OUTPUT R</code></td><td>Output ขวา (Stereo)</td><td>TRS 6.35 มม. → Mixer CH2</td></tr>
+        <tr><td><code>PHONES</code></td><td>Headphone Monitor</td><td>Headphone 6.35 มม.</td></tr>
+        <tr><td><code>SUSTAIN PEDAL</code></td><td>Sustain / Damper Pedal</td><td>FC4A, FC5 หรือ Pedal ทั่วไป (TS 6.35 มม.)</td></tr>
+        <tr><td><code>FOOT CONTROLLER</code></td><td>Expression Pedal (Volume Swell, Wah)</td><td>FC7 Expression Pedal หรือ TRS 6.35 มม.</td></tr>
+        <tr><td><code>FOOT SWITCH</code></td><td>Trigger: Arpeggio เปิด/ปิด, Performance เปลี่ยน</td><td>FC4A, FC5 หรือ Switch ทั่วไป</td></tr>
+        <tr><td><code>MIDI IN / OUT / THRU</code></td><td>ต่อกับ External MIDI Device, Keyboard อื่น</td><td>สาย MIDI DIN 5-pin</td></tr>
+        <tr><td><code>USB TO HOST</code></td><td>MIDI + Audio (MODX+/MODXM) กับ Computer</td><td>USB Type-B → Computer</td></tr>
+        <tr><td><code>USB TO DEVICE</code></td><td>USB Flash Drive บันทึก/โหลด Data</td><td>USB Flash Drive</td></tr>
+        <tr><td><code>INPUT L/R</code></td><td>รับสัญญาณ Audio จากภายนอก (MODX+/MODXM)</td><td>TRS 6.35 / Mic ผ่าน DI Box</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Setup พื้นฐานสำหรับวงดนตรี (Minimal)</h3>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><div class="step-content"><strong>ต่อ OUTPUT L/MONO</strong> → Mixer Channel 1 (สาย TRS 6.35 มม.)</div></li>
+    <li><span class="step-num">2</span><div class="step-content"><strong>ต่อ OUTPUT R</strong> → Mixer Channel 2 (สาย TRS 6.35 มม.) เพื่อ Stereo ถ้า Mono ต่อแค่ L/MONO ก็พอ</div></li>
+    <li><span class="step-num">3</span><div class="step-content"><strong>ต่อ Sustain Pedal</strong> FC4A/FC5 เข้าช่อง SUSTAIN PEDAL ตรวจสอบว่า Pedal ทำงานถูกทิศทาง (กด=Sustain ON ปล่อย=Sustain OFF)</div></li>
+    <li><span class="step-num">4</span><div class="step-content"><strong>ต่อ Power Cable</strong> เข้าช่อง DC IN หรือ สาย Power 3-pin ที่ด้านหลัง</div></li>
+    <li><span class="step-num">5</span><div class="step-content"><strong>เปิดเครื่อง</strong> กด Power Switch (บางรุ่นอยู่ด้านหลัง บางรุ่นด้านหน้า) ค้างจน Yamaha Logo ปรากฏ</div></li>
+  </ol>
+
+  <div class="info-box info-warn">
+    <span class="info-box-icon">⚠️</span>
+    <div class="info-box-content">
+      <h4>ลำดับการเปิด/ปิดเครื่องที่ถูกต้อง</h4>
+      <p><strong>เปิด:</strong> MODX ก่อน → Mixer/Amplifier ทีหลัง<br>
+      <strong>ปิด:</strong> Mixer/Amplifier ก่อน → MODX ทีหลัง<br>
+      ป้องกันเสียง Pop ที่อาจทำลาย Speaker</p>
+    </div>
+  </div>
+
+  <h2>การ Navigate หน้าจอ MODX</h2>
+  <h3>ปุ่มควบคุมหลัก</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>ปุ่ม</th><th>หน้าที่</th><th>เทคนิค</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="kbd">DATA DIAL</span></td><td>หมุนเพื่อเลือก/เปลี่ยนค่า</td><td>หมุนเร็วจะเลื่อนค่าเร็วขึ้น</td></tr>
+        <tr><td><span class="kbd">INC</span> / <span class="kbd">DEC</span></td><td>เพิ่ม/ลดค่าทีละ 1</td><td>กดค้าง = เปลี่ยนต่อเนื่อง</td></tr>
+        <tr><td><span class="kbd">ENTER</span></td><td>ยืนยันการเลือก</td><td>กด 2 ครั้ง = Rename</td></tr>
+        <tr><td><span class="kbd">EXIT</span></td><td>ย้อนกลับหน้าก่อนหน้า</td><td>กด 2-3 ครั้งไปถึง Home</td></tr>
+        <tr><td><span class="kbd">HOME</span></td><td>กลับ Performance Home Screen</td><td>–</td></tr>
+        <tr><td><span class="kbd">PERFORMANCE</span></td><td>เข้า Performance Mode</td><td>–</td></tr>
+        <tr><td><span class="kbd">CATEGORY SEARCH</span></td><td>ค้นหาเสียงตาม Category</td><td>กดค้าง = Favorite List</td></tr>
+        <tr><td><span class="kbd">STORE</span></td><td>บันทึก Performance</td><td>กด 2 ครั้ง = Store ทันที</td></tr>
+        <tr><td><span class="kbd">SHIFT</span></td><td>เข้า Secondary Function ของปุ่มอื่น</td><td>กดค้าง SHIFT + ปุ่มอื่น</td></tr>
+        <tr><td>🖥️ Touchscreen</td><td>แตะ/Swipe หน้าจอโดยตรง</td><td>ใช้ปลายนิ้ว — ไม่ใช้ Stylus</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>โครงสร้างเมนูพื้นฐาน</h3>
+  <pre>
+Home Screen (Performance View)
+├── Category Search → เลือก Performance
+├── Performance Edit
+│   ├── Common Edit (Settings ทั้ง Performance)
+│   └── Part Edit (Settings ต่อ Part)
+│       ├── Element/Operator Edit
+│       ├── Filter/Amp/LFO/EQ
+│       └── Effects (Insertion A/B)
+├── Mixing (Volume, Pan, EQ ทุก Part)
+├── Live Set
+└── Utility
+    ├── Settings (MIDI, Audio, Display)
+    ├── System (Master Tune, Scale)
+    └── Storage (Load/Save/Import)</pre>
+
+  <h2>Load Performance ตัวแรก</h2>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        <strong>กดปุ่ม <span class="kbd">CATEGORY SEARCH</span></strong> — หน้าจอแสดง Category List
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        <strong>เลือก Category เช่น Piano/Keyboard</strong> — แตะที่ Touchscreen หรือหมุน DATA DIAL
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        <strong>Sub-Category: เลือก Grand Piano</strong> — ด้านขวาจะแสดง Performance List
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div class="step-content">
+        <strong>เลือก "CFX Full Concert Grand"</strong> หรือ Performance ที่ต้องการ แตะ 2 ครั้งหรือกด <span class="kbd">ENTER</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-num">5</span>
+      <div class="step-content">
+        <strong>ลองเล่น!</strong> — ถ้าได้ยินเสียง แสดงว่าทุกอย่างทำงานถูกต้อง
+      </div>
+    </li>
+  </ol>
+
+  <h2>การปรับ Volume และ Master Tune</h2>
+  <h3>Volume หลัก</h3>
+  <p>ปุ่ม <span class="kbd">MASTER VOLUME</span> (Knob ใหญ่ด้านหน้าขวา) ควบคุม Volume รวมของทุกเสียงออก OUTPUT ปรับ Volume ที่ Knob นี้ก่อน แล้วจูน Volume ที่ Mixer ทีหลัง</p>
+
+  <h3>Master Tune (ปรับ Tuning ให้ตรงกับวง)</h3>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><div class="step-content">กด <span class="kbd">UTILITY</span> → <strong>Settings</strong> → <strong>Sound</strong></div></li>
+    <li><span class="step-num">2</span><div class="step-content">ค้นหา <code>Master Tune</code> — ปรับ Cents ให้ตรงกับอุปกรณ์อื่นในวง (ค่า Default = 440Hz = 0 Cents)</div></li>
+    <li><span class="step-num">3</span><div class="step-content">ถ้าวงใช้ 442Hz — ปรับ Master Tune +8 Cents ประมาณ</div></li>
+  </ol>
+
+  <h2>Polarity Sustain Pedal (สำคัญ!)</h2>
+  <p>ถ้ากด Sustain Pedal แล้วเสียงหยุด (ผิดปกติ) แสดงว่า Polarity ผิด เกิดจาก Pedal บางยี่ห้อมี Polarity ต่างจาก Yamaha</p>
+  <div class="info-box info-tip">
+    <span class="info-box-icon">💡</span>
+    <div class="info-box-content">
+      <h4>วิธีแก้ Polarity Sustain Pedal</h4>
+      <p>วิธีที่ 1: ตรวจสอบ Switch Polarity บนตัว Pedal (บางรุ่นมี Switch +-)<br>
+      วิธีที่ 2: ไปที่ <span class="kbd">UTILITY</span> → Settings → Controller → <code>Foot SW Polarity</code> → เปลี่ยนเป็น Reverse<br>
+      วิธีที่ 3: ก่อนเปิดเครื่อง อย่ากด Sustain Pedal ค้างไว้ ให้ปล่อยขณะเปิดเครื่อง</p>
+    </div>
+  </div>
+
+  <div class="info-box info-ok">
+    <span class="info-box-icon">✅</span>
+    <div class="info-box-content">
+      <h4>พร้อมแล้ว!</h4>
+      <p>ถ้าต่อสายเรียบร้อย เปิดเครื่องได้ และ Load Performance แรกได้ แสดงว่าพร้อมแล้ว ขั้นตอนถัดไป เรียนรู้ <a href="04-sound-engine.html">Sound Engine ของ MODX</a> หรือ ข้ามไปที่ <a href="05-performance.html">Performance Mode</a> ได้เลย</p>
+    </div>
+  </div>
+</div>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+<script>initPage({ title: 'เริ่มต้นใช้งาน', section: 'เริ่มต้น' });</script>
+</body>
+</html>

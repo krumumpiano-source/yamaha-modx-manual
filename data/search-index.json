@@ -1,0 +1,100 @@
+[
+  {
+    "file": "01-intro.html",
+    "title": "แนะนำ Yamaha MODX — ตระกูล MODX คืออะไร",
+    "section": "เริ่มต้น",
+    "tags": "MODX MODX+ MODXM แนะนำ overview ประวัติ AWM2 FM-X ZG Sound Generator synthesizer",
+    "content": "Yamaha MODX เป็น Music Synthesizer ระดับมืออาชีพจาก Yamaha ที่ผสมผสาน AWM2 (Advanced Wave Memory 2) และ FM-X (Frequency Modulation Extended) เข้าไว้ด้วยกัน ใน ZG Sound Generator เดียวกัน ตระกูล MODX ถูกแบ่งออกเป็น 3 รุ่น ได้แก่ MODX (รุ่นแรก ปี 2018), MODX+ (รุ่นอัพเกรด ปี 2022 เพิ่ม USB Audio Interface, Bluetooth Audio), และ MODXM (รุ่น Montage M-based ปี 2023 อัพเกรด ZG Sound Generator ใหม่) แต่ละรุ่นมีขนาด 6 คีย์ (61 คีย์), 7 คีย์ (76 คีย์), 8 คีย์ (88 คีย์ GH หรือ FSX Keybed) MODX เหมาะสำหรับนักดนตรีที่ต้องการเสียงคุณภาพสูงในราคาที่เข้าถึงได้ ทั้งการเล่นสด performance live, บันทึกเสียงใน DAW, และการแต่งเพลง"
+  },
+  {
+    "file": "02-models.html",
+    "title": "เปรียบเทียบทุกรุ่น MODX vs MODX+ vs MODXM",
+    "section": "เริ่มต้น",
+    "tags": "MODX MODX+ MODXM เปรียบเทียบ spec specifications คีย์ key polyphony น้ำหนัก ลำโพง bluetooth USB audio",
+    "content": "MODX6 61 คีย์ Synth Action, MODX7 76 คีย์ Synth Action, MODX8 88 คีย์ GH Keybed ไม่มีลำโพงในตัว polyphony 128 stereo ไม่มี Bluetooth ไม่มี USB Audio Interface. MODX+6 61 คีย์, MODX+7 76 คีย์, MODX+8 88 คีย์ FSX Keybed เพิ่ม Built-in Speakers (6 และ 7), Bluetooth Audio, USB Audio Interface 16in/4out, A/D INPUT stereo, polyphony 128 stereo. MODXM6 61 คีย์ BH61 Keybed, MODXM7 76 คีย์ BH76 Keybed, MODXM8 88 คีย์ NW-GH Keybed ปรับปรุง ZG Sound Generator ใหม่ Sound Generator ดีขึ้น Polyphony 128 stereo Enhanced Wave ROM 7.16 GB, Flash Memory 1.75 GB, Bluetooth Audio, USB Audio 6in/6out, ลำโพงในตัว (ยกเว้น 8 คีย์ บางรุ่น)"
+  },
+  {
+    "file": "03-getting-started.html",
+    "title": "เริ่มต้นใช้งาน MODX — ต่อสาย ตั้งค่า เปิดเครื่อง",
+    "section": "เริ่มต้น",
+    "tags": "ต่อสาย output input sustain pedal damper MIDI USB เปิดเครื่อง Power output L R headphone demo performance navigate",
+    "content": "การต่อสาย MODX ต่อ OUTPUT L/MONO และ R เข้า Mixer หรือ Audio Interface ด้วยสาย TRS 6.35 มม. ต่อ Headphone ที่ Phones jack ต่อ Sustain Pedal (Damper) ที่ช่อง SUSTAIN PEDAL ต่อ Expression Pedal ที่ช่อง FOOT CONTROLLER ต่อ USB TO HOST เข้า Computer สำหรับ MIDI และ Audio (MODX+/MODXM) ต่อ USB TO DEVICE สำหรับ USB Flash Drive บันทึก/โหลด Data การเปิดเครื่องกด Power Switch ค้างไว้จนหน้าจอติด หน้าจอแสดง Performance ล่าสุด การ Navigate ใช้ปุ่ม Category Search เลือก Performance, ปุ่ม DATA DIAL หมุนเลือก, ปุ่ม ENTER ยืนยัน, ปุ่ม EXIT ย้อนกลับ, ทัชสกรีนแตะได้โดยตรง การ Load Performance กด Performance หรือ Category Search แล้วเลือกจากรายการ"
+  },
+  {
+    "file": "04-sound-engine.html",
+    "title": "AWM2 + FM-X Sound Engine — หัวใจของ MODX",
+    "section": "Sound Engine",
+    "tags": "AWM2 FM-X ZG Sound Generator sound engine wave sample polyphony operator algorithm envelope filter LFO AN-X element",
+    "content": "AWM2 (Advanced Wave Memory 2) คือ Sample-based synthesis ที่ใช้ Wave samples คุณภาพสูงบรรจุใน ROM (MODX: 5.67GB, MODXM: 7.16GB Flash + ROM) แต่ละ Element ใน AWM2 ประกอบด้วย: Oscillator (เลือก Wave), Filter (Low Pass, High Pass, Band Pass พร้อม Cutoff, Resonance), Amplifier (Volume, Pan), LFO (ความสั่น vibrato/tremolo), Envelope (ADSR สำหรับ Filter และ Amplitude). FM-X (Frequency Modulation Extended) คือ 8-Operator FM Synthesis (เทียบกับ DX7 ที่มี 6 Operator) รองรับ 88 Algorithm, Operator แต่ละตัวมี Envelope Generator 7-stage, Frequency Ratio, Output Level, Feedback ส่งหาตัวเอง, AM Sensitivity, Pitch EG สำหรับ pitch movement. ZG (Zero Glide) Sound Generator รองรับ AWM2 และ FM-X พร้อมกันใน Performance เดียว Part 1-8 แต่ละ Part กำหนดได้ว่าจะใช้ AWM2, FM-X, หรือ AN-X (MODXM)"
+  },
+  {
+    "file": "05-performance.html",
+    "title": "Performance Mode — หัวใจการเล่น MODX",
+    "section": "Performance",
+    "tags": "Performance Part Layer Split Single scene motion control super knob assign quick edit element",
+    "content": "Performance คือหน่วยหลักของ MODX ประกอบด้วย Part 1-8 (MODXM Part 1-16) แต่ละ Part คือ Voice (เสียง) หนึ่งเสียง การสร้าง Layer ทำโดยเปิดหลาย Part พร้อมกัน ตั้ง Note Range ให้ครอบคลุมทั้ง Keyboard การทำ Split ตั้ง Note Low/High Limit ต่างกันในแต่ละ Part เช่น Part 1 C-2 ถึง B3 (เสียงล่าง), Part 2 C4 ถึง G8 (เสียงบน) การ Load Performance กด Category Search เลือก Category เช่น Piano, Organ, Pad กด ENTER เพื่อเลือก Performance แสดงบน Home Screen ด้วย 8 Part slot, Arpeggio indicator, Scene 1-8 Quick Edit ทำได้โดยแตะ Part บน Home Screen แล้วปรับ Volume, Pan, Cutoff, Resonance ผ่าน Assign Knobs หรือ Touchscreen Scene Recall กด Scene 1-8 เปลี่ยน Scene ได้ทันทีระหว่างเล่น Super Knob ควบคุม Parameters หลายตัวพร้อมกันด้วย Knob เดียว"
+  },
+  {
+    "file": "06-live-set.html",
+    "title": "Live Set & Gig — การเตรียม Set List สำหรับวงดนตรี",
+    "section": "Performance",
+    "tags": "Live Set Gig performance list slot bank organize setlist scene recall switch live",
+    "content": "Live Set คือ Container ที่เก็บ Performance ไว้ในรูปแบบ Grid สำหรับการแสดงสด มี 8 Bank (A-H) แต่ละ Bank มี 16 Slot รวม 128 Performance ต่อ Live Set การสร้าง Live Set ไปที่ Live Set → Edit → เลือก Slot → Assign Performance การเปลี่ยน Performance ระหว่างเล่น กด Bank A-H แล้วกด Performance Slot ที่ต้องการ สามารถใช้ Foot Switch เปลี่ยน Performance หน้าถัดไป/ก่อนหน้าได้ การจัด Order ควรเรียงตามเพลงในเซ็ท เช่น เพลงที่ 1, 2, 3... เพื่อกดเรียงตามลำดับขณะแสดงสด Scene ใน Live Set สามารถ Recall Scene 1-8 ของแต่ละ Performance โดยไม่ต้องเปลี่ยน Performance ทั้งหมด เหมาะสำหรับ A/B Section Verse/Chorus ของเพลง Volume ใน Live Set ปรับเป็น Master Volume โดยไม่กระทบ Performance Mixing"
+  },
+  {
+    "file": "07-parts-mixing.html",
+    "title": "Parts & Mixing — การตั้งค่า Parts ใน Performance",
+    "section": "Performance",
+    "tags": "Part Volume Pan EQ detune note limit velocity limit mono poly portamento mute solo receive channel transpose",
+    "content": "Part Mixing คือการปรับสมดุลเสียงของแต่ละ Part ใน Performance ไปที่ Performance → Mixing หรือแตะ Part บน Home Screen Part Volume ปรับ 0-127 Part Pan ปรับ L64 ถึง R63 Note Low/Note High กำหนด Range ของ Keyboard ที่ Part นี้ตอบสนอง Velocity Low/High กำหนด Velocity Range ที่ Part นี้ตอบสนอง Mono/Poly: Mono เล่นได้เสียงเดียว เหมาะกับ Lead Synth, Bass; Poly เล่นได้หลายโน้ตพร้อมกัน Portamento ทำให้โน้ตไหลจากตัวหนึ่งไปอีกตัวหนึ่ง ปรับ Time และ Mode (Rate/Time, Each/Last) Part EQ ปรับ Low, Mid, High per Part ก่อนส่งไป System Effect Detune ปรับ Pitch ของ Part เป็น Cents (-100 ถึง +100) สำหรับสร้าง Chorus/Detune Effect Receive Channel กำหนด MIDI Channel ที่ Part นี้รับ MIDI Input Mute/Solo กด Part บน Home Screen ค้าง หรือไปที่ Mixing เพื่อ Mute/Solo Part"
+  },
+  {
+    "file": "08-effects.html",
+    "title": "Effects & EQ — Insertion, System, Master Effects",
+    "section": "Performance",
+    "tags": "effects insertion reverb delay chorus system effect master effect EQ compressor routing send return distortion flanger phaser",
+    "content": "MODX มี Effect Structure 3 ระดับ: 1. Insertion Effects (2 ต่อ Part) ใส่ใน Part โดยตรง ก่อนส่งออกไป System ประเภทที่ใช้บ่อย: Compressor, Distortion, Chorus, Phaser, Flanger, EQ, Auto Pan, Tremolo ทุก Part มี Insertion Effect A และ B ต่อกันเป็น Serial (A→B) 2. System Effects: Reverb (Hall, Room, Plate) 1 ตัว, Variation (Delay, Chorus, Flanger) 1 ตัว แต่ละ Part ส่ง Signal ไป System Effect ด้วย Reverb Send Level และ Variation Send Level 3. Master Effects (2 ตัว) ใส่หลังทุก Part รวมกันแล้ว เหมาะสำหรับ Overall Compression, EQ, Limiting Master EQ 5-band ปรับ Overall Tone ก่อนออก Output Effect Routing: Part → Insertion A → Insertion B → Mix → System Reverb/Variation → Master Effect → Master EQ → Output การตั้งค่า Reverb เหมาะสำหรับวงดนตรี: ใช้ Hall Reverb, Reverb Time 1.5-2.5 วินาที, Diffusion สูง, Pre-Delay 20-30ms"
+  },
+  {
+    "file": "09-arpeggio.html",
+    "title": "Arpeggio & Motion Sequencer — Super Knob",
+    "section": "Advanced",
+    "tags": "arpeggio motion sequencer super knob assign lane control change automation rhythm pattern beat",
+    "content": "Arpeggio ใน MODX เป็น Pattern Sequencer ที่ขยายไกลกว่า Arpeggiator ทั่วไป แต่ละ Part มี Arpeggio ได้ 1 Pattern ประเภท: Up, Down, Up/Down, Random, U/D(L2), ฯลฯ หรือ Rhythm Pattern พิเศษ Category เลือกได้กว่า 10,000 Pattern Note Length, Velocity, Swing, Grid ปรับได้ Arpeggio Chord Match เล่น Chord แล้ว Arpeggio ปรับโน้ตตาม Chord อัตโนมัติ Motion Sequencer (4 Lanes per Part) ควบคุม Parameter ใดก็ได้ (Cutoff, Resonance, Volume, Pan, Effects) แบบ Sequence Loop Lane Speed, Smooth/Sequence, Loop On/Off, ปรับ Value แต่ละ Step Super Knob: Knob เดียวที่ Control ได้หลาย Parameter พร้อมกันทุก Part กำหนดได้ว่า Super Knob ควบคุมอะไรบ้าง เช่น Part 1 Cutoff + Part 2 Reverb Send + Part 3 Volume ไปพร้อมกัน Assign Knobs 1-8 กำหนดให้ Control Parameter ใดก็ได้ใน Performance"
+  },
+  {
+    "file": "10-midi.html",
+    "title": "MIDI Setup — ตั้งค่า MIDI สำหรับวงดนตรีและ Studio",
+    "section": "Advanced",
+    "tags": "MIDI channel Local Off receive transmit clock sync MIDI IN OUT THRU USB controller keyboard split layer external",
+    "content": "MIDI Channel ใน MODX แต่ละ Part มี Receive Channel กำหนดได้ตาม MIDI Channel 1-16 Common Channel สำหรับรับทุก Part พร้อมกัน การตั้ง Local Off สำคัญมากเมื่อใช้กับ DAW เพื่อหลีกเลี่ยงเสียง Double กด Utility → Settings → MIDI → Local ON/OFF MIDI Clock Internal: MODX เป็น Master ส่ง Clock ออก; External: รับ Clock จากอุปกรณ์อื่นหรือ DAW Zone/Split ด้วย MIDI ตั้ง Part แต่ละตัวรับ MIDI Channel ต่างกัน เช่น Controller ส่ง Ch1 สำหรับ Piano, Ch2 สำหรับ Bass การต่อ Controller ภายนอกผ่าน MIDI IN หรือ USB สามารถ Layer หรือ Split กับเสียงใน MODX ได้ MIDI OUT ส่ง MIDI ไปควบคุม Synthesizer อื่นหรือ DAW Clock Sync สำหรับ Arpeggio และ Motion Sequencer ให้ Sync กับ DAW ตั้ง MIDI Clock เป็น MIDI หรือ USB"
+  },
+  {
+    "file": "11-daw.html",
+    "title": "DAW Integration — MODX+ และ MODXM เป็น Audio Interface",
+    "section": "Advanced",
+    "tags": "DAW Cubase Logic Ableton USB Audio driver ASIO audio interface recording multi-track MODX+ MODXM host",
+    "content": "MODX+ และ MODXM มี USB Audio Interface ในตัว MODX+: 16 Audio Inputs, 4 Outputs (ไม่ต้องใช้ Audio Interface เพิ่ม) MODXM: 6 Audio Inputs, 6 Outputs การติดตั้ง Driver ดาวน์โหลด Yamaha Steinberg USB Driver จาก yamaha.com ติดตั้งใน Windows/Mac เลือก Sample Rate 44.1kHz หรือ 48kHz Buffer Size แนะนำ 256-512 samples สำหรับ Live Recording การใช้งานกับ Cubase (Steinberg เป็นของ Yamaha ทำงานร่วมกันดีที่สุด) MODX+ ปรากฏเป็น Audio Interface และ MIDI Device ใน Cubase อัตโนมัติ Multi-Track Recording บันทึกแต่ละ Part แยก Track ได้ผ่าน USB Audio ใช้ DAW เป็น MIDI Clock Master แล้ว MODX รับ Clock จาก DAW Remote Control จาก DAW ผ่าน MIDI CC สำหรับ Automation Volume, Pan, Effects MODX (รุ่นแรก) ไม่มี USB Audio ต้องใช้ Output ผ่าน Audio Interface แยกต่างหาก"
+  },
+  {
+    "file": "12-band-setup.html",
+    "title": "เซ็ทสำหรับวงดนตรี — Piano, Organ, Strings, Brass, Synth",
+    "section": "วงดนตรี",
+    "tags": "วงดนตรี band setup piano organ string brass lead synth split layer balance gig live setup volume อคูสติก ไฟฟ้า ป๊อป ลูกทุ่ง",
+    "content": "การเซ็ท Piano สำหรับวงดนตรี: เลือก Performance CFX Full Concert Grand หรือ S700 Acoustic Piano, ปรับ Volume ให้สมดุลกับ Band, ใช้ Compressor Insertion เล็กน้อย, Reverb Hall ประมาณ 20-30, Cutoff เปิดเต็ม Organ Setup: เลือก B3 Organ Performance, ทำ Split Bass ล่าง/Upper บน, ใช้ Rotary Speaker Effect, Volume Swell ด้วย Expression Pedal, Full Lower/Upper Draw สำหรับ Rock, ลด Percussion สำหรับ Jazz String Pad: เลือก String Ensemble หรือ Slow Strings, ใช้เป็น Layer กับ Piano (Part 2), Volume ต่ำกว่า Piano (40-60%), Reverb Hall สูง, Attack ยาว, Release ยาว Brass Section: เลือก Brass Section หรือ Big Band Brass, Velocity Control สำคัญมากเพื่อ Dynamics, ใส่ Compressor เพื่อให้เสียงแน่น, EQ เพิ่ม Presence ที่ 2-4kHz Synth Lead: เลือก Synth Lead หรือ Analog Lead, ตั้ง Mono Mode, ใช้ Portamento, Expression Pedal สำหรับ Volume Swell ระหว่าง Solo การ Balance กับวง: MODX Output ไป Mixer Channel, ปรับ Volume ที่ Mixer ไม่ใช่ที่ MODX เพื่อให้ง่ายต่อการควบคุมจาก FOH"
+  },
+  {
+    "file": "13-presets.html",
+    "title": "Preset Sounds List — เสียงแนะนำสำหรับวงดนตรี",
+    "section": "วงดนตรี",
+    "tags": "preset sound voice performance category piano organ strings brass lead pad synth bass guitar วงดนตรี Gig เสียง",
+    "content": "Piano: CFX Full Concert Grand (Bank Preset 001), S700 DRC (Bank Preset 002), CFIIIS (Bank Preset 003), Honky Tonk (Bank Preset 010), Electric Piano: Vintage EP (Preset 020), Rhodes MK2 (Preset 021), Wurlitzer (Preset 022), DX EP (Preset 030) Organ: Full Organ (Bank Preset 050), Gospel Organ (Preset 051), Jazz Organ (Preset 052), Rock B3 (Preset 053), Church Organ (Preset 060) Strings: Orchestra Strings (Preset 070), Slow Attack Strings (071), String Pad (072), Choir Pad (080) Brass: Brass Section (Preset 090), Big Band Brass (091), Solo Trumpet (092), Section Sax (093) Synth Lead: Classic Lead (100), Analog Lead (101), Sync Lead (102), JP-8 Strings (110) Bass: Acoustic Bass (120), Slap Bass (121), Picked Bass (122), Synth Bass (130) Pad: Warm Pad (140), Choir Aahs (141), Voice Oohs (142), Crystal (143)"
+  },
+  {
+    "file": "14-videos.html",
+    "title": "Tutorial Videos — วิดีโอสอนการใช้งาน MODX",
+    "section": "วงดนตรี",
+    "tags": "video tutorial youtube สอน การใช้งาน MODX walkthrough review demo",
+    "content": "วิดีโอสอนการใช้งาน Yamaha MODX อย่างเป็นทางการจาก Yamaha และ Community ครอบคลุมหัวข้อ: การเริ่มต้นใช้งาน MODX ครั้งแรก, การสร้าง Performance Layer/Split, การตั้งค่า AWM2 และ FM-X, การใช้ Motion Sequencer, Live Set สำหรับ Gig, การต่อกับ DAW, Super Knob และ Assign Knob, Arpeggio และ Rhythm Pattern, การตั้ง MIDI สำหรับ Studio, Tips สำหรับนักดนตรีวงไทย"
+  }
+]

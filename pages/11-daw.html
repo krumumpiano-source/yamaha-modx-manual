@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAW Integration — คู่มือภาษาไทย MODX</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css">
+</head>
+<body>
+<div id="page-body">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">บทที่ 11 — Advanced</div>
+    <h1>DAW Integration</h1>
+    <p class="lead">ใช้ MODX+ และ MODXM เป็น USB Audio Interface ในตัว บันทึกเสียงหลายแทร็คพร้อมกัน ทำงานร่วมกับ Cubase, Logic, Ableton และ DAW อื่นๆ</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-modxplus">MODX+</span>
+      <span class="badge badge-modxm">MODXM</span>
+    </div>
+  </div>
+
+  <div class="info-box info-warn">
+    <span class="info-box-icon">⚠️</span>
+    <div class="info-box-content">
+      <h4>MODX รุ่นแรก (ไม่มีเครื่องหมาย + และ M)</h4>
+      <p>MODX รุ่นแรก <strong>ไม่มี USB Audio Interface</strong> ในตัว สามารถส่ง MIDI ผ่าน USB ได้ แต่ต้องการ External Audio Interface สำหรับบันทึกเสียง เชื่อมต่อ Output L/R → Audio Interface ของคุณ</p>
+    </div>
+  </div>
+
+  <h2>USB I/O Spec ของแต่ละรุ่น</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>รุ่น</th><th>USB Audio In (DAW รับ)</th><th>USB Audio Out (DAW ส่ง)</th><th>Sample Rate</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-modxplus">MODX+</span></td>
+          <td>16 Channels</td>
+          <td>4 Channels</td>
+          <td>44.1 / 48 kHz, 24-bit</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-modxm">MODXM</span></td>
+          <td>6 Channels</td>
+          <td>6 Channels</td>
+          <td>44.1 / 48 kHz, 24-bit</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>ช่อง USB Audio ของ MODX+</h2>
+  <div class="spec-grid">
+    <div class="spec-card">
+      <div class="spec-label">CH 1-2</div>
+      <div class="spec-value">Main L/R Mix</div>
+      <div class="spec-sub">เสียงรวมทั้งหมดจาก MODX+</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">CH 3-4</div>
+      <div class="spec-value">Assignable 1-2</div>
+      <div class="spec-sub">Part หรือ Bus ที่กำหนดเอง</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">CH 5-6</div>
+      <div class="spec-value">Assignable 3-4</div>
+      <div class="spec-sub">Part หรือ Bus ที่กำหนดเอง</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">CH 7-8</div>
+      <div class="spec-value">Part 1-2</div>
+      <div class="spec-sub">แยก Part แต่ละตัว</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">CH 9-16</div>
+      <div class="spec-value">Part 3-8</div>
+      <div class="spec-sub">ส่ง Part แยกสำหรับ Mix ใน DAW</div>
+    </div>
+  </div>
+
+  <h2>การติดตั้ง Driver</h2>
+  <p>MODX+ และ MODXM ใช้ <strong>Yamaha Steinberg USB Driver</strong> (Windows และ macOS):</p>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        ไปที่ <strong>usa.yamaha.com/products/musical-instruments/keyboards/synthesizers/modx</strong> → Downloads
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        ดาวน์โหลด <strong>Yamaha Steinberg USB Driver</strong> ตาม OS ของคุณ
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        ติดตั้ง Driver ก่อนเสียบ USB Cable
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div class="step-content">
+        Restart Computer → เสียบ USB → ตรวจสอบว่า "Yamaha MODX+" หรือ "MODXM" ปรากฏใน Device List
+      </div>
+    </li>
+    <li>
+      <span class="step-num">5</span>
+      <div class="step-content">
+        ตั้ง Buffer Size ใน Driver: <strong>256 samples</strong> สำหรับ Live Play, <strong>512-1024</strong> สำหรับ Recording เพื่อลด CPU Load
+      </div>
+    </li>
+  </ol>
+
+  <h2>ตั้งค่าใน MODX+ / MODXM</h2>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        กด <span class="kbd">UTILITY</span> → Settings → Advanced → USB I/O
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        ตั้ง <strong>USB I/O Mode = On</strong>
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        เลือก <strong>Sample Rate: 44100 Hz</strong> (คนทั่วไป) หรือ 48000 Hz (Video Production)
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div class="step-content">
+        ตั้ง <strong>Direct Monitor = Off</strong> ถ้าต้องการ Monitor ผ่าน DAW เท่านั้น
+      </div>
+    </li>
+  </ol>
+
+  <h2>วิธีใช้งานกับ Cubase (แนะนำ)</h2>
+  <p>Yamaha เป็นเจ้าของ Steinberg ผู้ผลิต Cubase — MODX+ และ Cubase ทำงานร่วมกันได้ดีที่สุด:</p>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        เปิด Cubase → Studio Setup → VST Audio System → เลือก <strong>Yamaha Steinberg USB ASIO</strong>
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        Audio Connections (F4) → Inputs → Add Bus → กำหนด Input 1-2 = MODX+ Ch1-2
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        สร้าง Audio Track → Input = MODX+ → กด Record → เล่น Keyboard → บันทึกได้เลย
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div class="step-content">
+        สำหรับ Multi-track: Add Bus สำหรับแต่ละ Channel ที่ต้องการแยก (CH3-4, CH5-6 ฯลฯ)
+      </div>
+    </li>
+  </ol>
+
+  <h2>วิธีใช้งานกับ Logic Pro (Mac)</h2>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        Preferences → Audio → Output Device และ Input Device → เลือก <strong>MODXM</strong> หรือ <strong>MODX+</strong>
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        สร้าง Audio Track → Input 1-2 → Record Enable → เล่น
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        ตั้ง I/O Buffer Size: Logic → Preferences → Audio → I/O Buffer Size (256 samples สำหรับ Low Latency)
+      </div>
+    </li>
+  </ol>
+
+  <h2>วิธีใช้งานกับ Ableton Live</h2>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        Preferences → Audio → Driver Type = ASIO (Win) หรือ CoreAudio (Mac) → Audio Device = MODX+
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        Input Config → เปิด Input ที่ต้องการ (1/2, 3/4 ฯลฯ)
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        สร้าง Audio Track → Audio From = Ext. In → เลือก Input → Arm Recording
+      </div>
+    </li>
+  </ol>
+
+  <h2>Recording MIDI + Audio พร้อมกัน</h2>
+  <div class="info-box info-tip">
+    <span class="info-box-icon">💡</span>
+    <div class="info-box-content">
+      <h4>Workflow แนะนำ</h4>
+      <p><strong>1.</strong> Record MIDI Track ก่อน (ง่ายต่อการแก้ไข Note ผิด)<br>
+      <strong>2.</strong> เมื่อพอใจ → Bounce to Audio Track<br>
+      <strong>3.</strong> ปิด MIDI Track → ใช้ Audio Track ต่อ<br>
+      <strong>4.</strong> ประหยัด CPU และ RAM ได้มาก</p>
+    </div>
+  </div>
+
+  <h2>ตั้ง DAW เป็น MIDI Clock Master</h2>
+  <p>เพื่อให้ Arpeggio และ Motion Sequencer ของ MODX+ Sync กับ DAW:</p>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><div class="step-content">ใน DAW: Project Settings → MIDI Clock Output = On → Port = MODX+</div></li>
+    <li><span class="step-num">2</span><div class="step-content">ใน MODX+: <span class="kbd">UTILITY</span> → Settings → Advanced → Clock = <strong>USB</strong></div></li>
+    <li><span class="step-num">3</span><div class="step-content">กด Play ใน DAW → Arpeggio ของ MODX+ จะ Sync ตาม BPM ของ DAW</div></li>
+  </ol>
+
+  <h2>A/D Input (Mic / Guitar)</h2>
+  <p>MODX+ และ MODXM มี A/D Input (6.3mm / XLR) เพื่อ Route เสียง Microphone หรือ Guitar เข้า Signal Chain ของ MODX แล้วออก USB:</p>
+  <ul>
+    <li>เชื่อมต่อ Mic → A/D Input → ผ่าน Effects ของ MODX → ออก USB เข้า DAW</li>
+    <li>ตั้งค่า: <span class="kbd">UTILITY</span> → Settings → Audio → A/D Input</li>
+    <li>ปรับ Gain, Low Cut, Phase ได้จาก MODX</li>
+  </ul>
+
+  <div class="info-box info-ok">
+    <span class="info-box-icon">✅</span>
+    <div class="info-box-content">
+      <h4>ขั้นต่อไป</h4>
+      <p>ดูการตั้งค่าสำหรับวงดนตรีทั้งหมดได้ที่ <a href="12-band-setup.html">เซ็ทสำหรับวงดนตรี</a> พร้อม Recipe สำหรับแต่ละแนวเพลง</p>
+    </div>
+  </div>
+</div>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+<script>initPage({ title: 'DAW Integration', section: 'Advanced' });</script>
+</body>
+</html>

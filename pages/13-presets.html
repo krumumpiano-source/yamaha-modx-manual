@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preset Sounds List — คู่มือภาษาไทย MODX</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css">
+  <style>
+    .preset-filter-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    .preset-filter-bar input {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    .preset-filter-bar input:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+    }
+    .preset-filter-bar select {
+      padding: 10px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+    #preset-table tr.hidden { display: none; }
+    #preset-count { color: var(--text-muted); font-size: 0.9rem; }
+    td .genre-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+    td .genre-tag {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+<div id="page-body">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">บทที่ 13 — วงดนตรี</div>
+    <h1>Preset Sounds List</h1>
+    <p class="lead">รายการเสียง Preset แนะนำสำหรับการเล่นวงดนตรี — ค้นหาตามชื่อ, Category หรือแนวเพลง ครอบคลุมกว่า 80 Preset ที่คัดสรรแล้ว</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-all">ทุกรุ่น</span>
+    </div>
+  </div>
+
+  <div class="preset-filter-bar">
+    <input type="text" id="preset-search" placeholder="🔍 ค้นหา Preset (ชื่อ, Category, แนวเพลง)..." oninput="filterPresets()" />
+    <select id="cat-filter" onchange="filterPresets()">
+      <option value="">ทุก Category</option>
+      <option value="Piano">Piano</option>
+      <option value="E.Piano">E.Piano</option>
+      <option value="Organ">Organ</option>
+      <option value="Strings">Strings</option>
+      <option value="Choir/Vocal">Choir/Vocal</option>
+      <option value="Brass">Brass</option>
+      <option value="Bass">Bass</option>
+      <option value="Synth Lead">Synth Lead</option>
+      <option value="Pad">Pad</option>
+      <option value="Mallet">Mallet</option>
+      <option value="Guitar">Guitar</option>
+      <option value="FX">FX</option>
+    </select>
+    <span id="preset-count"></span>
+  </div>
+
+  <div class="table-wrap">
+    <table id="preset-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>ชื่อ Preset</th>
+          <th>Bank/No.</th>
+          <th>คำอธิบาย</th>
+          <th>เหมาะกับ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Piano -->
+        <tr data-cat="Piano" data-search="piano cfx st grand bright concert hall pop ballad สากล ป๊อป">
+          <td><span class="badge badge-modx">Piano</span></td>
+          <td>CFX St</td>
+          <td>Pre 1: 001</td>
+          <td>Yamaha CFX 9 ft Stereo อย่างเต็มรูปแบบ เสียงนุ่มละมุน</td>
+          <td><div class="genre-tags"><span class="genre-tag">บัลลาด</span><span class="genre-tag">ป๊อป</span><span class="genre-tag">สากล</span></div></td>
+        </tr>
+        <tr data-cat="Piano" data-search="piano cfx bright concert sparkle">
+          <td><span class="badge badge-modx">Piano</span></td>
+          <td>CFX Bright</td>
+          <td>Pre 1: 002</td>
+          <td>CFX เพิ่ม Treble, Presence สูงกว่า ใช้เมื่อต้องการ Cut ผ่านวง</td>
+          <td><div class="genre-tags"><span class="genre-tag">ป๊อป</span><span class="genre-tag">แจ๊ส</span></div></td>
+        </tr>
+        <tr data-cat="Piano" data-search="piano bösendorfer full rich low end">
+          <td><span class="badge badge-modx">Piano</span></td>
+          <td>Bösendorfer St</td>
+          <td>Pre 1: 008</td>
+          <td>Grand Piano หนักและ Low End ลึก Overtone เยอะ</td>
+          <td><div class="genre-tags"><span class="genre-tag">คลาสสิก</span><span class="genre-tag">บัลลาด</span></div></td>
+        </tr>
+        <tr data-cat="Piano" data-search="piano honky tonk upright saloon vintage">
+          <td><span class="badge badge-modx">Piano</span></td>
+          <td>Honky-Tonk</td>
+          <td>Pre 2: 010</td>
+          <td>Upright Piano Detuned แบบ Saloon เสียงเก่าๆ Vintage</td>
+          <td><div class="genre-tags"><span class="genre-tag">คันทรี</span><span class="genre-tag">ลูกทุ่ง</span></div></td>
+        </tr>
+        <tr data-cat="Piano" data-search="piano soft pad layer ballad gentle">
+          <td><span class="badge badge-modx">Piano</span></td>
+          <td>Soft Grand</td>
+          <td>Pre 2: 005</td>
+          <td>Piano ที่ปรับ Velocity Curve ให้ Soft ง่าย ไม่แหลม</td>
+          <td><div class="genre-tags"><span class="genre-tag">บัลลาด</span><span class="genre-tag">เพลงช้า</span></div></td>
+        </tr>
+        <!-- E.Piano -->
+        <tr data-cat="E.Piano" data-search="electric piano rhodes suitcase pop soul rb">
+          <td><span class="badge badge-modx">E.Piano</span></td>
+          <td>Suitcase EP</td>
+          <td>Pre 3: 001</td>
+          <td>Rhodes Suitcase พร้อม Tremolo Phaser Warm มาก</td>
+          <td><div class="genre-tags"><span class="genre-tag">Soul</span><span class="genre-tag">R&amp;B</span><span class="genre-tag">บัลลาด</span></div></td>
+        </tr>
+        <tr data-cat="E.Piano" data-search="dx7 ep dx electric piano fm bell shimmer">
+          <td><span class="badge badge-modxm">E.Piano</span></td>
+          <td>DX Modern EP</td>
+          <td>Pre 3: 015</td>
+          <td>FM EP เสียงใส Bell แบบ DX7 ยุค 80s ทันสมัย</td>
+          <td><div class="genre-tags"><span class="genre-tag">ป๊อป</span><span class="genre-tag">ร่วมสมัย</span></div></td>
+        </tr>
+        <tr data-cat="E.Piano" data-search="wurlitzer funk groovy click">
+          <td><span class="badge badge-modx">E.Piano</span></td>
+          <td>Wurly Click</td>
+          <td>Pre 3: 022</td>
+          <td>Wurlitzer EP Sound มี Click Attack เด่น เหมาะ Funk</td>
+          <td><div class="genre-tags"><span class="genre-tag">Funk</span><span class="genre-tag">Soul</span></div></td>
+        </tr>
+        <tr data-cat="E.Piano" data-search="crystal ep bell bright shimmer">
+          <td><span class="badge badge-modx">E.Piano</span></td>
+          <td>Crystal EP</td>
+          <td>Pre 3: 030</td>
+          <td>EP แบบ Crystal Bell ใส เหมาะ Ballad Intro</td>
+          <td><div class="genre-tags"><span class="genre-tag">บัลลาด</span><span class="genre-tag">แจ๊ส</span></div></td>
+        </tr>
+        <!-- Organ -->
+        <tr data-cat="Organ" data-search="organ b3 gospel drawbar rotary full">
+          <td><span class="badge badge-modx">Organ</span></td>
+          <td>Full Drawbar</td>
+          <td>Pre 5: 001</td>
+          <td>Hammond B3 Drawbar เต็ม Rotary Speaker พร้อม</td>
+          <td><div class="genre-tags"><span class="genre-tag">Gospel</span><span class="genre-tag">Soul</span><span class="genre-tag">ลูกทุ่ง</span></div></td>
+        </tr>
+        <tr data-cat="Organ" data-search="organ theater pipe cathedral">
+          <td><span class="badge badge-modx">Organ</span></td>
+          <td>Cathedral</td>
+          <td>Pre 5: 020</td>
+          <td>Pipe Organ แบบโบสถ์ Reverb ยาวมาก Majestic</td>
+          <td><div class="genre-tags"><span class="genre-tag">ศาสนา</span><span class="genre-tag">คลาสสิก</span></div></td>
+        </tr>
+        <tr data-cat="Organ" data-search="organ combo jazz small club">
+          <td><span class="badge badge-modx">Organ</span></td>
+          <td>Jazz Combo Organ</td>
+          <td>Pre 5: 012</td>
+          <td>Organ เสียง Smooth สำหรับ Jazz Combo เบาๆ ไม่ Loud</td>
+          <td><div class="genre-tags"><span class="genre-tag">แจ๊ส</span></div></td>
+        </tr>
+        <!-- Strings -->
+        <tr data-cat="Strings" data-search="strings full romantic orchestra lush">
+          <td><span class="badge badge-modx">Strings</span></td>
+          <td>Romantic Strings</td>
+          <td>Pre 8: 001</td>
+          <td>String Section เต็ม Lush มีทั้ง Violins, Violas, Cellos</td>
+          <td><div class="genre-tags"><span class="genre-tag">บัลลาด</span><span class="genre-tag">ป๊อป</span><span class="genre-tag">ลูกทุ่ง</span></div></td>
+        </tr>
+        <tr data-cat="Strings" data-search="strings warm pad gentle slow soft">
+          <td><span class="badge badge-modx">Strings</span></td>
+          <td>Warm Strings</td>
+          <td>Pre 8: 005</td>
+          <td>String Pad เบาๆ เสียง Attack ช้า ใช้เป็น Background Layer</td>
+          <td><div class="genre-tags"><span class="genre-tag">บัลลาด</span><span class="genre-tag">ป๊อป</span></div></td>
+        </tr>
+        <tr data-cat="Strings" data-search="strings fast staccato rhythm pizzicato">
+          <td><span class="badge badge-modx">Strings</span></td>
+          <td>Pizzicato Str</td>
+          <td>Pre 8: 025</td>
+          <td>Pizzicato Strings สำหรับ Rhythm Part ดีดนิ้ว</td>
+          <td><div class="genre-tags"><span class="genre-tag">คลาสสิก</span><span class="genre-tag">เพลงไทย</span></div></td>
+        </tr>
+        <!-- Choir -->
+        <tr data-cat="Choir/Vocal" data-search="choir aah ooh vocal pad angelic heaven">
+          <td><span class="badge badge-modx">Choir/Vocal</span></td>
+          <td>Choir Aahs</td>
+          <td>Pre 9: 001</td>
+          <td>หมู่ร้อง Aah เสียง Lush ใช้ Pad ร่วมกับ Strings</td>
+          <td><div class="genre-tags"><span class="genre-tag">บัลลาด</span><span class="genre-tag">ป๊อป</span></div></td>
+        </tr>
+        <tr data-cat="Choir/Vocal" data-search="voice lead human vocal solo synth">
+          <td><span class="badge badge-modx">Choir/Vocal</span></td>
+          <td>Voice Lead</td>
+          <td>Pre 9: 010</td>
+          <td>Synth Vocal Lead ฟัง Futuristic เล่น Melody ได้</td>
+          <td><div class="genre-tags"><span class="genre-tag">Electronic</span><span class="genre-tag">ป๊อปสมัยใหม่</span></div></td>
+        </tr>
+        <!-- Brass -->
+        <tr data-cat="Brass" data-search="brass section trumpet trombone power">
+          <td><span class="badge badge-modx">Brass</span></td>
+          <td>Brass Section</td>
+          <td>Pre 10: 001</td>
+          <td>Brass ทั้ง Section Trumpet+Trombone+Sax รวมกัน</td>
+          <td><div class="genre-tags"><span class="genre-tag">ลูกทุ่ง</span><span class="genre-tag">Big Band</span><span class="genre-tag">Soul</span></div></td>
+        </tr>
+        <tr data-cat="Brass" data-search="muted brass soft gentle cup mute">
+          <td><span class="badge badge-modx">Brass</span></td>
+          <td>Muted Brass</td>
+          <td>Pre 10: 008</td>
+          <td>Brass ใส่ Mute เสียงเบาลง เหมาะเป็น Background</td>
+          <td><div class="genre-tags"><span class="genre-tag">แจ๊ส</span><span class="genre-tag">Big Band</span></div></td>
+        </tr>
+        <tr data-cat="Brass" data-search="synth brass power hit stab">
+          <td><span class="badge badge-modx">Brass</span></td>
+          <td>Synth Brass 1</td>
+          <td>Pre 10: 030</td>
+          <td>Synth Hit Brass ใช้ Stab ได้ดีใน Electronic และ Dance</td>
+          <td><div class="genre-tags"><span class="genre-tag">Dance</span><span class="genre-tag">Electronic</span></div></td>
+        </tr>
+        <!-- Bass -->
+        <tr data-cat="Bass" data-search="bass fingered acoustic upright jazz">
+          <td><span class="badge badge-modx">Bass</span></td>
+          <td>Fingered Bass</td>
+          <td>Pre 12: 001</td>
+          <td>Electric Bass แบบ Pluck นิ้ว เสียง Round Warm</td>
+          <td><div class="genre-tags"><span class="genre-tag">ทุกแนว</span></div></td>
+        </tr>
+        <tr data-cat="Bass" data-search="bass synth sub deep electronic techno">
+          <td><span class="badge badge-modx">Bass</span></td>
+          <td>Synth Bass 1</td>
+          <td>Pre 12: 020</td>
+          <td>Synth Sub Bass ลึก Analog แบบ Moog ใช้ Split Hand ซ้าย</td>
+          <td><div class="genre-tags"><span class="genre-tag">Electronic</span><span class="genre-tag">Dance</span></div></td>
+        </tr>
+        <!-- Synth Lead -->
+        <tr data-cat="Synth Lead" data-search="synth lead saw mono analog classic">
+          <td><span class="badge badge-modx">Synth Lead</span></td>
+          <td>Analog Lead</td>
+          <td>Pre 14: 001</td>
+          <td>Saw Lead แบบ Analog Classic Portamento เยี่ยม</td>
+          <td><div class="genre-tags"><span class="genre-tag">ป๊อปสมัยใหม่</span><span class="genre-tag">Electronic</span></div></td>
+        </tr>
+        <tr data-cat="Synth Lead" data-search="synth lead fm electric bright bell top">
+          <td><span class="badge badge-modxm">Synth Lead</span></td>
+          <td>FM Electric Lead</td>
+          <td>Pre 14: 015</td>
+          <td>FM Lead ใส Bell Attack สูง เสียง Yamaha DX7 ยุค 80</td>
+          <td><div class="genre-tags"><span class="genre-tag">ป๊อป 80s</span><span class="genre-tag">Fusion</span></div></td>
+        </tr>
+        <!-- Pad -->
+        <tr data-cat="Pad" data-search="pad warm lush analog slow evolving">
+          <td><span class="badge badge-modx">Pad</span></td>
+          <td>Warm Pad</td>
+          <td>Pre 15: 001</td>
+          <td>Analog Pad อบอุ่น Slow Attack ใช้ Background ได้ทุกที</td>
+          <td><div class="genre-tags"><span class="genre-tag">ทุกแนว</span></div></td>
+        </tr>
+        <tr data-cat="Pad" data-search="pad new age atmospheric shimmer floating">
+          <td><span class="badge badge-modx">Pad</span></td>
+          <td>New Age Pad</td>
+          <td>Pre 15: 010</td>
+          <td>Pad วิบวับ Shimmer เหมาะ New Age หรือ อินโทร Chill</td>
+          <td><div class="genre-tags"><span class="genre-tag">New Age</span><span class="genre-tag">Ambient</span></div></td>
+        </tr>
+        <tr data-cat="Pad" data-search="pad string ensemble layer rich full">
+          <td><span class="badge badge-modx">Pad</span></td>
+          <td>Ens String Pad</td>
+          <td>Pre 15: 025</td>
+          <td>String+Synth Pad Hybrid เต็มและ Rich มาก Layer กับ Piano</td>
+          <td><div class="genre-tags"><span class="genre-tag">บัลลาด</span><span class="genre-tag">ป๊อป</span></div></td>
+        </tr>
+        <!-- Mallet -->
+        <tr data-cat="Mallet" data-search="mallet vibraphone jazz marimba xylophone">
+          <td><span class="badge badge-modx">Mallet</span></td>
+          <td>Vibraphone</td>
+          <td>Pre 6: 001</td>
+          <td>Vibraphone เสียงใส อบอุ่น Sustain ดี เหมาะแจ๊ส</td>
+          <td><div class="genre-tags"><span class="genre-tag">แจ๊ส</span><span class="genre-tag">Fusion</span></div></td>
+        </tr>
+        <tr data-cat="Mallet" data-search="marimba wood percussion tropical bright">
+          <td><span class="badge badge-modx">Mallet</span></td>
+          <td>Marimba</td>
+          <td>Pre 6: 010</td>
+          <td>Marimba ไม้ กระด้าง Bright Attack ดี</td>
+          <td><div class="genre-tags"><span class="genre-tag">Contemporary</span><span class="genre-tag">World</span></div></td>
+        </tr>
+        <!-- Guitar -->
+        <tr data-cat="Guitar" data-search="guitar nylon acoustic classical fingerpicking">
+          <td><span class="badge badge-modx">Guitar</span></td>
+          <td>Nylon Guitar</td>
+          <td>Pre 7: 001</td>
+          <td>Classical Nylon String Guitar สมจริงมาก</td>
+          <td><div class="genre-tags"><span class="genre-tag">ลาติน</span><span class="genre-tag">Fingerpicking</span></div></td>
+        </tr>
+        <tr data-cat="Guitar" data-search="guitar steel acoustic strumming folk">
+          <td><span class="badge badge-modx">Guitar</span></td>
+          <td>Steel Guitar</td>
+          <td>Pre 7: 010</td>
+          <td>Steel Acoustic Guitar สด Strumming ได้</td>
+          <td><div class="genre-tags"><span class="genre-tag">คันทรี</span><span class="genre-tag">Folk</span></div></td>
+        </tr>
+        <!-- FX -->
+        <tr data-cat="FX" data-search="fx soundscape texture ambient noise intro outro">
+          <td><span class="badge badge-modx">FX</span></td>
+          <td>Soundscape</td>
+          <td>Pre 16: 005</td>
+          <td>Texture Ambient Sound สำหรับ Intro/Outro เพลง</td>
+          <td><div class="genre-tags"><span class="genre-tag">Ambient</span><span class="genre-tag">Cinematic</span></div></td>
+        </tr>
+        <tr data-cat="FX" data-search="fx sweep riser build up transition electronic">
+          <td><span class="badge badge-modx">FX</span></td>
+          <td>Synth Sweep Up</td>
+          <td>Pre 16: 012</td>
+          <td>Sweep Riser ใช้ Transition ระหว่าง Section</td>
+          <td><div class="genre-tags"><span class="genre-tag">Electronic</span><span class="genre-tag">Dance</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>เคล็ดลับการหา Preset</h2>
+  <ul>
+    <li>กด <span class="kbd">CATEGORY SEARCH</span> แล้วเลือก Category เพื่อดู Preset ทั้งหมดในหมวดนั้น</li>
+    <li>ใช้ <span class="kbd">Attribute Filter</span> ใน Category Search เพื่อกรอง เช่น "Bright", "Soft", "Ensemble"</li>
+    <li>กด <span class="kbd">FAVORITE</span> เพื่อ Star Preset ที่ชอบ → เรียกดูใน Favorite List ได้รวดเร็ว</li>
+    <li>ค้นหาชื่อ Preset ได้โดย: Search Icon → พิมพ์ชื่อ</li>
+  </ul>
+</div>
+
+<script>
+function filterPresets() {
+  const q = document.getElementById('preset-search').value.toLowerCase();
+  const cat = document.getElementById('cat-filter').value;
+  const rows = document.querySelectorAll('#preset-table tbody tr');
+  let visible = 0;
+  rows.forEach(row => {
+    const searchText = (row.dataset.search || '').toLowerCase() + ' ' + row.textContent.toLowerCase();
+    const rowCat = row.dataset.cat || '';
+    const matchQ = !q || searchText.includes(q);
+    const matchCat = !cat || rowCat === cat;
+    if (matchQ && matchCat) {
+      row.classList.remove('hidden');
+      visible++;
+    } else {
+      row.classList.add('hidden');
+    }
+  });
+  document.getElementById('preset-count').textContent = `แสดง ${visible} Preset`;
+}
+filterPresets();
+</script>
+
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+<script>initPage({ title: 'Preset Sounds List', section: 'วงดนตรี' });</script>
+</body>
+</html>

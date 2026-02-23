@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เซ็ทสำหรับวงดนตรี — คู่มือภาษาไทย MODX</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css">
+</head>
+<body>
+<div id="page-body">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">บทที่ 12 — วงดนตรี</div>
+    <h1>เซ็ทสำหรับวงดนตรี</h1>
+    <p class="lead">Recipe การตั้งค่าเสียงสำหรับการเล่นวงดนตรีสด ครบทุกแนว ป๊อป ลูกทุ่ง สากล แจ๊ส — ตั้งแต่ Piano, Organ, Strings, Brass ไปจนถึง Synth Lead</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-all">ทุกรุ่น</span>
+    </div>
+  </div>
+
+  <h2>ก่อนเริ่ม: หลักการพื้นฐาน</h2>
+  <div class="info-box info-tip">
+    <span class="info-box-icon">🎵</span>
+    <div class="info-box-content">
+      <h4>Balance สำคัญกว่าเสียงที่ดีที่สุด</h4>
+      <p>ในวง — เสียงที่ Balance กับ Instrument อื่น ดีกว่าเสียงที่ดีที่สุดแต่ล้น EQ<br>
+      ใช้ <strong>Low Cut ที่ 200Hz</strong> เกือบทุกครั้งสำหรับ Keyboard เพื่อเว้น Space ให้ Bass กีตาร์</p>
+    </div>
+  </div>
+
+  <h2>🎹 Recipe 1: Acoustic Piano (ป๊อป/สากล)</h2>
+  <div class="info-box info-note">
+    <span class="info-box-icon">📋</span>
+    <div class="info-box-content">
+      <h4>Preset แนะนำ</h4>
+      <p><strong>CFX St</strong> หรือ <strong>CFX Bright</strong> (จาก Piano Category)</p>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Parameter</th><th>Setting</th><th>เหตุผล</th></tr></thead>
+      <tbody>
+        <tr><td>Reverb Type</td><td>Hall 1</td><td>ให้ความรู้สึก Concert Hall</td></tr>
+        <tr><td>Reverb Send</td><td>25-35</td><td>ไม่มากเกินไปในวง มิฉะนั้นเสียงฟั่นเฝือ</td></tr>
+        <tr><td>Insertion Effect</td><td>Compressor (Ratio 3:1, Attack 10ms)</td><td>ทำให้เสียง Piano อยู่ในวงได้ดี</td></tr>
+        <tr><td>EQ High</td><td>+1 dB @ 10kHz</td><td>เพิ่ม Air/Sparkle</td></tr>
+        <tr><td>EQ Low</td><td>-3 dB @ 200Hz</td><td>ลด Low-mid ที่ก้องในห้องแสดง</td></tr>
+        <tr><td>Volume</td><td>100–110</td><td>พอดีกับวง — ปรับ Expression Pedal</td></tr>
+        <tr><td>Sustain Pedal</td><td>FC3A (Half Pedal)</td><td>ควบคุม Damper ได้ละเอียดกว่า</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>🎸 Recipe 2: Electric Piano (ป๊อป/Soul/R&B)</h2>
+  <div class="info-box info-note">
+    <span class="info-box-icon">📋</span>
+    <div class="info-box-content">
+      <h4>Preset แนะนำ</h4>
+      <p><strong>DX Modern EP</strong> หรือ <strong>Suitcase EP</strong> — หรือ <strong>Rhodes Stage</strong></p>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Parameter</th><th>Setting</th><th>เหตุผล</th></tr></thead>
+      <tbody>
+        <tr><td>Insertion Effect 1</td><td>Vintage Phaser</td><td>Classic EP Phaser สำหรับ เสียง Funky</td></tr>
+        <tr><td>Insertion Effect 2</td><td>Compressor</td><td>ทำให้ Bell ของ EP อยู่นาน</td></tr>
+        <tr><td>Chorus Send</td><td>20–40</td><td>เพิ่ม Width แบบละมุน</td></tr>
+        <tr><td>EQ Mid</td><td>+2 dB @ 1kHz</td><td>เพิ่ม Presence ในวง</td></tr>
+        <tr><td>Knob 1</td><td>Assign = Tone (Cutoff)</td><td>ปรับ Bright/Mellow ระหว่างเล่น</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>🎷 Recipe 3: Organ B3 (ลูกทุ่ง/Gospel/Soul)</h2>
+  <div class="info-box info-note">
+    <span class="info-box-icon">📋</span>
+    <div class="info-box-content">
+      <h4>Preset แนะนำ</h4>
+      <p><strong>Gospel Organ</strong> หรือ <strong>Full Drawbar</strong> — หรือค้นหา "B3"</p>
+    </div>
+  </div>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        <strong>เพิ่ม Rotary Speaker Effect:</strong> Insertion FX → Rotary Speaker → Speed = Slow (เริ่มต้น)
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        <strong>Assign FC5 (Foot Switch) → Rotary Speed:</strong> ตั้งใน Assign → Foot Switch = Rotary Fast/Slow<br>
+        กดเท้า = เปลี่ยน Rotary จาก Slow ↔ Fast (ตำนาน!)
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        <strong>Split สำหรับ Bass:</strong> Assign Part 2 = Bassoon หรือ Bass Organ → Note Limit C-2 – B3<br>
+        เล่น Bass พร้อม Left Hand, Chord ด้วย Right Hand
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div class="step-content">
+        ลด Reverb: Organ ไม่ต้องการ Reverb มาก → Reverb Send = 10–20
+      </div>
+    </li>
+  </ol>
+
+  <h2>🎻 Recipe 4: String Section (ป๊อป/สตริง/ลูกทุ่ง)</h2>
+  <div class="info-box info-note">
+    <span class="info-box-icon">📋</span>
+    <div class="info-box-content">
+      <h4>Preset แนะนำ</h4>
+      <p><strong>Romantic Strings</strong> หรือ <strong>Full Strings</strong> — สำหรับ Pad ใช้ <strong>Warm Strings</strong></p>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Parameter</th><th>Setting</th><th>เหตุผล</th></tr></thead>
+      <tbody>
+        <tr><td>Attack Time</td><td>20–50ms</td><td>ทำให้ Strings ไม่ Attack แหลมเกินไป เหมือน Bow จริงๆ</td></tr>
+        <tr><td>Release</td><td>400–600ms</td><td>ให้ Note ค่อยๆ หาย</td></tr>
+        <tr><td>Reverb</td><td>Hall 2, Send 40–60</td><td>ทำให้เสียง Full อยู่หลัง Mix</td></tr>
+        <tr><td>Mod Wheel</td><td>Assign = Vibrato Depth</td><td>ใช้ Mod Wheel แต่ง Vibrato มือสองใน Phrase</td></tr>
+        <tr><td>Layer กับ Piano</td><td>Part 2 = Soft Piano</td><td>Piano+Strings Layer ใช้มากในเพลงบัลลาด</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>🎺 Recipe 5: Brass Section (วงลูกทุ่ง/Big Band)</h2>
+  <div class="info-box info-note">
+    <span class="info-box-icon">📋</span>
+    <div class="info-box-content">
+      <h4>Preset แนะนำ</h4>
+      <p><strong>Brass Section</strong> หรือ <strong>Tp Alto Sax</strong> — หรือ <strong>Big Band Brass</strong></p>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Parameter</th><th>Setting</th><th>เหตุผล</th></tr></thead>
+      <tbody>
+        <tr><td>Velocity Sensitivity</td><td>High</td><td>เล่นแรง = Brass โห่ดัง, เล่นเบา = Muted</td></tr>
+        <tr><td>Attack</td><td>5–10ms</td><td>Brass มี Attack ชัดเจน</td></tr>
+        <tr><td>Mod Wheel</td><td>Growl / Fall Effect</td><td>Brass technique มาตรฐาน</td></tr>
+        <tr><td>Insertion FX</td><td>EQ: Low Cut 150Hz</td><td>เว้น Space ให้ Bass กีตาร์</td></tr>
+        <tr><td>Reverb Send</td><td>15–25</td><td>Brass ในวง ไม่ต้องการ Reverb มาก</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>🎸 Recipe 6: Synth Lead (ป๊อป/อีเล็กทรอนิก)</h2>
+  <div class="info-box info-note">
+    <span class="info-box-icon">📋</span>
+    <div class="info-box-content">
+      <h4>Preset แนะนำ</h4>
+      <p><strong>Analog Lead</strong> หรือ <strong>Saw Lead</strong> — สำหรับ FM: <strong>FM Electric Lead</strong></p>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Parameter</th><th>Setting</th><th>เหตุผล</th></tr></thead>
+      <tbody>
+        <tr><td>Poly Mode</td><td>Mono</td><td>Synth Lead เล่นครั้งละ Note เดียว Classic</td></tr>
+        <tr><td>Portamento</td><td>On, Time = 80ms</td><td>Slide ระหว่าง Note ได้ทันที</td></tr>
+        <tr><td>Pitch Bend Range</td><td>2 semitones</td><td>มาตรฐาน Synth Lead</td></tr>
+        <tr><td>Mod Wheel</td><td>Vibrato + Filter</td><td>ขับเน้น Phrase ได้</td></tr>
+        <tr><td>Distortion / Overdrive</td><td>Light Drive</td><td>เพิ่ม Edge ใน Rock/Electronic</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>🇹🇭 แนวเพลงไทย: Workflow คีย์บอร์ด</h2>
+
+  <h3>เพลงป๊อปไทย</h3>
+  <ul>
+    <li><strong>ท่อนเพลง (Verse):</strong> Soft Piano + Light Pad Layer (Volume Pad ต่ำ)</li>
+    <li><strong>ท่อนฮุค (Chorus):</strong> Full Strings + Bright Piano + Reverb เพิ่ม</li>
+    <li><strong>ท่อน Bridge:</strong> Synth Pad + Bells</li>
+    <li><strong>ใช้ Scene:</strong> นำ Scene 1 = Verse, Scene 2 = Chorus, Scene 3 = Bridge เปลี่ยนได้รวดเร็วด้วยปุ่ม</li>
+  </ul>
+
+  <h3>เพลงลูกทุ่ง</h3>
+  <ul>
+    <li><strong>เมโลดี้หลัก:</strong> Accordion หรือ Oboe-ish Synth, Vibrato ลึก</li>
+    <li><strong>Pad:</strong> Warm String + ลด Highs</li>
+    <li><strong>ท่อน Solo:</strong> Flute synth หรือ Bangkok Piano (Bright + Reverb มาก)</li>
+    <li><strong>Organ:</strong> ใช้ Full Drawbar + Rotary สำหรับช่วง มันๆ</li>
+  </ul>
+
+  <h3>เพลงสากล/แจ๊ส</h3>
+  <ul>
+    <li><strong>Rhodes EP:</strong> ค่าตรง — Phase เบาๆ + Compressor</li>
+    <li><strong>Acoustic Piano:</strong> CFX St, Reverb Hall อย่างน้อย 30</li>
+    <li><strong>Organ:</strong> Drawbar ปรับตาม Feel — Rotary Fast ช่วง Solo</li>
+    <li><strong>Vibraphone / Mallet:</strong> เพิ่ม Percussive Element ใน Jazz Trio</li>
+  </ul>
+
+  <h2>Output ไปหา Mixing Board</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>วิธี</th><th>ช่อง</th><th>เหมาะกับ</th></tr></thead>
+      <tbody>
+        <tr><td>Stereo L/R</td><td>OUTPUT L, OUTPUT R → 2 Channel ใน Board</td><td>วงทั่วไป, ง่ายที่สุด</td></tr>
+        <tr><td>Mono</td><td>OUTPUT L เท่านั้น → 1 Channel</td><td>ห้องเล็ก, Mono PA</td></tr>
+        <tr><td>Assignable Output</td><td>ASSIGNABLE OUTPUT L/R (MODX+/MODXM)</td><td>แยก Part ออกไปช่อง Mixer แยก</td></tr>
+        <tr><td>USB Audio</td><td>USB → Computer → DAW → Interface → Board</td><td>Studio Recording</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box info-tip">
+    <span class="info-box-icon">🔊</span>
+    <div class="info-box-content">
+      <h4>ระดับ Output ที่แนะนำ</h4>
+      <p>ปรับ Master Volume ของ MODX ให้อยู่ที่ <strong>80–90%</strong> (ไม่ Max)<br>
+      ปรับ Volume ที่เหลือใน Mixing Board → ป้องกัน Clip และ Noise Floor ต่ำลง</p>
+    </div>
+  </div>
+
+  <div class="info-box info-ok">
+    <span class="info-box-icon">✅</span>
+    <div class="info-box-content">
+      <h4>ขั้นต่อไป</h4>
+      <p>ดูรายการ <a href="13-presets.html">Preset Sounds แนะนำ</a> สำหรับแต่ละสไตล์ หรือดู <a href="14-videos.html">วิดีโอสอน</a> เพิ่มเติม</p>
+    </div>
+  </div>
+</div>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+<script>initPage({ title: 'เซ็ทสำหรับวงดนตรี', section: 'วงดนตรี' });</script>
+</body>
+</html>

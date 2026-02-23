@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arpeggio & Motion Sequencer — คู่มือภาษาไทย MODX</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css">
+</head>
+<body>
+<div id="page-body">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">บทที่ 09 — Advanced</div>
+    <h1>Arpeggio &amp; Motion Sequencer</h1>
+    <p class="lead">Arpeggio ของ MODX ไม่ใช่แค่ Up/Down มี Pattern กว่า 10,000 รูปแบบ ส่วน Motion Sequencer เปลี่ยน Effect/Volume/Filter อัตโนมัติตาม Sequence Loop สร้างความเคลื่อนไหวที่ไม่มีใครเทียบ</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-all">ทุกรุ่น</span>
+    </div>
+  </div>
+
+  <h2>Arpeggio คืออะไร?</h2>
+  <p>Arpeggio ใน MODX เปลี่ยน Chord ที่กดค้างไว้เป็น Pattern Sequence อัตโนมัติ ไม่ใช่แค่ Up/Down แต่มี Pattern ครบทุก Genre:</p>
+  <ul>
+    <li>🎵 Classic Arp (Up, Down, Up/Down, Random)</li>
+    <li>🥁 Rhythm Pattern (กลอง Pattern ที่แปลงเป็น MIDI)</li>
+    <li>🎸 Chord Strum Pattern (จำลองการ Strum Guitar)</li>
+    <li>🎹 Sequencer-style Phrase</li>
+  </ul>
+
+  <h2>การเปิด Arpeggio</h2>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><div class="step-content">กดปุ่ม <span class="kbd">ARP ON/OFF</span> บน Front Panel (หรือแตะ Arp บน Home Screen)</div></li>
+    <li><span class="step-num">2</span><div class="step-content">กด Chord บน Keyboard — Arpeggio Pattern เริ่มเล่น</div></li>
+    <li><span class="step-num">3</span><div class="step-content">ปล่อย Chord เมื่อต้องการหยุด หรือ กด <span class="kbd">ARP HOLD</span> เพื่อให้ Pattern วน Loop ต่อเนื่องแม้ปล่อย Key</div></li>
+  </ol>
+
+  <h2>การเลือก Arpeggio Pattern</h2>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        เข้า <strong>Performance Edit → Part Edit → แท็บ Arpeggio</strong>
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        กด <strong>Category Search</strong> ใน Arpeggio Tab → เลือก Category
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        Category แนะนำ: Piano → Arp, Bass → Groove, Seq → Analog, Perc → Drums
+      </div>
+    </li>
+  </ol>
+
+  <h2>Arpeggio Parameters สำคัญ</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Parameter</th><th>ค่า/ตัวเลือก</th><th>คำอธิบาย</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Arp On/Off</td><td>On / Off</td><td>เปิด/ปิด Arpeggio สำหรับ Part นี้</td></tr>
+        <tr><td>Arp Hold</td><td>On / Off</td><td>On = Pattern วนแม้ปล่อย Key</td></tr>
+        <tr><td>Tempo</td><td>1-300 BPM</td><td>Speed ของ Pattern (หรือ Sync กับ MIDI Clock)</td></tr>
+        <tr><td>Grid</td><td>1/32, 1/16, 1/8, 1/4...</td><td>ขนาดโน้ตในแต่ละ Step</td></tr>
+        <tr><td>Swing</td><td>0-100%</td><td>เพิ่ม Swing/Groove ให้ Pattern ไม่ตรงนาฬิกา</td></tr>
+        <tr><td>Velocity Rate</td><td>0-200%</td><td>ปรับ Velocity ของ Pattern (กดเบา/แรงเท่าไร)</td></tr>
+        <tr><td>Note Length</td><td>0-200%</td><td>ความยาว Note แต่ละตัว</td></tr>
+        <tr><td>Chord Match</td><td>On / Off</td><td>On = Pattern ปรับโน้ตตาม Chord ที่กดอัตโนมัติ</td></tr>
+        <tr><td>Arpeggio Type</td><td>Up, Down, Up/Down, Random, Phrase...</td><td>รูปแบบ Pattern พื้นฐาน</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Arpeggio ต่อหลาย Part พร้อมกัน</h2>
+  <p>สามารถตั้ง Arpeggio แยกต่อ Part ได้ (Part 1-8 แต่ละตัวมี Arpeggio Pattern ของตัวเอง) ทำให้สร้าง Complex Multi-Part Pattern:</p>
+  <div class="info-box info-tip">
+    <span class="info-box-icon">🎵</span>
+    <div class="info-box-content">
+      <h4>ตัวอย่าง: Dance Pattern 4 Part</h4>
+      <p>Part 1 (Bass) → Bass Pattern 1/8 Note Groov<br>
+      Part 2 (Piano) → Chord Strum 1/16 Note<br>
+      Part 3 (Strings) → Slow Pad (ไม่มี Arp)<br>
+      Part 4 (Drums) → 4/4 Kick+Snare Pattern<br>
+      กด Chord เดียว ทุก Part ออกมาพร้อมกันเป็น Full Track!</p>
+    </div>
+  </div>
+
+  <h2>Motion Sequencer — ความเคลื่อนไหวอัตโนมัติ</h2>
+  <p>Motion Sequencer (MS) คือ LFO ชั้นสูงที่ควบคุม Parameter ใดก็ได้ใน MODX ด้วย Sequence Loop ที่กำหนดค่าเองได้ทุก Step</p>
+
+  <h3>โครงสร้าง Motion Sequencer</h3>
+  <pre>
+Part มี Motion Sequencer 4 Lanes
+Lane 1 → ควบคุม: Part Volume (ตัวอย่าง)
+Lane 2 → ควบคุม: Filter Cutoff
+Lane 3 → ควบคุม: Reverb Send
+Lane 4 → ควบคุม: LFO Speed
+
+แต่ละ Lane มี 16 Steps กำหนดค่าแต่ละ Step (0-127)
+Loop ต่อเนื่อง Sync กับ Tempo</pre>
+
+  <h3>วิธีตั้งค่า Motion Sequencer</h3>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        เข้า <strong>Performance Edit → Part Edit → Motion</strong>
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        เปิด Lane 1 → กำหนด <code>Target</code> เช่น <code>Filter Cutoff</code>
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        ตั้ง <code>Step 1-16</code> — แตะแถบ Step บน Touchscreen เพื่อกำหนดค่า 0-127
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div class="step-content">
+        ตั้ง <code>Speed</code> เช่น 1/4 Note หรือ 1/8 Note Sync กับ Tempo
+      </div>
+    </li>
+    <li>
+      <span class="step-num">5</span>
+      <div class="step-content">
+        เปิด Motion Sequencer On บน Front Panel หรือ Home Screen
+      </div>
+    </li>
+  </ol>
+
+  <h3>Motion Sequencer Targets ที่น่าสนใจ</h3>
+  <div class="card-grid">
+    <div class="card" style="cursor:default;">
+      <div class="card-icon">🎚️</div>
+      <div class="card-title">Filter Cutoff</div>
+      <div class="card-desc">เปิด-ปิด Filter ตาม Step ได้เสียง Wah/Filter Sweep อัตโนมัติ เหมาะกับ Synth, Pad</div>
+    </div>
+    <div class="card" style="cursor:default;">
+      <div class="card-icon">🔊</div>
+      <div class="card-title">Part Volume</div>
+      <div class="card-desc">Volume ขึ้น-ลงตาม Step สร้าง Tremolo Effect หรือ Swell เอง</div>
+    </div>
+    <div class="card" style="cursor:default;">
+      <div class="card-icon">↔️</div>
+      <div class="card-title">Part Pan</div>
+      <div class="card-desc">Auto Pan ซ้าย-ขวา ตาม Step ได้เสียงวนรอบ Stereo</div>
+    </div>
+    <div class="card" style="cursor:default;">
+      <div class="card-icon">🎛️</div>
+      <div class="card-title">Effect Parameters</div>
+      <div class="card-desc">ปรับ Reverb Send, Delay Time, Chorus Depth ตาม Step อัตโนมัติ</div>
+    </div>
+  </div>
+
+  <h2>Super Knob และ Assign Knobs</h2>
+  <h3>Assign Knobs 1-8</h3>
+  <p>Knob 8 ตัวบน Front Panel กำหนดได้ว่าแต่ละตัวควบคุมอะไร:</p>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><div class="step-content">กด <span class="kbd">SHIFT</span> + <span class="kbd">Assign Knob</span> → เปิด Assign Edit</div></li>
+    <li><span class="step-num">2</span><div class="step-content">เลือก <code>Destination Part</code> และ <code>Parameter</code> เช่น Part 1 → Filter Cutoff</div></li>
+    <li><span class="step-num">3</span><div class="step-content">กำหนด Range Min/Max ของ Knob</div></li>
+  </ol>
+
+  <h3>Super Knob</h3>
+  <p>Knob สีทองขนาดใหญ่ — กำหนดให้ควบคุม Assign Knob 1-8 พร้อมกันได้ หรือกำหนด Destination แยกต่างหาก:</p>
+  <div class="info-box info-tip">
+    <span class="info-box-icon">⭐</span>
+    <div class="info-box-content">
+      <h4>ตัวอย่าง Super Knob สำหรับวง</h4>
+      <p>Super Knob หมุนไปทาง Max:<br>
+      → Part 1 Piano Volume เพิ่ม<br>
+      → Part 2 Strings Volume เพิ่ม<br>
+      → Part 3 Brass Volume เพิ่ม<br>
+      → System Reverb เพิ่ม<br>
+      กด Super Knob ขณะ Climax เพลง — เสียงทุกอย่างขึ้นพร้อมกันทันที!</p>
+    </div>
+  </div>
+
+  <div class="info-box info-ok">
+    <span class="info-box-icon">✅</span>
+    <div class="info-box-content">
+      <h4>ขั้นต่อไป</h4>
+      <p>เรียนรู้ <a href="10-midi.html">MIDI Setup</a> สำหรับการต่อกับ Controller ภายนอกและ DAW หรือข้ามไปที่ <a href="12-band-setup.html">เซ็ทสำหรับวงดนตรี</a> ได้เลย</p>
+    </div>
+  </div>
+</div>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+<script>initPage({ title: 'Arpeggio & Motion Seq.', section: 'Advanced' });</script>
+</body>
+</html>

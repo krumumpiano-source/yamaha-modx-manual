@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Mode — คู่มือภาษาไทย MODX</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css">
+</head>
+<body>
+<div id="page-body">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">บทที่ 05 — Performance</div>
+    <h1>Performance Mode</h1>
+    <p class="lead">Performance คือหน่วยหลักในการเล่น MODX — ทุกอย่างที่คุณจะใช้บนเวทีหรือในสตูดิโออยู่ใน Performance ทั้งหมด ไม่ว่าจะเป็น Layer, Split, Scene หรือ Arpeggio</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-all">ทุกรุ่น</span>
+    </div>
+  </div>
+
+  <h2>Performance คืออะไร?</h2>
+  <p>Performance คือ "เพลง" หรือ "Patch" หนึ่งชุดที่รวม Part 1-8 (MODXM: 1-16) เข้าด้วยกัน แต่ละ Performance สามารถมีได้:</p>
+  <ul>
+    <li>🎹 เสียง Piano Layer กับ Strings</li>
+    <li>🎸 Split Bass ซ้ายมือ / Organ ขวามือ</li>
+    <li>🎤 เสียงเดียว (Single) เช่น Grand Piano เต็มๆ</li>
+    <li>🎛️ Arpeggio เล่นตาม Chord อัตโนมัติ</li>
+    <li>🔄 Motion Sequencer ควบคุม Filter/Volume อัตโนมัติ</li>
+    <li>🎚️ 8 Scene (ตั้งค่าพร้อม Switch ได้ทันที)</li>
+  </ul>
+
+  <h2>โครงสร้าง Performance</h2>
+  <pre>
+Performance
+├── Common Settings (ตั้งค่าส่วนกลาง)
+│   ├── Tempo, Time Signature
+│   ├── Arpeggio (สำหรับ Performance ทั้งหมด)
+│   ├── Scene 1-8 (Snapshot การตั้งค่า)
+│   ├── Super Knob (ควบคุมหลาย Parameter พร้อมกัน)
+│   └── Master Effects, Master EQ
+│
+├── Part 1 → Sound (AWM2/FM-X/AN-X)
+│   ├── Note Range (Low-High Limit)
+│   ├── Velocity Range
+│   ├── Volume, Pan, Detune
+│   ├── Insertion Effect A, B
+│   ├── Reverb Send, Variation Send
+│   └── MIDI Channel, Receive Switch
+│
+├── Part 2-8 (เหมือน Part 1)
+│
+└── System Effects
+    ├── Reverb (Hall/Room/Plate)
+    └── Variation (Delay/Chorus/Flanger)</pre>
+
+  <h2>Home Screen — หน้าจอหลัก</h2>
+  <p>เมื่อ Load Performance แล้ว หน้าจอจะแสดง:</p>
+  <ul>
+    <li><strong>ชื่อ Performance</strong> — ด้านบน</li>
+    <li><strong>Part Slots</strong> — แท่งสีแสดง Part 1-8 ที่เปิดอยู่ พร้อม Volume Level</li>
+    <li><strong>Scene Buttons</strong> — 1-8 ด้านล่าง</li>
+    <li><strong>Arpeggio Indicator</strong> — แสดงว่า Arpeggio เปิดอยู่ไหม</li>
+    <li><strong>Assign Knobs 1-8</strong> — ควบคุม Parameter ที่กำหนดไว้</li>
+  </ul>
+
+  <h2>การทำ Single (เสียงเดียว)</h2>
+  <p>Single คือ Performance ที่มีเพียง 1 Part เปิดอยู่ ครอบคลุมทั้ง Keyboard</p>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><div class="step-content">กด <span class="kbd">CATEGORY SEARCH</span> เลือก Category เช่น Piano</div></li>
+    <li><span class="step-num">2</span><div class="step-content">เลือก Performance ที่ต้องการ กด <span class="kbd">ENTER</span> 2 ครั้ง</div></li>
+    <li><span class="step-num">3</span><div class="step-content">ตรวจสอบ Home Screen — ถ้ามีเพียง Part 1 สว่างอยู่ = Single Mode</div></li>
+  </ol>
+
+  <h2>การทำ Layer (เสียงซ้อน)</h2>
+  <p>Layer คือการเปิดหลาย Part พร้อมกัน ทั้งหมดครอบคลุม Keyboard เดียวกัน เช่น Piano + Strings</p>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        <strong>Load Performance ที่ต้องการเป็น Layer พื้นฐาน</strong> เช่น "CFX Full Concert Grand"
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        <strong>เพิ่ม Part 2</strong> — แตะ Part 2 บน Home Screen → กด <span class="kbd">CATEGORY SEARCH</span> เลือก "Slow Strings"
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        <strong>ตั้ง Note Range Part 2</strong> → Part Edit → Note Low = C-2, Note High = G8 (ครอบคลุมทั้ง Keyboard)
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div class="step-content">
+        <strong>ปรับ Volume สมดุล</strong> Part 1 (Piano) = 80-100, Part 2 (Strings) = 40-60 → ลอง Balance ตามชอบ
+      </div>
+    </li>
+    <li>
+      <span class="step-num">5</span>
+      <div class="step-content">
+        <strong>กด <span class="kbd">STORE</span></strong> บันทึก Performance ใหม่ เลือก Slot ว่าง ตั้งชื่อ
+      </div>
+    </li>
+  </ol>
+
+  <div class="info-box info-tip">
+    <span class="info-box-icon">🎵</span>
+    <div class="info-box-content">
+      <h4>Layer ที่นิยมสำหรับวงดนตรี</h4>
+      <p>Piano + Slow Strings Pad → เสียงเต็มสำหรับ Ballad<br>
+      Organ + Brass Short → โน้ตสั้นมีผลทันที เหมาะ Funk/R&B<br>
+      Synth Lead + Octave Synth → Lead Sound สำหรับ Solo</p>
+    </div>
+  </div>
+
+  <h2>การทำ Split (แบ่ง Keyboard)</h2>
+  <p>Split คือการแบ่ง Keyboard ออกเป็นส่วนๆ แต่ละ Part ตอบสนองต่อส่วนต่างกัน</p>
+  <h3>ตัวอย่าง: Bass ซ้าย / Piano ขวา</h3>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        <strong>Part 1 = Piano:</strong> Note Low = C4, Note High = G8 (ครึ่งขวา)
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        <strong>Part 2 = Bass:</strong> Note Low = C-2, Note High = B3 (ครึ่งซ้าย)
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        <strong>ตั้ง Octave Shift สำหรับ Bass:</strong> Part Edit → Pitch → Octave = -1 หรือ -2 เพื่อให้เล่นได้ต่ำขึ้น
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div class="step-content">
+        <strong>ตั้ง Mono Mode สำหรับ Bass:</strong> Part Edit → Mono → On เพื่อ Legato Bass
+      </div>
+    </li>
+  </ol>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Split Pattern</th><th>Part ซ้าย</th><th>Part ขวา</th><th>Split Point</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Piano + Bass</td><td>Acoustic Bass (Mono)</td><td>Piano</td><td>C4 (Middle C)</td></tr>
+        <tr><td>Organ 2 Manual</td><td>Lower Organ</td><td>Upper Organ</td><td>F#3 (ตามสไตล์ Organ)</td></tr>
+        <tr><td>Pad + Lead</td><td>String Pad</td><td>Synth Lead</td><td>C4</td></tr>
+        <tr><td>3-Way Split</td><td>Bass (C-2-B2)</td><td>Chord (C3-B4)</td><td>+ Melody (C5-G8)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Scene — Snapshot การตั้งค่า</h2>
+  <p>Scene คือการบันทึก "สถานะ" ของ Performance ณ ขณะนั้นไว้ใน Slot 1-8 สามารถ Switch ระหว่าง Scene ได้ทันทีขณะเล่น</p>
+  <p>สิ่งที่ Scene จำไว้:</p>
+  <ul>
+    <li>Part Volume, Pan</li>
+    <li>Arpeggio On/Off, Arpeggio Type</li>
+    <li>Assign Knob Values</li>
+    <li>Super Knob Position</li>
+    <li>Motion Sequencer On/Off</li>
+    <li>Part Mute Status</li>
+  </ul>
+  <div class="info-box info-tip">
+    <span class="info-box-icon">🎭</span>
+    <div class="info-box-content">
+      <h4>การใช้ Scene สำหรับวงดนตรี</h4>
+      <p>Scene 1 = Verse (Piano เต็ม, Strings เบา)<br>
+      Scene 2 = Chorus (Piano+Strings เต็ม, Arpeggio เปิด)<br>
+      Scene 3 = Bridge (Pad ลง Solo Synth ขึ้น)<br>
+      กด Scene Button 1-8 ระหว่างเล่น เปลี่ยนได้ทันทีไม่มีหยุด</p>
+    </div>
+  </div>
+
+  <h2>กด Scene อย่างไร?</h2>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><div class="step-content">ปรับค่าที่ต้องการสำหรับ Scene 1 (Volume, Arpeggio, Knobs)</div></li>
+    <li><span class="step-num">2</span><div class="step-content">กด <span class="kbd">SHIFT</span> + <span class="kbd">Scene 1</span> เพื่อ Store Scene 1</div></li>
+    <li><span class="step-num">3</span><div class="step-content">ปรับค่าใหม่สำหรับ Scene 2 → กด <span class="kbd">SHIFT</span> + <span class="kbd">Scene 2</span></div></li>
+    <li><span class="step-num">4</span><div class="step-content">ระหว่างเล่น กด <span class="kbd">Scene 1</span> หรือ <span class="kbd">Scene 2</span> เพื่อสลับทันที</div></li>
+  </ol>
+
+  <h2>Quick Edit — แก้ไขรวดเร็วจาก Home Screen</h2>
+  <p>แตะ Part บน Home Screen ค้างไว้ จะแสดง Quick Edit Panel:</p>
+  <ul>
+    <li>Volume Knob</li>
+    <li>Pan Knob</li>
+    <li>Cutoff (Filter)</li>
+    <li>Resonance</li>
+    <li>Reverb Send</li>
+    <li>Mute / Solo toggle</li>
+  </ul>
+  <p>ใช้ Quick Edit ปรับเสียงเร็วโดยไม่ต้องเข้าเมนู Edit ลึก</p>
+
+  <h2>Super Knob</h2>
+  <p>Super Knob คือ Knob สีทองขนาดใหญ่ที่ควบคุม Parameter หลายตัวพร้อมกัน กำหนดได้ว่าจะควบคุมอะไร เช่น:</p>
+  <ul>
+    <li>หมุน Super Knob → Part 1 Cutoff เพิ่ม + Part 2 Reverb Send ลด + Part 3 Volume เพิ่ม</li>
+    <li>เหมาะสำหรับ Dramatic Moment บนเวที</li>
+  </ul>
+
+  <div class="info-box info-ok">
+    <span class="info-box-icon">✅</span>
+    <div class="info-box-content">
+      <h4>ขั้นต่อไป</h4>
+      <p>เรียนรู้ <a href="06-live-set.html">Live Set</a> เพื่อจัด Performance หลายชุดสำหรับ Gig หรือ <a href="07-parts-mixing.html">Parts & Mixing</a> เพื่อปรับ Balance ระหว่าง Part</p>
+    </div>
+  </div>
+</div>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+<script>initPage({ title: 'Performance Mode', section: 'Performance' });</script>
+</body>
+</html>

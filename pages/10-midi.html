@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIDI Setup — คู่มือภาษาไทย MODX</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css">
+</head>
+<body>
+<div id="page-body">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">บทที่ 10 — Advanced</div>
+    <h1>MIDI Setup</h1>
+    <p class="lead">การตั้งค่า MIDI สำหรับการบันทึกเสียงใน DAW การต่อ Controller ภายนอก และการใช้ MODX เป็นส่วนหนึ่งของ Studio Setup หรือวงดนตรี</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-all">ทุกรุ่น</span>
+    </div>
+  </div>
+
+  <h2>การตั้งค่า MIDI พื้นฐาน</h2>
+  <p>เข้าเมนู MIDI Settings: กด <span class="kbd">UTILITY</span> → Settings → MIDI I/O</p>
+
+  <h3>MIDI Channel</h3>
+  <p>MODX รับ MIDI ผ่าน 2 ช่องทาง:</p>
+  <ul>
+    <li><strong>MIDI IN (DIN 5-pin)</strong> — จาก External Controller หรือ Keyboard อื่น</li>
+    <li><strong>USB TO HOST</strong> — จาก Computer (DAW, Sequencer)</li>
+  </ul>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Setting</th><th>ค่า</th><th>คำอธิบาย</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Common MIDI Channel</td><td>1-16</td><td>Channel หลักที่ Keyboard ของ MODX ส่งออก และรับ MIDI สำหรับ Omni Receive</td></tr>
+        <tr><td>Part MIDI Channel</td><td>1-16 ต่อ Part</td><td>Channel ที่ Part นั้นรับ — ตั้งผ่าน Part Edit → MIDI → Receive Ch</td></tr>
+        <tr><td>MIDI Out Port</td><td>MIDI, USB, Both</td><td>ส่ง MIDI ออกทางไหน</td></tr>
+        <tr><td>Clock</td><td>Internal, MIDI, USB, Auto</td><td>Clock Source สำหรับ Arp, Motion Seq</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Local Control On/Off — สำคัญมากเมื่อใช้กับ DAW</h2>
+  <div class="info-box info-warn">
+    <span class="info-box-icon">⚠️</span>
+    <div class="info-box-content">
+      <h4>Local OFF เมื่อใช้กับ DAW</h4>
+      <p>ถ้าใช้ MODX กับ DAW (Record MIDI ผ่าน DAW แล้วส่งกลับมา) ต้องตั้ง <strong>Local Control = OFF</strong><br>
+      ไม่งั้นจะได้ยินเสียงซ้ำ (Double) เพราะ Keyboard เล่นส่วนหนึ่ง + DAW ส่ง MIDI กลับมาอีกส่วนหนึ่ง</p>
+    </div>
+  </div>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><div class="step-content">กด <span class="kbd">UTILITY</span> → Settings → Advanced → MIDI</div></li>
+    <li><span class="step-num">2</span><div class="step-content">ค้นหา <code>Local Control</code> → เปลี่ยนเป็น <strong>Off</strong></div></li>
+    <li><span class="step-num">3</span><div class="step-content">DAW ตั้งค่า MIDI Thru = On เพื่อส่ง MIDI กลับมาที่ MODX</div></li>
+    <li><span class="step-num">4</span><div class="step-content">ตอนนี้เล่น Keyboard → MIDI ออก DAW → MIDI กลับมาขับ Sound ของ MODX (ไม่ Double)</div></li>
+  </ol>
+  <p><strong>เล่น Live โดยไม่มี DAW</strong> → Local Control = <strong>On</strong> เสมอ</p>
+
+  <h2>MIDI Clock Sync</h2>
+  <p>ถ้าต้องการให้ Arpeggio และ Motion Sequencer Sync กับ DAW หรือ Drum Machine:</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>สถานการณ์</th><th>Clock Setting</th><th>คำอธิบาย</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>เล่น Standalone / Live</td><td>Internal</td><td>MODX ใช้ Tempo ของตัวเอง</td></tr>
+        <tr><td>Sync กับ DAW ผ่าน USB</td><td>USB</td><td>DAW เป็น Master ส่ง Clock ผ่าน USB MIDI</td></tr>
+        <tr><td>Sync กับ Drum Machine ผ่าน MIDI DIN</td><td>MIDI</td><td>รับ MIDI Clock จาก MIDI IN</td></tr>
+        <tr><td>อัตโนมัติ</td><td>Auto</td><td>MODX รับ Clock จากแหล่งที่ว่าง ถ้าไม่มีใช้ Internal</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>ต่อ Controller ภายนอก (External MIDI Keyboard)</h2>
+  <p>สามารถต่อ MIDI Keyboard ภายนอกเพื่อเพิ่ม Range หรือ Control MODX จาก Keyboard อื่น:</p>
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        <strong>ผ่าน MIDI DIN:</strong> ต่อ MIDI OUT ของ Controller → MIDI IN ของ MODX
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        <strong>ผ่าน USB:</strong> ต่อ USB ของ Controller → USB Hub → MODX USB TO HOST หรือผ่าน Computer
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        <strong>ตั้ง Part Receive Channel</strong> ให้ตรงกับ Channel ที่ Controller ส่งออก เช่น Controller = CH 2, Part 3 = Receive CH 2
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div class="step-content">
+        ทดสอบโดยเล่น Controller ภายนอก — ถ้า Part 3 ออกเสียง = ตั้งค่าถูกต้อง
+      </div>
+    </li>
+  </ol>
+
+  <h2>MIDI OUT — ควบคุม External Sound Module</h2>
+  <p>MODX ส่ง MIDI ออกได้ผ่าน MIDI OUT หรือ USB เพื่อควบคุม Sound Module ภายนอก:</p>
+  <ul>
+    <li>ต่อ MIDI OUT → Sound Module's MIDI IN</li>
+    <li>ตั้ง Transmit Channel ของ MODX ให้ตรงกับ Channel ของ Module</li>
+    <li>MODX Common Channel = เล่น Keyboard → ส่ง MIDI ออก Channel นั้น</li>
+  </ul>
+
+  <h2>Zone/Layer ด้วย MIDI Channel</h2>
+  <p>สามารถสร้าง Multi-Zone Performance โดยใช้ MIDI Channel:</p>
+  <div class="info-box info-tip">
+    <span class="info-box-icon">🎹</span>
+    <div class="info-box-content">
+      <h4>ตัวอย่าง 3-Zone Setup สำหรับ Live</h4>
+      <p>Zone 1 (C-2 – B3) → Part 1 CH1 = Bass Sound<br>
+      Zone 2 (C4 – B5) → Part 2 CH2 = Piano Sound<br>
+      Zone 3 (C6 – G8) → Part 3 CH3 = Melody Sound<br>
+      เล่น Keyboard เดียว ได้ 3 เสียงพร้อมกันตาม Range</p>
+    </div>
+  </div>
+
+  <h2>MIDI Control Change (CC) ที่ใช้บ่อย</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>CC Number</th><th>ชื่อ</th><th>ใช้ควบคุม</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Modulation Wheel</td><td>Vibrato, LFO Depth</td></tr>
+        <tr><td>7</td><td>Channel Volume</td><td>Part Volume</td></tr>
+        <tr><td>10</td><td>Pan</td><td>Stereo Pan Position</td></tr>
+        <tr><td>11</td><td>Expression</td><td>Volume Swell (Expression Pedal FC7)</td></tr>
+        <tr><td>64</td><td>Sustain</td><td>Sustain Pedal On/Off</td></tr>
+        <tr><td>65</td><td>Portamento</td><td>Portamento On/Off</td></tr>
+        <tr><td>74</td><td>Brightness</td><td>Filter Cutoff</td></tr>
+        <tr><td>91</td><td>Reverb Send</td><td>Reverb Level</td></tr>
+        <tr><td>93</td><td>Chorus Send</td><td>Chorus Level</td></tr>
+        <tr><td>120</td><td>All Sound Off</td><td>หยุดเสียงทุกอย่างทันที</td></tr>
+        <tr><td>123</td><td>All Notes Off</td><td>ปิด Note ที่ค้างอยู่ทั้งหมด</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>MIDI Thru</h2>
+  <p>MIDI THRU ส่ง MIDI ที่รับมาจาก MIDI IN ออกไปยังอุปกรณ์ถัดไปโดยไม่ประมวลผล เหมาะสำหรับ Daisy-chain หลายอุปกรณ์:</p>
+  <pre>Computer USB → MODX USB IN → MIDI THRU → Sound Module → MIDI THRU → Drum Machine</pre>
+
+  <div class="info-box info-ok">
+    <span class="info-box-icon">✅</span>
+    <div class="info-box-content">
+      <h4>ขั้นต่อไป</h4>
+      <p>ถ้ามี MODX+ หรือ MODXM เรียนรู้ <a href="11-daw.html">DAW Integration</a> เพื่อใช้ USB Audio Interface ในตัว หรือข้ามไปที่ <a href="12-band-setup.html">เซ็ทสำหรับวงดนตรี</a> ได้เลย</p>
+    </div>
+  </div>
+</div>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+<script>initPage({ title: 'MIDI Setup', section: 'Advanced' });</script>
+</body>
+</html>

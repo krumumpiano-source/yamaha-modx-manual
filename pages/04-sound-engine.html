@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWM2 + FM-X Sound Engine — คู่มือภาษาไทย MODX</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css">
+</head>
+<body>
+<div id="page-body">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">บทที่ 04 — Sound Engine</div>
+    <h1>AWM2 + FM-X Sound Engine</h1>
+    <p class="lead">เข้าใจหัวใจของ MODX — สองเทคโนโลยีที่ทำงานร่วมกันเพื่อสร้างเสียงที่กว้างที่สุด ตั้งแต่ Grand Piano สมจริงไปจนถึง FM Synth ที่ไม่มีใครเทียบ</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-all">ทุกรุ่น</span>
+      <span class="badge badge-modxm" style="font-size:0.7rem;">AN-X เฉพาะ MODXM</span>
+    </div>
+  </div>
+
+  <h2>ZG Sound Generator — สถาปัตยกรรม</h2>
+  <p>ZG (Zero Glide) Sound Generator คือ Processing Engine หลักของ MODX รองรับการสร้างเสียงได้พร้อมกันหลายรูปแบบใน Performance เดียว:</p>
+  <pre>
+Performance (1 ชุด)
+├── Part 1  → AWM2 (เช่น Piano)
+├── Part 2  → AWM2 (เช่น String Pad)
+├── Part 3  → FM-X (เช่น DX Bass)
+├── Part 4  → FM-X (เช่น FM Bell)
+├── Part 5  → AWM2 (เช่น Choir)
+├── Part 6  → AWM2 (เช่น Brass)
+├── Part 7  → AN-X (MODXM only — เช่น Analog Lead)
+└── Part 8  → AWM2 (เช่น Drum Kit)
+  </pre>
+  <p>ทุก Part ออกมารวมที่ Mixer จากนั้นผ่าน System Effects → Master Effects → Output</p>
+
+  <h2>AWM2 — Advanced Wave Memory 2</h2>
+  <p>AWM2 คือ <strong>Sample-based Synthesis</strong> ที่ใช้ Wave (ไฟล์เสียงจริงที่บันทึกมา) เป็นฐาน Yamaha บันทึก Sample จาก Musical Instrument จริง เช่น Yamaha CFX Concert Grand Piano, Bösendorfer Imperial, และเครื่องดนตรีออร์เคสตราต่างๆ</p>
+
+  <h3>โครงสร้าง AWM2 Part</h3>
+  <pre>
+AWM2 Part
+└── Element 1-8 (AWM2 มี Element ได้สูงสุด 8 ต่อ Part)
+    ├── Oscillator (เลือก Wave จาก ROM)
+    │   ├── Wave Select (เลือกชื่อ Wave)
+    │   ├── Coarse Tune, Fine Tune
+    │   ├── Pan, Volume
+    │   └── Velocity Curve
+    ├── Filter (กรองความถี่)
+    │   ├── Type: LPF (Low Pass), HPF (High Pass), BPF, etc.
+    │   ├── Cutoff Frequency (0-127)
+    │   ├── Resonance (0-127)
+    │   ├── Filter EG (Envelope สำหรับ Filter)
+    │   └── Velocity → Cutoff Sensitivity
+    ├── Amplifier (ปรับระดับเสียง)
+    │   ├── Level (0-127)
+    │   ├── Pan (-64 to +63)
+    │   └── Amp EG: Attack, Decay, Sustain, Release
+    ├── LFO (Low Frequency Oscillator — ความสั่น)
+    │   ├── Wave: Sine, Triangle, Sawtooth, Square, S/H
+    │   ├── Speed (ความเร็ว)
+    │   ├── Depth (ความลึก)
+    │   └── Destination: Pitch (Vibrato), Filter (Wah), Amp (Tremolo)
+    └── Pitch EG (Pitch Envelope)
+        └── ควบคุม Pitch การเปลี่ยนแปลงตามเวลา
+  </pre>
+
+  <div class="info-box info-tip">
+    <span class="info-box-icon">🎵</span>
+    <div class="info-box-content">
+      <h4>เทคนิค Multi-Sampling ของ AWM2</h4>
+      <p>Yamaha บันทึก Sample แต่ละโน้ตบน Piano ทุก 2-3 คีย์ และบันทึกหลาย Velocity Layer (เบา/กลาง/แรง) เพื่อให้เสียงสมจริงสูงสุด กดเบาได้ยิน Sample เบา กดแรงได้ยิน Sample แรงที่แตกต่างกันจริง ไม่ใช่แค่ Volume ต่างกัน</p>
+    </div>
+  </div>
+
+  <h3>Filter ที่ควรรู้จัก</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Filter Type</th><th>คุณสมบัติ</th><th>ใช้กับ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>LPF (Low Pass Filter)</td><td>ปล่อยความถี่ต่ำ กรองความถี่สูง → เสียงมืด/นุ่ม</td><td>Pad, Bass, Mellow Strings</td></tr>
+        <tr><td>HPF (High Pass Filter)</td><td>ปล่อยความถี่สูง กรองความถี่ต่ำ → เสียงบาง/สว่าง</td><td>Wind, Hi-Hat, Treble Boost</td></tr>
+        <tr><td>BPF (Band Pass Filter)</td><td>ปล่อยเฉพาะความถี่กลาง → เสียงเหมือนพูดผ่านโทรศัพท์</td><td>Wah Effect, Nasal Tone</td></tr>
+        <tr><td>LPF+HPF</td><td>Notch / Band เลือกได้ละเอียดมาก</td><td>Complex tone shaping</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>FM-X — 8-Operator FM Synthesis</h2>
+  <p>FM-X คือ <strong>Frequency Modulation Synthesis</strong> วิธีสร้างเสียงโดยใช้ Oscillator หนึ่ง (Modulator) เปลี่ยนความถี่ของอีก Oscillator หนึ่ง (Carrier) ได้เสียงที่ไม่สามารถสร้างจาก Sample ได้ เช่น เสียงโลหะ, Bell, E-Piano โลหะ</p>
+
+  <h3>Operator คืออะไร?</h3>
+  <p>MODX FM-X มี <strong>8 Operators</strong> (เทียบกับ DX7 ที่มี 6) แต่ละ Operator คือ Sine Wave Oscillator ที่มี:</p>
+  <ul>
+    <li><strong>Frequency Ratio</strong> — ความถี่ของ Operator นี้เทียบกับ Note ที่เล่น (เช่น 1.0, 2.0, 0.5)</li>
+    <li><strong>Output Level</strong> — ความดังของ Operator (0-127) ถ้าเป็น Carrier นี่คือ Volume, ถ้าเป็น Modulator นี่คือ Modulation Depth</li>
+    <li><strong>EG (Envelope Generator) 7-Stage</strong> — กำหนดรูปแบบ Volume เปลี่ยนตามเวลา (ละเอียดกว่า ADSR ปกติ)</li>
+    <li><strong>AM Sensitivity</strong> — ความไวต่อ Amplitude Modulation</li>
+    <li><strong>Feedback</strong> — Operator ส่ง Signal กลับหาตัวเอง สร้างเสียง Noisy/Aggressive</li>
+  </ul>
+
+  <h3>Algorithm คืออะไร?</h3>
+  <p>Algorithm กำหนดว่า Operator ไหนเป็น Carrier (ออกเสียง) และ Operator ไหนเป็น Modulator (ปรับเปลี่ยนเสียง) MODX FM-X มี <strong>88 Algorithm</strong></p>
+  <div class="info-box info-note">
+    <span class="info-box-icon">🔬</span>
+    <div class="info-box-content">
+      <h4>ตัวอย่าง Algorithm ง่ายที่สุด</h4>
+      <p><strong>Algorithm 1:</strong> Op.8 → Op.7 → Op.6 → Op.5→Op.4→Op.3→Op.2→Op.1 (Carrier) — Modulator ซ้อนกัน ได้เสียงซับซ้อนมาก<br>
+      <strong>Algorithm 88:</strong> Op.1-8 ทุกตัวเป็น Carrier ทั้งหมด — เสียงง่าย แต่ได้ Timbre หลากหลายพร้อมกัน</p>
+    </div>
+  </div>
+
+  <h3>เสียงที่ FM-X ทำได้ดีที่สุด</h3>
+  <div class="card-grid">
+    <div class="card" style="cursor:default;">
+      <div class="card-icon">🎹</div>
+      <div class="card-title">Electric Piano</div>
+      <div class="card-desc">DX7 EP เป็น FM Synthesis ที่ขึ้นชื่อที่สุด เสียง Rhodes-like โลหะที่ Sample ทำได้ยาก</div>
+    </div>
+    <div class="card" style="cursor:default;">
+      <div class="card-icon">🔔</div>
+      <div class="card-title">Bell / Marimba</div>
+      <div class="card-desc">เสียงโลหะกับ Overtone ซับซ้อน FM สร้างได้สมจริงกว่า Sample</div>
+    </div>
+    <div class="card" style="cursor:default;">
+      <div class="card-icon">🎸</div>
+      <div class="card-title">FM Bass</div>
+      <div class="card-desc">Bass Attack แน่น เสียงผ่านมาดี ในวงดนตรีเป่าหรือ Funk ใช้บ่อยมาก</div>
+    </div>
+    <div class="card" style="cursor:default;">
+      <div class="card-icon">🎛️</div>
+      <div class="card-title">Synth Lead Metallic</div>
+      <div class="card-desc">เสียง Lead หยาบ Aggressive ที่นักดนตรี Electronic ชื่นชอบ</div>
+    </div>
+  </div>
+
+  <h2>AN-X — Analog Physical Modeling (เฉพาะ MODXM)</h2>
+  <div class="info-box info-note">
+    <span class="info-box-icon">🟣</span>
+    <div class="info-box-content">
+      <h4>เฉพาะ MODXM เท่านั้น</h4>
+      <p>AN-X (Analog Physical Modeling Synthesis) เป็นเทคโนโลยีใหม่ที่มาพร้อม MODXM จำลองการทำงานของ Analog Synthesizer แบบ Physical Model ไม่ใช่ Sample ได้เสียง Analog ที่ "มีชีวิต" เปลี่ยนแปลงตลอดเวลาเหมือน Analog จริงๆ</p>
+    </div>
+  </div>
+
+  <h2>การเลือก Part Type ให้เหมาะกับเสียง</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>เสียงที่ต้องการ</th><th>Part Type แนะนำ</th><th>เหตุผล</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Piano (Acoustic)</td><td>AWM2</td><td>Sample ของ CFX สมจริงที่สุด FM ทำไม่ได้</td></tr>
+        <tr><td>Electric Piano (DX-style)</td><td>FM-X</td><td>DX7 EP Classic มาจาก FM เด่นมาก</td></tr>
+        <tr><td>Strings / Choir</td><td>AWM2</td><td>Sample Orchestra ของ Yamaha ดีมาก</td></tr>
+        <tr><td>Brass Section</td><td>AWM2</td><td>Sample จาก Real Brass สมจริง</td></tr>
+        <tr><td>Bell / Marimba</td><td>FM-X</td><td>Overtone โลหะ FM สร้างได้ดีกว่า</td></tr>
+        <tr><td>Bass (FM Style)</td><td>FM-X</td><td>Attack แน่น เสียงดีสำหรับ Funky Bass</td></tr>
+        <tr><td>Analog Synth Lead</td><td>AN-X (MODXM) / AWM2</td><td>AN-X ได้เสียง Analog ที่มีชีวิตกว่า</td></tr>
+        <tr><td>Pad (Ambient)</td><td>AWM2 หรือ FM-X</td><td>AWM2 นุ่มกว่า, FM-X สดใสกว่า</td></tr>
+        <tr><td>Drum Kit</td><td>AWM2</td><td>Sample Drum สมจริง</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Wave ROM — คลังเสียงของ MODX</h2>
+  <div class="spec-grid">
+    <div class="spec-item">
+      <div class="spec-label">MODX / MODX+</div>
+      <div class="spec-value">5.67 GB</div>
+      <div class="spec-note">AWM2 Wave ROM — Waveforms 6,347 ตัว รวม Multi-Velocity Sampling</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-label">MODXM</div>
+      <div class="spec-value">7.16 GB ROM + 1.75 GB Flash</div>
+      <div class="spec-note">Wave ROM ใหม่ + Flash Memory สำหรับ Custom Waveform ที่ User โหลดเพิ่มได้</div>
+    </div>
+  </div>
+
+  <div class="info-box info-ok">
+    <span class="info-box-icon">✅</span>
+    <div class="info-box-content">
+      <h4>ขั้นต่อไป</h4>
+      <p>เข้าใจ Sound Engine แล้ว ไปเรียนรู้ <a href="05-performance.html">Performance Mode</a> เพื่อดูว่าเราจัด Part ต่างๆ มารวมกันอย่างไร</p>
+    </div>
+  </div>
+</div>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+<script>initPage({ title: 'AWM2 + FM-X Engine', section: 'Sound Engine' });</script>
+</body>
+</html>
