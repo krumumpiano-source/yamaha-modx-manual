@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    main.js — คู่มือเครื่องดนตรี
    Handles: Sidebar injection, navigation, mobile menu, AdSense
    ============================================================ */
@@ -34,7 +34,7 @@ const BRANDS = {
           { num:'09', file:'09-band',          icon:'🎸', title:'เซ็ตเสียงสำหรับวงดนตรี',        sub:'Piano, Organ, Pad, Split Solo' },
           { num:'10', file:'10-settings',      icon:'🔌', title:'Utility & การตั้งค่าทั้งหมด',   sub:'Tune, MIDI, Firmware Update' },
           { num:'11', file:'11-troubleshoot',  icon:'🔧', title:'แก้ไขปัญหาที่พบบ่อย',           sub:'ไม่มีเสียง, MIDI, Latency' },
-          { num:'12', file:'12-faq',           icon:'❓', title:'FAQ & เปรียบเทียบ MODX Series', sub:'MODX vs MODX+ vs MODXM' },
+          { num:'12', file:'12-faq',           icon:'❓', title:'FAQ & เปรียบเทียบ MODX Series', sub:'MODX vs MODX+ vs MODX M' },
         ]
       },
       'modx-plus': {
@@ -53,17 +53,17 @@ const BRANDS = {
           { num:'09', file:'09-band',          icon:'🎸', title:'เซ็ตเสียงสำหรับวงดนตรี',        sub:'Piano, Organ, Pad, Split Solo' },
           { num:'10', file:'10-settings',      icon:'🔌', title:'Utility & การตั้งค่าทั้งหมด',   sub:'Tune, MIDI, Firmware Update' },
           { num:'11', file:'11-troubleshoot',  icon:'🔧', title:'แก้ไขปัญหาที่พบบ่อย',           sub:'ไม่มีเสียง, USB Audio, Latency' },
-          { num:'12', file:'12-faq',           icon:'❓', title:'FAQ & เปรียบเทียบ MODX Series', sub:'MODX vs MODX+ vs MODXM' },
+          { num:'12', file:'12-faq',           icon:'❓', title:'FAQ & เปรียบเทียบ MODX Series', sub:'MODX vs MODX+ vs MODX M' },
         ]
       },
       'modxm': {
-        name: 'MODXM',
+        name: 'MODX M',
         folder: 'modxm',
         badge: 'badge-modx',
         pages: [
-          { num:'01', file:'01-overview',     icon:'📖', title:'ภาพรวม MODXM คืออะไร',          sub:'AN-X Engine, Module (ไม่มี Keys)' },
-          { num:'02', file:'02-specs',         icon:'🔢', title:'สเปค & คุณสมบัติ MODXM',       sub:'AN-X Spec, USB Audio, Polyphony' },
-          { num:'03', file:'03-panel',         icon:'⚡', title:'แผงควบคุม MODXM (Module)',       sub:'ปุ่มทุกปุ่ม, Connectivity' },
+          { num:'01', file:'01-overview',     icon:'📖', title:'ภาพรวม MODX M คืออะไร',          sub:'AN-X Engine, รุ่นใหม่ล่าสุด' },
+          { num:'02', file:'02-specs',         icon:'🔢', title:'สเปค & คุณสมบัติ MODX M',       sub:'AN-X Spec, USB Audio, Polyphony' },
+          { num:'03', file:'03-panel',         icon:'⚡', title:'แผงควบคุม MODX M',       sub:'ปุ่มทุกปุ่ม, Connectivity' },
           { num:'04', file:'04-menu',          icon:'🎛️', title:'แนะนำเมนูทุกเมนู',             sub:'ระบบเมนู, Part Edit, Utility' },
           { num:'05', file:'05-sound-design',  icon:'🎹', title:'แต่งเสียง AWM2, FM-X & AN-X',  sub:'AN-X Oscillator, Filter, LFO' },
           { num:'06', file:'06-preset',        icon:'💾', title:'การจัดการ Preset & Library',    sub:'Store, Backup, Load' },
@@ -72,7 +72,7 @@ const BRANDS = {
           { num:'09', file:'09-band',          icon:'🎸', title:'เซ็ตเสียงสำหรับวงดนตรี',        sub:'AN-X Bass, Lead, Pad ในวง' },
           { num:'10', file:'10-settings',      icon:'🔌', title:'Utility & การตั้งค่าทั้งหมด',   sub:'Tune, MIDI, Firmware Update' },
           { num:'11', file:'11-troubleshoot',  icon:'🔧', title:'แก้ไขปัญหาที่พบบ่อย',           sub:'MIDI Controller, USB Audio, AN-X' },
-          { num:'12', file:'12-faq',           icon:'❓', title:'FAQ & เปรียบเทียบ MODX Series', sub:'MODX vs MODX+ vs MODXM' },
+          { num:'12', file:'12-faq',           icon:'❓', title:'FAQ & เปรียบเทียบ MODX Series', sub:'MODX vs MODX+ vs MODX M' },
         ]
       },
       'montage-m': {
@@ -1019,3 +1019,4 @@ function initSidebarSearch() {
     });
   }
 }
+
