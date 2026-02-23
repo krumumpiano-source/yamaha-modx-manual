@@ -1,5 +1,5 @@
 /* ============================================================
-   main.js — Yamaha MODX Thai Manual
+   main.js — คู่มือเครื่องดนตรี
    Handles: Sidebar injection, navigation, mobile menu, AdSense
    ============================================================ */
 
@@ -762,7 +762,7 @@ function buildSidebar() {
       <div class="sidebar-top">
         <a class="sidebar-logo-link" href="${base}index.html">
           <span class="sidebar-logo-icon">🎹</span>
-          <span class="sidebar-logo-text">Synth คู่มือไทย</span>
+          <span class="sidebar-logo-text">คู่มือเครื่องดนตรี</span>
         </a>
         <button class="sidebar-close-btn" id="sidebar-close" aria-label="ปิดเมนู">✕</button>
       </div>
@@ -915,9 +915,9 @@ window.initPage = function(opts = {}) {
       </div>
     </main>
     <footer class="page-footer">
-      &copy; 2026 คู่มือ Synthesizer ภาษาไทย | 
+      &copy; 2026 คู่มือเครื่องดนตรี | 
       <a href="${getBasePath()}index.html">หน้าหลัก</a> | 
-      ข้อมูลอ้างอิงจาก Official Documentation ของแต่ละยี่ห้อ
+      เว็บนี้เป็นคู่มืออิสระ ไม่ใช่ตัวแทนจาก Yamaha, Roland, Korg, Boss หรือ Alesis
     </footer>`;
   body.appendChild(mainWrapper);
 

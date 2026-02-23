@@ -1,5 +1,5 @@
 /* ============================================================
-   Print / PDF Stylesheet — Yamaha MODX Thai Manual
+   Print / PDF Stylesheet — คู่มือเครื่องดนตรี
    ============================================================ */
 
 @media print {
@@ -109,7 +109,7 @@
   /* ── Print header (URL) ── */
   @page {
     margin: 20mm;
-    @top-right { content: "Yamaha MODX Thai Manual"; font-size: 9pt; color: #888; }
+    @top-right { content: "คู่มือเครื่องดนตรี"; font-size: 9pt; color: #888; }
     @bottom-center { content: counter(page) " / " counter(pages); font-size: 9pt; color: #888; }
   }
 }
