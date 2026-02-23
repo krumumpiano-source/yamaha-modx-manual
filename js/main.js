@@ -694,80 +694,107 @@ function buildSidebar() {
   const current = getCurrentPage();
   const { brandKey, brand, modelKey, model } = detectModel();
 
-  // Build model switcher dropdown items
-  let modelSwitcherItems = '';
-  for (const [bk, b] of Object.entries(BRANDS)) {
-    modelSwitcherItems += `<div class="model-switcher-brand">${b.logo} ${b.name}</div>`;
-    for (const [mk, m2] of Object.entries(b.models)) {
-      const isCurrent = bk === brandKey && mk === modelKey;
-      const href = base + m2.folder + '/01-overview.html';
-      const hrefModx = mk === 'modx' ? base + 'pages/01-intro.html' : href;
-      modelSwitcherItems += `<a class="model-switcher-item${isCurrent ? ' active' : ''}" href="${mk === 'modx' ? hrefModx : href}">${m2.name}</a>`;
+  // ── Build same-brand model switcher (only models from same brand) ──
+  const sameBrandModels = brand.models;
+  let sameBrandHtml = '';
+  for (const [mk, m2] of Object.entries(sameBrandModels)) {
+    const isCurrent = mk === modelKey;
+    let href;
+    if (mk === 'modx') {
+      href = base + 'pages/01-intro.html';
+    } else {
+      href = base + m2.folder + '/01-overview.html';
     }
+    sameBrandHtml += `<a class="msw-item${isCurrent ? ' active' : ''}" href="${href}">${m2.name}</a>`;
   }
 
-  // Build nav items from model pages
-  let navHtml = '';
-  const sections = {
-    '01': 'เริ่มต้น', '02': 'เริ่มต้น', '03': 'เริ่มต้น',
-    '04': 'Sound Engine',
-    '05': 'Performance', '06': 'Performance', '07': 'Performance', '08': 'Performance',
-    '09': 'Advanced', '10': 'Advanced', '11': 'Advanced',
-    '12': 'วงดนตรี', '13': 'วงดนตรี', '14': 'วงดนตรี'
+  // ── Build collapsible nav sections ──
+  const sectionMap = {
+    'เริ่มต้น':    ['01','02','03'],
+    'Sound Engine': ['04'],
+    'Performance':  ['05','06','07','08'],
+    'Advanced':     ['09','10','11'],
+    'วงดนตรี':     ['12','13','14']
   };
-  let lastSection = '';
-  model.pages.forEach(page => {
-    const sec = sections[page.num] || '';
-    if (sec !== lastSection) {
-      navHtml += `<div class="nav-section-title">${sec}</div>`;
-      lastSection = sec;
-    }
-    const isActive = current === page.num;
-    // Resolve href for this page
-    let href;
-    if (modelKey === 'modx') {
-      // existing MODX pages use named files
-      const fileMap = {
-        '01':'01-intro','02':'02-models','03':'03-getting-started',
-        '04':'04-sound-engine','05':'05-performance','06':'06-live-set',
-        '07':'07-parts-mixing','08':'08-effects','09':'09-arpeggio',
-        '10':'10-midi','11':'11-daw','12':'12-band-setup',
-        '13':'13-presets','14':'14-videos'
-      };
-      const fname = fileMap[page.num] || page.num;
-      href = isInPages() ? `${fname}.html` : `pages/${fname}.html`;
-    } else {
-      href = isInPages() ? `${page.num}-overview.html` : `${model.folder}/${page.num}-overview.html`;
-    }
-    navHtml += `<a class="nav-item${isActive ? ' active' : ''}" href="${href}">
-      <span class="nav-icon">${page.icon}</span>
-      <span>${page.title}</span>
-    </a>`;
-  });
+  const fileMap = {
+    '01':'01-intro','02':'02-models','03':'03-getting-started',
+    '04':'04-sound-engine','05':'05-performance','06':'06-live-set',
+    '07':'07-parts-mixing','08':'08-effects','09':'09-arpeggio',
+    '10':'10-midi','11':'11-daw','12':'12-band-setup',
+    '13':'13-presets','14':'14-videos'
+  };
+  // index pages by num
+  const pagesByNum = {};
+  model.pages.forEach(p => { pagesByNum[p.num] = p; });
+
+  let navHtml = '';
+  for (const [secName, nums] of Object.entries(sectionMap)) {
+    const hasActive = nums.includes(current);
+    let itemsHtml = '';
+    nums.forEach(num => {
+      const page = pagesByNum[num];
+      if (!page) return;
+      const isActive = current === page.num;
+      let href;
+      if (modelKey === 'modx') {
+        const fname = fileMap[page.num] || page.num;
+        href = isInPages() ? `${fname}.html` : `pages/${fname}.html`;
+      } else {
+        href = isInPages() ? `${page.num}-overview.html` : `${model.folder}/${page.num}-overview.html`;
+      }
+      itemsHtml += `<a class="nav-item${isActive ? ' active' : ''}" href="${href}">
+        <span class="nav-icon">${page.icon}</span>
+        <span class="nav-label">${page.title}</span>
+      </a>`;
+    });
+    navHtml += `
+      <details class="nav-group"${hasActive ? ' open' : ''}>
+        <summary class="nav-group-title">
+          <span class="nav-group-arrow">▶</span>${secName}
+        </summary>
+        ${itemsHtml}
+      </details>`;
+  }
 
   return `
     <div class="sidebar" id="sidebar">
-      <div class="sidebar-logo">
-        <a href="${base}index.html" style="text-decoration:none;color:inherit;">
-          <div class="sidebar-logo-title">🎹 Synth คู่มือภาษาไทย</div>
+      <!-- Logo + back -->
+      <div class="sidebar-top">
+        <a class="sidebar-logo-link" href="${base}index.html">
+          <span class="sidebar-logo-icon">🎹</span>
+          <span class="sidebar-logo-text">Synth คู่มือไทย</span>
         </a>
-        <div class="model-switcher-toggle" id="model-switcher-btn" title="เปลี่ยนรุ่น">
-          <span class="model-current-name">${brand.logo} ${brand.name} ${model.name}</span>
-          <span style="color:var(--text-muted);font-size:0.75rem;">▼ เปลี่ยนรุ่น</span>
+        <button class="sidebar-close-btn" id="sidebar-close" aria-label="ปิดเมนู">✕</button>
+      </div>
+
+      <!-- Current model + switcher -->
+      <div class="sidebar-model-header" style="border-left:3px solid ${brand.color || 'var(--accent-cyan)'};">
+        <div class="smh-brand">${brand.logo} ${brand.name}</div>
+        <div class="smh-model">${model.name}</div>
+        <div class="smh-switcher">
+          <button class="smh-btn" id="msw-btn">🔄 เปลี่ยนรุ่น ▾</button>
         </div>
-        <div class="model-switcher-dropdown" id="model-switcher-dropdown" style="display:none;">
-          ${modelSwitcherItems}
+        <div class="msw-dropdown" id="msw-dropdown" style="display:none;">
+          <div class="msw-header">${brand.logo} ${brand.name} — เลือกรุ่น</div>
+          ${sameBrandHtml}
+          <a class="msw-all-link" href="${base}index.html">📋 ดูทุกรุ่น / ทุกแบรนด์ →</a>
         </div>
       </div>
+
+      <!-- Search -->
       <div class="sidebar-search">
         <input type="text" id="sidebar-search-input" placeholder="🔍 ค้นหาเนื้อหา..." autocomplete="off">
       </div>
+
+      <!-- Nav -->
       <nav class="sidebar-nav">
-        <a class="nav-item" href="${base}index.html">
-          <span class="nav-icon">🏠</span><span>หน้าหลัก</span>
+        <a class="nav-item nav-home" href="${base}index.html">
+          <span class="nav-icon">🏠</span><span class="nav-label">หน้าหลัก</span>
         </a>
         ${navHtml}
       </nav>
+
+      <!-- Sidebar Ad -->
       <div class="ad-sidebar">
         <ins class="adsbygoogle"
           style="display:block;min-width:160px;min-height:250px;"
@@ -894,13 +921,17 @@ window.initPage = function(opts = {}) {
     </footer>`;
   body.appendChild(mainWrapper);
 
-  // Model switcher toggle
-  const switcherBtn = document.getElementById('model-switcher-btn');
-  const switcherDropdown = document.getElementById('model-switcher-dropdown');
-  if (switcherBtn && switcherDropdown) {
-    switcherBtn.addEventListener('click', () => {
-      const isOpen = switcherDropdown.style.display !== 'none';
-      switcherDropdown.style.display = isOpen ? 'none' : 'block';
+  // Model switcher toggle (same-brand dropdown)
+  const mswBtn = document.getElementById('msw-btn');
+  const mswDropdown = document.getElementById('msw-dropdown');
+  if (mswBtn && mswDropdown) {
+    mswBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mswDropdown.style.display !== 'none';
+      mswDropdown.style.display = isOpen ? 'none' : 'block';
+    });
+    document.addEventListener('click', () => {
+      mswDropdown.style.display = 'none';
     });
   }
   // Search overlay
@@ -911,20 +942,16 @@ window.initPage = function(opts = {}) {
       <div id="search-results-list"></div>
     </div>`);
 
-  // 3. Mobile hamburger
+  // 3. Mobile hamburger + sidebar close
   const hamburger = document.getElementById('hamburger');
   const sidebar   = document.getElementById('sidebar');
   const overlay   = document.getElementById('sidebar-overlay');
-  if (hamburger && sidebar && overlay) {
-    hamburger.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('active');
-    });
-    overlay.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('active');
-    });
-  }
+  const closeBtn  = document.getElementById('sidebar-close');
+  const openSidebar  = () => { sidebar.classList.add('open'); overlay.classList.add('active'); };
+  const closeSidebar = () => { sidebar.classList.remove('open'); overlay.classList.remove('active'); };
+  if (hamburger) hamburger.addEventListener('click', openSidebar);
+  if (closeBtn)  closeBtn.addEventListener('click', closeSidebar);
+  if (overlay)   overlay.addEventListener('click', closeSidebar);
 
   // 4. In-content ads
   insertInContentAds();
