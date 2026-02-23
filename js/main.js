@@ -5,7 +5,7 @@
 
 // ── AdSense Configuration ──
 // 🔧 แก้ค่านี้เป็น Publisher ID จริงของคุณ
-const ADSENSE_PUB_ID = 'ca-pub-XXXXXXXXXXXXXXXX';
+const ADSENSE_PUB_ID = 'ca-pub-6824376916256036';
 
 // ── Navigation items ──
 const NAV_ITEMS = [
