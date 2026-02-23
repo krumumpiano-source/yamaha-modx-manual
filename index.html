@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>à¸„à¸¹à¹ˆà¸¡à¸·à¸­ Synthesizer à¸ à¸²à¸©à¸²à¹„à¸—à¸¢ â€” Yamaha Â· Roland Â· Korg</title>
+  <title>คู่มือ Synthesizer ภาษาไทย – Yamaha · Roland · Korg</title>
+  <meta name="description" content="คู่มือการใช้งาน Synthesizer, Arranger, Drum Machine ภาษาไทย ครอบคลุม Yamaha, Roland, Korg, Boss, Alesis ทุกรุ่น">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,305 +19,327 @@
       --roland: #ff4444; --korg: #f59e0b;
       --radius: 12px;
     }
-    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans Thai', 'Inter', sans-serif; min-height: 100vh; }
-
-    /* Header */
-    .site-header {
-      background: rgba(10,10,15,0.95); border-bottom: 1px solid var(--border);
-      padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;
-      position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+      font-size: 15px; line-height: 1.7;
     }
-    .site-logo { font-size: 1.2rem; font-weight: 700;
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    .ad-header {
+      background: var(--bg-elevated); border-bottom: 1px solid var(--border);
+      padding: 8px; text-align: center; min-height: 70px;
     }
-    .site-header-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
-
-    /* Ad */
-    .ad-header { text-align: center; padding: 12px; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); }
-
-    /* Hero */
     .hero {
-      text-align: center; padding: 60px 24px 40px;
-      background: radial-gradient(ellipse at center top, rgba(0,212,255,0.08) 0%, transparent 70%);
+      background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0a0a1a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px; text-align: center;
     }
-    .hero h1 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px;
-      background: linear-gradient(135deg, #fff 30%, var(--cyan));
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    .hero-eyebrow {
+      font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 16px;
     }
-    .hero p { color: var(--text-sub); font-size: 1.05rem; max-width: 600px; margin: 0 auto 32px; line-height: 1.7; }
-    .hero-stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
-    .hero-stat { text-align: center; }
-    .hero-stat-num { font-size: 1.8rem; font-weight: 700; color: var(--cyan); }
-    .hero-stat-label { font-size: 0.78rem; color: var(--text-muted); }
-
-    /* Brand sections */
-    .brands { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
-    .brand-section { margin-bottom: 52px; }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700;
+      background: linear-gradient(135deg, var(--cyan) 0%, #fff 50%, var(--purple) 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px; line-height: 1.2;
+    }
+    .hero-desc {
+      font-size: 1.1rem; color: var(--text-sub); max-width: 700px; margin: 0 auto 40px;
+    }
+    .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 700; color: var(--cyan); display: block; }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+    .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 12px; padding: 0 4px;
+    }
+    .brand-section { margin-bottom: 48px; }
     .brand-header {
       display: flex; align-items: center; gap: 16px;
-      padding: 20px 24px; border-radius: var(--radius);
-      margin-bottom: 20px; border-left: 4px solid;
+      padding: 20px 24px; border-radius: var(--radius); margin-bottom: 20px;
     }
-    .brand-header.yamaha { background: rgba(0,212,255,0.06); border-color: var(--cyan); }
-    .brand-header.roland { background: rgba(255,68,68,0.06); border-color: var(--roland); }
-    .brand-header.korg   { background: rgba(245,158,11,0.06); border-color: var(--korg); }
-    .brand-logo { font-size: 2.2rem; }
-    .brand-name { font-size: 1.5rem; font-weight: 700; }
-    .brand-header.yamaha .brand-name { color: var(--cyan); }
-    .brand-header.roland .brand-name { color: var(--roland); }
-    .brand-header.korg .brand-name   { color: var(--korg); }
-    .brand-desc { color: var(--text-sub); font-size: 0.88rem; margin-top: 4px; }
-
-    /* Model grid */
-    .model-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .brand-header.yamaha { border-left:4px solid var(--cyan); background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(0,212,255,0.02)); }
+    .brand-header.roland { border-left:4px solid var(--roland); background:linear-gradient(135deg,rgba(255,68,68,0.08),rgba(255,68,68,0.02)); }
+    .brand-header.korg   { border-left:4px solid var(--korg); background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(245,158,11,0.02)); }
+    .brand-logo { font-size: 2rem; }
+    .brand-name { font-size: 1.4rem; font-weight: 700; }
+    .brand-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; }
+    .model-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
     .model-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 20px 22px;
-      text-decoration: none; color: inherit;
-      transition: all 0.2s; display: block; cursor: pointer;
+      border-radius: var(--radius); padding: 20px;
+      text-decoration: none; color: var(--text);
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column; gap: 8px;
     }
-    .model-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
-    .model-card.yamaha:hover { border-color: var(--cyan); }
-    .model-card.roland:hover { border-color: var(--roland); }
-    .model-card.korg:hover   { border-color: var(--korg); }
-    .model-card-badge { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
-    .yamaha .model-card-badge { background: rgba(0,212,255,0.15); color: var(--cyan); border: 1px solid rgba(0,212,255,0.3); }
-    .roland .model-card-badge { background: rgba(255,68,68,0.15); color: var(--roland); border: 1px solid rgba(255,68,68,0.3); }
-    .korg .model-card-badge   { background: rgba(245,158,11,0.15); color: var(--korg); border: 1px solid rgba(245,158,11,0.3); }
-    .model-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
-    .model-card p  { font-size: 0.82rem; color: var(--text-sub); line-height: 1.5; margin-bottom: 14px; }
+    .model-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .model-card.yamaha { border-left:3px solid var(--cyan); }
+    .model-card.yamaha:hover { border-color:var(--cyan); box-shadow:0 8px 24px rgba(0,212,255,0.15); }
+    .model-card.roland { border-left:3px solid var(--roland); }
+    .model-card.roland:hover { border-color:var(--roland); box-shadow:0 8px 24px rgba(255,68,68,0.15); }
+    .model-card.korg   { border-left:3px solid var(--korg); }
+    .model-card.korg:hover   { border-color:var(--korg); box-shadow:0 8px 24px rgba(245,158,11,0.15); }
+    .model-card h3 { font-size: 1.05rem; font-weight: 600; }
+    .model-card p  { font-size: 0.82rem; color: var(--text-sub); flex: 1; }
+    .model-card-badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 20px; width: fit-content;
+      background: rgba(0,212,255,0.15); color: var(--cyan); border: 1px solid rgba(0,212,255,0.3);
+    }
+    .badge-roland { background:rgba(255,68,68,0.15); color:var(--roland); border-color:rgba(255,68,68,0.3); }
+    .badge-korg   { background:rgba(245,158,11,0.15); color:var(--korg); border-color:rgba(245,158,11,0.3); }
+    .badge-alesis { background:rgba(139,92,246,0.15); color:#8b5cf6; border:1px solid rgba(139,92,246,0.3); }
     .model-card-pages { font-size: 0.75rem; color: var(--text-muted); }
-    .model-card-cta {
-      display: inline-block; margin-top: 10px; font-size: 0.82rem; font-weight: 600;
-      padding: 7px 16px; border-radius: 6px; text-decoration: none;
+    .model-card-cta { font-size: 0.8rem; font-weight: 600; color: var(--cyan); margin-top: 4px; }
+    .model-card.roland .model-card-cta { color: var(--roland); }
+    .model-card.korg   .model-card-cta { color: var(--korg); }
+    footer {
+      text-align: center; color: var(--text-muted); font-size: 0.8rem;
+      padding: 32px 24px; border-top: 1px solid var(--border);
     }
-    .yamaha .model-card-cta { background: rgba(0,212,255,0.15); color: var(--cyan); }
-    .roland .model-card-cta { background: rgba(255,68,68,0.15); color: var(--roland); }
-    .korg   .model-card-cta { background: rgba(245,158,11,0.15); color: var(--korg); }
-    .coming-soon { opacity: 0.55; cursor: default; }
-    .coming-soon:hover { transform: none; border-color: var(--border); box-shadow: none; }
-    .coming-tag { font-size: 0.7rem; color: var(--text-muted); padding: 4px 10px; border: 1px solid var(--border); border-radius: 20px; }
-
-    /* Footer */
-    footer { text-align: center; padding: 32px; font-size: 0.82rem; color: var(--text-muted); border-top: 1px solid var(--border); }
-
-    @media(max-width:600px) { .hero { padding: 40px 16px 28px; } .hero-stats { gap: 20px; } }
+    @media (max-width: 600px) { .hero-stats { gap: 24px; } .model-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div>
-    <div class="site-logo">ðŸŽ¹ Synth à¸„à¸¹à¹ˆà¸¡à¸·à¸­à¸ à¸²à¸©à¸²à¹„à¸—à¸¢</div>
-    <div class="site-header-sub">Yamaha Â· Roland Â· Korg â€” à¸‰à¸šà¸±à¸šà¸ªà¸¡à¸šà¸¹à¸£à¸“à¹Œà¸ à¸²à¸©à¸²à¹„à¸—à¸¢</div>
-  </div>
-</header>
-
 <div class="ad-header">
-  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px;max-width:100%;"
-    data-ad-client="ca-pub-6824376916256036" data-ad-slot="HEADER_AD_SLOT"></ins>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6824376916256036"
+       data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
 </div>
 
-<section class="hero">
-  <h1>à¸„à¸¹à¹ˆà¸¡à¸·à¸­ Synthesizer à¸ à¸²à¸©à¸²à¹„à¸—à¸¢</h1>
-  <p>à¸„à¸¹à¹ˆà¸¡à¸·à¸­à¸à¸²à¸£à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¸‹à¸´à¸™à¸˜à¸´à¹„à¸‹à¹€à¸‹à¸­à¸£à¹Œà¸‰à¸šà¸±à¸šà¸ªà¸¡à¸šà¸¹à¸£à¸“à¹Œ à¸„à¸£à¸­à¸šà¸„à¸¥à¸¸à¸¡à¸—à¸¸à¸à¸£à¸¸à¹ˆà¸™ Yamaha, Roland, Korg â€” à¸•à¸±à¹‰à¸‡à¹à¸•à¹ˆà¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™à¸ˆà¸™à¸žà¸£à¹‰à¸­à¸¡à¹€à¸¥à¹ˆà¸™à¸à¸±à¸šà¸§à¸‡à¸”à¸™à¸•à¸£à¸µà¸ªà¸” à¸ à¸²à¸©à¸²à¹„à¸—à¸¢à¹€à¸‚à¹‰à¸²à¹ƒà¸ˆà¸‡à¹ˆà¸²à¸¢</p>
+<div class="hero">
+  <div class="hero-eyebrow">🎹 Thai Keyboard Manual</div>
+  <h1>คู่มือ Synthesizer<br>ภาษาไทย</h1>
+  <p class="hero-desc">
+    คู่มือการใช้งาน ตั้งค่า และเซ็ทเสียง สำหรับ Keyboard &amp; Synthesizer
+    ยี่ห้อ Yamaha, Roland, Korg และอื่นๆ — ทุกเนื้อหาเป็นภาษาไทย
+    เข้าใจง่าย ใช้งานได้จริง เหมาะสำหรับนักดนตรีทุกระดับ
+  </p>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">à¹à¸šà¸£à¸™à¸”à¹Œ</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">9+</div><div class="hero-stat-label">à¸£à¸¸à¹ˆà¸™ Synth</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">140+</div><div class="hero-stat-label">à¸«à¸™à¹‰à¸²à¹€à¸™à¸·à¹‰à¸­à¸«à¸²</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">à¸ à¸²à¸©à¸²à¹„à¸—à¸¢</div></div>
+    <div class="stat"><span class="stat-num">5+</span><span class="stat-label">แบรนด์</span></div>
+    <div class="stat"><span class="stat-num">30+</span><span class="stat-label">รุ่น Keyboard</span></div>
+    <div class="stat"><span class="stat-num">420+</span><span class="stat-label">หน้าเนื้อหา</span></div>
+    <div class="stat"><span class="stat-num">100%</span><span class="stat-label">ภาษาไทย</span></div>
   </div>
-</section>
+</div>
 
-<div class="brands">
+<div class="container">
 
-  <!-- YAMAHA -->
+  <!-- SYNTHESIZERS -->
+  <p class="section-label">🎛️ Synthesizer &amp; Workstation</p>
+
   <section class="brand-section">
     <div class="brand-header yamaha">
-      <div class="brand-logo">ðŸŽ¹</div>
+      <div class="brand-logo">🎵</div>
       <div>
-        <div class="brand-name">Yamaha</div>
-        <div class="brand-desc">ZG Sound Generator Â· AWM2 + FM-X + AN-X Â· Flagship Synthesizer à¸ˆà¸²à¸à¸à¸µà¹ˆà¸›à¸¸à¹ˆà¸™</div>
+        <div class="brand-name">Yamaha Synthesizer</div>
+        <div class="brand-desc">ZG Sound Generator · AWM2 + FM-X + AN-X · Flagship Synthesizer ระดับโลก</div>
       </div>
     </div>
     <div class="model-grid">
       <a class="model-card yamaha" href="pages/01-intro.html">
-        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <span class="model-card-badge">✅ พร้อมใช้งาน</span>
         <h3>MODX / MODX+ / MODXM</h3>
-        <p>AWM2 + FM-X + AN-X (MODXM), USB Audio (MODX+/MODXM), 6/7/8 Keys â€” à¸„à¸¹à¹ˆà¸¡à¸·à¸­à¸„à¸£à¸š 14 à¸šà¸—</p>
-        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· MODX6/7/8 Â· MODX+6/7/8 Â· MODXM6/7/8</div>
-        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+        <p>AWM2 + FM-X + AN-X (MODXM), USB Audio (MODX+/MODXM), 6/7/8 Keys — คู่มือครบ 14 บท</p>
+        <div class="model-card-pages">14 บทเรียน · MODX6 · MODX7 · MODX8 · MODX+</div>
+        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card yamaha" href="montage-m/01-overview.html">
-        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <span class="model-card-badge">✅ พร้อมใช้งาน</span>
         <h3>MONTAGE M</h3>
-        <p>Flagship Synthesizer à¸ªà¸¸à¸”à¸¢à¸­à¸” AWM2+FM-X+AN-X, 16 Parts, VCM Effects, USB Audio 32in/4out</p>
-        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· MONTAGE M6 Â· M7 Â· M8x</div>
-        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+        <p>Flagship Synthesizer สุดยอด AWM2+FM-X+AN-X, 16 Parts, VCM Effects, USB Audio 32in/4out</p>
+        <div class="model-card-pages">14 บทเรียน · MONTAGE M6 · M7 · M8x</div>
+        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
     </div>
   </section>
 
-  <!-- ROLAND -->
   <section class="brand-section">
     <div class="brand-header roland">
-      <div class="brand-logo">ðŸŽ¼</div>
+      <div class="brand-logo">🎼</div>
       <div>
-        <div class="brand-name">Roland</div>
-        <div class="brand-desc">ZEN-Core Engine Â· SuperNATURAL Â· Model Expansion â€” Workstation à¸£à¸°à¸”à¸±à¸šà¹‚à¸¥à¸</div>
+        <div class="brand-name">Roland Synthesizer</div>
+        <div class="brand-desc">ZEN-Core Engine · SuperNATURAL · Model Expansion — Workstation ระดับโลก</div>
       </div>
     </div>
     <div class="model-grid">
       <a class="model-card roland" href="roland-fantom/01-overview.html">
-        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <span class="model-card-badge badge-roland">✅ พร้อมใช้งาน</span>
         <h3>FANTOM EX / FANTOM-0</h3>
         <p>ZEN-Core Workstation Flagship, 16 Parts, Step Sequencer, Plug-out, USB Audio</p>
-        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· FANTOM-06/07/08 Â· FANTOM EX</div>
-        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+        <div class="model-card-pages">14 บทเรียน · FANTOM-06/07/08 · FANTOM EX</div>
+        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card roland" href="roland-juno-x/01-overview.html">
-        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <span class="model-card-badge badge-roland">✅ พร้อมใช้งาน</span>
         <h3>JUNO-X</h3>
-        <p>ZEN-Core + Model Expansion JUNO-106, SH-101, JX-8P â€” Recreation à¸•à¸³à¸™à¸²à¸™ Roland</p>
-        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· JUNO-X 61 Keys</div>
-        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+        <p>ZEN-Core + Model Expansion JUNO-106, SH-101, JX-8P — Recreation ตำนาน Roland</p>
+        <div class="model-card-pages">14 บทเรียน · JUNO-X 61 Keys</div>
+        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card roland" href="roland-juno-d/01-overview.html">
-        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <span class="model-card-badge badge-roland">✅ พร้อมใช้งาน</span>
         <h3>JUNO-DS2</h3>
-        <p>Performance Synth à¸™à¹‰à¸³à¸«à¸™à¸±à¸à¹€à¸šà¸² à¸žà¸à¸žà¸²à¹„à¸”à¹‰ Battery Mode, 61/76/88 Keys</p>
-        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· JUNO-DS2-61 Â· DS2-76 Â· DS2-88</div>
-        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+        <p>Performance Synth น้ำหนักเบา พกพาได้ Battery Mode, 61/76/88 Keys</p>
+        <div class="model-card-pages">14 บทเรียน · JUNO-DS2-61 · DS2-76 · DS2-88</div>
+        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card roland" href="roland-xps/01-overview.html">
-        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <span class="model-card-badge badge-roland">✅ พร้อมใช้งาน</span>
         <h3>XPS-10 / XPS-30 / XPS-60</h3>
-        <p>Expandable Synthesizer à¸£à¸­à¸‡à¸£à¸±à¸š SD Card Sound Expansion à¸£à¸²à¸„à¸²à¹€à¸‚à¹‰à¸²à¸–à¸¶à¸‡à¹„à¸”à¹‰</p>
-        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· XPS-10 Â· XPS-30 Â· XPS-60</div>
-        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+        <p>Expandable Synthesizer รองรับ SD Card Sound Expansion ราคาเข้าถึงได้</p>
+        <div class="model-card-pages">14 บทเรียน · XPS-10 · XPS-30 · XPS-60</div>
+        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
     </div>
   </section>
 
-  <!-- KORG -->
   <section class="brand-section">
     <div class="brand-header korg">
-      <div class="brand-logo">ðŸŽµ</div>
+      <div class="brand-logo">🎵</div>
       <div>
-        <div class="brand-name">Korg</div>
-        <div class="brand-desc">9 Sound Engines Â· SGX-2 Piano Â· AL-1 Analog Â· MS-20 Modeling â€” Workstation à¸£à¸°à¸”à¸±à¸š Pro</div>
+        <div class="brand-name">Korg Synthesizer</div>
+        <div class="brand-desc">9 Sound Engines · SGX-2 Piano · AL-1 Analog · MS-20 Modeling — Workstation ระดับ Pro</div>
       </div>
     </div>
     <div class="model-grid">
       <a class="model-card korg" href="korg-nautilus/01-overview.html">
-        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <span class="model-card-badge badge-korg">✅ พร้อมใช้งาน</span>
         <h3>Nautilus / Nautilus AT</h3>
-        <p>9 Sound Engines, TouchView, Successor to Kronos â€” Flagship Workstation à¸›à¸±à¸ˆà¸ˆà¸¸à¸šà¸±à¸™</p>
-        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· Nautilus 61/73/88 Â· Nautilus AT</div>
-        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+        <p>9 Sound Engines, TouchView, Successor to Kronos — Flagship Workstation ปัจจุบัน</p>
+        <div class="model-card-pages">14 บทเรียน · Nautilus 61/73/88 · Nautilus AT</div>
+        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card korg" href="korg-kronos/01-overview.html">
-        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <span class="model-card-badge badge-korg">✅ พร้อมใช้งาน</span>
         <h3>Kronos 2</h3>
         <p>Legend Workstation 9 Engines, SSD Storage, RPPR, USB Audio 16in/16out</p>
-        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· Kronos 61/73/88</div>
-        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+        <div class="model-card-pages">14 บทเรียน · Kronos 61/73/88</div>
+        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card korg" href="korg-kross/01-overview.html">
-        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <span class="model-card-badge badge-korg">✅ พร้อมใช้งาน</span>
         <h3>Kross 2</h3>
-        <p>à¸™à¹‰à¸³à¸«à¸™à¸±à¸à¹€à¸šà¸² Battery-powered à¸£à¸­à¸‡à¸£à¸±à¸š SD Card Expansion à¹€à¸«à¸¡à¸²à¸°à¸™à¸±à¸à¸”à¸™à¸•à¸£à¸µà¹€à¸”à¸´à¸™à¸—à¸²à¸‡</p>
-        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· Kross 2-61 Â· Kross 2-88</div>
-        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+        <p>น้ำหนักเบา Battery-powered รองรับ SD Card Expansion เหมาะนักดนตรีเดินทาง</p>
+        <div class="model-card-pages">14 บทเรียน · Kross 2-61 · Kross 2-88</div>
+        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
     </div>
   </section>
 
   <!-- ARRANGER KEYBOARDS -->
+  <p class="section-label">🎹 Arranger Keyboard — คีย์บอร์ด Auto-Accompaniment</p>
+
   <section class="brand-section">
-    <div class="brand-header" style="border-left:4px solid #a855f7; background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(168,85,247,0.02));">
+    <div class="brand-header" style="border-left:4px solid #a855f7;background:linear-gradient(135deg,rgba(168,85,247,0.08),rgba(168,85,247,0.02));">
       <div class="brand-logo">🎹</div>
       <div>
-        <div class="brand-name">คีย์บอร์ด Arranger</div>
-        <div class="brand-desc">Style / Auto-Accompaniment · จำนวน Style สูงสุด · ใช้งานง่าย เหมาะสำหรับนักดนตรีทุกระดับ</div>
+        <div class="brand-name">Korg Pa Series</div>
+        <div class="brand-desc">RX Sound Engine · Style / Auto-Accompaniment · SongBook · Oriental Edition</div>
       </div>
     </div>
     <div class="model-grid">
-      <a class="model-card" style="border-left:3px solid #f59e0b;" href="korg-pa5x/01-overview.html">
-        <span class="model-card-badge" style="color:#f59e0b;">Korg Pa Series</span>
-        <h3>Korg Pa5X</h3>
-        <p>Flagship Arranger 61/76/88 Keys, OLED Display, RX Sound Engine, Style โรงงานกว่า 500 Styles</p>
-        <div class="model-card-pages">14 บทเรียน · Pa5X Oriental · Standard · 88</div>
-        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+      <a class="model-card" style="border-left:3px solid var(--korg);" href="korg-pa5x/01-overview.html">
+        <span class="model-card-badge badge-korg">Korg Pa Series</span>
+        <h3>Pa5X</h3>
+        <p>Flagship Arranger 61/76/88 Keys, OLED Display, RX Sound Engine, Style 500+</p>
+        <div class="model-card-pages">14 บทเรียน · Pa5X · Pa5X Oriental · Pa5X 88</div>
+        <span class="model-card-cta" style="color:var(--korg);">เข้าสู่คู่มือ →</span>
       </a>
-      <a class="model-card" style="border-left:3px solid #f59e0b;" href="korg-pa4x/01-overview.html">
-        <span class="model-card-badge" style="color:#f59e0b;">Korg Pa Series</span>
-        <h3>Korg Pa4X</h3>
-        <p>Professional Arranger 61/76 Keys, EX Sound Generator, 450+ Styles, SongBook, TouchView</p>
+      <a class="model-card" style="border-left:3px solid var(--korg);" href="korg-pa4x/01-overview.html">
+        <span class="model-card-badge badge-korg">Korg Pa Series</span>
+        <h3>Pa4X</h3>
+        <p>Professional Arranger 61/76 Keys, EX Sound Generator, 450+ Styles, TouchView</p>
         <div class="model-card-pages">14 บทเรียน · Pa4X · Pa4X Oriental</div>
-        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+        <span class="model-card-cta" style="color:var(--korg);">เข้าสู่คู่มือ →</span>
       </a>
-      <a class="model-card" style="border-left:3px solid #f59e0b;" href="korg-pa1000/01-overview.html">
-        <span class="model-card-badge" style="color:#f59e0b;">Korg Pa Series</span>
-        <h3>Korg Pa1000</h3>
+      <a class="model-card" style="border-left:3px solid var(--korg);" href="korg-pa1000/01-overview.html">
+        <span class="model-card-badge badge-korg">Korg Pa Series</span>
+        <h3>Pa1000</h3>
         <p>Mid-range Arranger 61 Keys, RX Sounds, USB Audio, Style Creator</p>
         <div class="model-card-pages">14 บทเรียน · Pa1000</div>
-        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+        <span class="model-card-cta" style="color:var(--korg);">เข้าสู่คู่มือ →</span>
       </a>
-      <a class="model-card" style="border-left:3px solid #f59e0b;" href="korg-pa700/01-overview.html">
-        <span class="model-card-badge" style="color:#f59e0b;">Korg Pa Series</span>
-        <h3>Korg Pa700</h3>
+      <a class="model-card" style="border-left:3px solid var(--korg);" href="korg-pa700/01-overview.html">
+        <span class="model-card-badge badge-korg">Korg Pa Series</span>
+        <h3>Pa700</h3>
         <p>61 Keys, 7" Touchscreen, AF Mode, Micro Arranger ขนาดพกพา</p>
-        <div class="model-card-pages">14 บทเรียน · Pa700 Oriental · Standard</div>
-        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+        <div class="model-card-pages">14 บทเรียน · Pa700 · Pa700 Oriental</div>
+        <span class="model-card-cta" style="color:var(--korg);">เข้าสู่คู่มือ →</span>
       </a>
-      <a class="model-card" style="border-left:3px solid #f59e0b;" href="korg-pa600/01-overview.html">
-        <span class="model-card-badge" style="color:#f59e0b;">Korg Pa Series</span>
-        <h3>Korg Pa600</h3>
-        <p>61 Keys Entry Professional Arranger, 500+ Styles, SongBook</p>
+      <a class="model-card" style="border-left:3px solid var(--korg);" href="korg-pa600/01-overview.html">
+        <span class="model-card-badge badge-korg">Korg Pa Series</span>
+        <h3>Pa600</h3>
+        <p>Entry Professional Arranger 61 Keys, 500+ Styles, SongBook</p>
         <div class="model-card-pages">14 บทเรียน · Pa600</div>
-        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+        <span class="model-card-cta" style="color:var(--korg);">เข้าสู่คู่มือ →</span>
       </a>
-      <a class="model-card" style="border-left:3px solid #f59e0b;" href="korg-pa300/01-overview.html">
-        <span class="model-card-badge" style="color:#f59e0b;">Korg Pa Series</span>
-        <h3>Korg Pa300</h3>
-        <p>Entry Arranger 61 Keys, เหมาะผู้เริ่มต้น Style มากมาย</p>
+      <a class="model-card" style="border-left:3px solid var(--korg);" href="korg-pa300/01-overview.html">
+        <span class="model-card-badge badge-korg">Korg Pa Series</span>
+        <h3>Pa300</h3>
+        <p>Entry Arranger 61 Keys เหมาะผู้เริ่มต้น Style และ SongBook มากมาย</p>
         <div class="model-card-pages">14 บทเรียน · Pa300</div>
-        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+        <span class="model-card-cta" style="color:var(--korg);">เข้าสู่คู่มือ →</span>
       </a>
+    </div>
+  </section>
+
+  <section class="brand-section">
+    <div class="brand-header roland">
+      <div class="brand-logo">🎼</div>
+      <div>
+        <div class="brand-name">Roland Arranger</div>
+        <div class="brand-desc">SuperNATURAL Sounds · 3,000+ Styles · Music Assistant — Arranger ระดับ Pro</div>
+      </div>
+    </div>
+    <div class="model-grid">
       <a class="model-card roland" href="roland-ea7/01-overview.html">
-        <span class="model-card-badge">Roland Arranger</span>
-        <h3>Roland E-A7</h3>
+        <span class="model-card-badge badge-roland">Roland Arranger</span>
+        <h3>E-A7</h3>
         <p>Arranger 61 Keys, 3,000+ Styles, Internal Memory 1GB, SuperNATURAL Sounds</p>
         <div class="model-card-pages">14 บทเรียน · E-A7</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
+    </div>
+  </section>
+
+  <section class="brand-section">
+    <div class="brand-header yamaha">
+      <div class="brand-logo">🎵</div>
+      <div>
+        <div class="brand-name">Yamaha Arranger</div>
+        <div class="brand-desc">CFX + Bösendorfer Piano · VCM Effects · USB Audio Interface — Arranger ที่ดีที่สุดในโลก</div>
+      </div>
+    </div>
+    <div class="model-grid">
       <a class="model-card yamaha" href="yamaha-genos2/01-overview.html">
-        <span class="model-card-badge">Yamaha Arranger</span>
-        <h3>Yamaha Genos2</h3>
+        <span class="model-card-badge">Yamaha Flagship</span>
+        <h3>Genos2</h3>
         <p>Flagship Arranger 76 Keys, CFX+Bösendorfer Piano, 3,000+ Voices, VCM Effects, USB Audio</p>
         <div class="model-card-pages">14 บทเรียน · Genos2 76 Keys</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card yamaha" href="yamaha-genos/01-overview.html">
         <span class="model-card-badge">Yamaha Arranger</span>
-        <h3>Yamaha Genos</h3>
+        <h3>Genos</h3>
         <p>Flagship Arranger รุ่นแรก 76 Keys, CFX Piano, Brass Section, USB Audio Interface</p>
         <div class="model-card-pages">14 บทเรียน · Genos 76 Keys</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card yamaha" href="yamaha-psr-sx900/01-overview.html">
-        <span class="model-card-badge">Yamaha Arranger</span>
+        <span class="model-card-badge">Yamaha Pro Arranger</span>
         <h3>PSR-SX920 / SX900</h3>
-        <p>Pro Arranger 61 Keys, 1,300+ Voices, SX920 เพิ่ม PA Content เพิ่มเติม</p>
+        <p>Pro Arranger 61 Keys, 1,300+ Voices, SX920 เพิ่ม PA Content</p>
         <div class="model-card-pages">14 บทเรียน · PSR-SX920 · PSR-SX900</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card yamaha" href="yamaha-psr-sx700/01-overview.html">
         <span class="model-card-badge">Yamaha Arranger</span>
         <h3>PSR-SX720 / SX700</h3>
-        <p>Mid-range Arranger 61 Keys, 915 Voices, SX720 เพิ่ม PA Content</p>
+        <p>Mid Arranger 61 Keys, 915 Voices, SX720 เพิ่ม PA Content</p>
         <div class="model-card-pages">14 บทเรียน · PSR-SX720 · PSR-SX700</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
@@ -331,94 +354,98 @@
   </section>
 
   <!-- DRUM MACHINES -->
+  <p class="section-label">🥁 Drum Machine — กลองจังหวะ</p>
+
   <section class="brand-section">
-    <div class="brand-header" style="border-left:4px solid #ef4444; background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.02));">
+    <div class="brand-header" style="border-left:4px solid #ef4444;background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(239,68,68,0.02));">
       <div class="brand-logo">🥁</div>
       <div>
-        <div class="brand-name">Drum Machine</div>
-        <div class="brand-desc">Boss DR / Alesis SR · Pattern Programming · MIDI Sync · Rhythm สำหรับทุกสไตล์</div>
+        <div class="brand-name">Boss Drum Machine</div>
+        <div class="brand-desc">Dr. Rhythm Series · PCM Sounds · Pattern Programming · MIDI Sync</div>
       </div>
     </div>
     <div class="model-grid">
       <a class="model-card roland" href="boss-dr3/01-overview.html">
-        <span class="model-card-badge">Boss</span>
-        <h3>Boss DR-3</h3>
+        <span class="model-card-badge badge-roland">Boss</span>
+        <h3>DR-3</h3>
         <p>Dr. Rhythm Entry, 208 PCM Sounds, 100 Patterns, MIDI, Compact</p>
         <div class="model-card-pages">14 บทเรียน · DR-3</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card roland" href="boss-dr5/01-overview.html">
-        <span class="model-card-badge">Boss</span>
-        <h3>Boss DR-5 (R-5)</h3>
-        <p>Drum Machine + Bass Pattern, ใช้คู่กับกีตาร์/เบส Songwriter</p>
+        <span class="model-card-badge badge-roland">Boss</span>
+        <h3>DR-5 (R-5)</h3>
+        <p>Drum Machine + Bass Pattern ใช้คู่กับกีตาร์/เบส Songwriter</p>
         <div class="model-card-pages">14 บทเรียน · DR-5</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card roland" href="boss-dr8/01-overview.html">
-        <span class="model-card-badge">Boss</span>
-        <h3>Boss DR-8 (R-8)</h3>
+        <span class="model-card-badge badge-roland">Boss</span>
+        <h3>DR-8 (R-8)</h3>
         <p>Professional Drum Machine, Dynamic Accent, Velocity Sensitive Pads</p>
         <div class="model-card-pages">14 บทเรียน · DR-8</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card roland" href="boss-dr660/01-overview.html">
-        <span class="model-card-badge">Boss</span>
-        <h3>Boss DR-660</h3>
+        <span class="model-card-badge badge-roland">Boss</span>
+        <h3>DR-660</h3>
         <p>Dr. Rhythm Classic, 233 PCM Sounds, 100 Patterns, Full MIDI</p>
         <div class="model-card-pages">14 บทเรียน · DR-660</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card roland" href="boss-dr880/01-overview.html">
-        <span class="model-card-badge">Boss</span>
-        <h3>Boss DR-880</h3>
+        <span class="model-card-badge badge-roland">Boss</span>
+        <h3>DR-880</h3>
         <p>Dr. Rhythm Pro, 440+ V-Drums Sounds, Bass, Multi-effects, Individual Outputs</p>
         <div class="model-card-pages">14 บทเรียน · DR-880</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card" style="border-left:3px solid #8b5cf6;" href="alesis-sr/01-overview.html">
         <span class="model-card-badge badge-alesis">Alesis</span>
-        <h3>Alesis SR-16 / SR-18</h3>
+        <h3>SR-16 / SR-18</h3>
         <p>Classic Drum Machine สุดทน, 233 Sounds, Stereo Samples, MIDI Clock, Individual Out (SR-18)</p>
         <div class="model-card-pages">14 บทเรียน · SR-16 · SR-18</div>
-        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+        <span class="model-card-cta" style="color:#8b5cf6;">เข้าสู่คู่มือ →</span>
       </a>
     </div>
   </section>
 
   <!-- E-DRUM MODULES -->
+  <p class="section-label">🥁 E-Drum Module — กลองไฟฟ้า</p>
+
   <section class="brand-section">
-    <div class="brand-header" style="border-left:4px solid #8b5cf6; background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(139,92,246,0.02));">
+    <div class="brand-header" style="border-left:4px solid #8b5cf6;background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(139,92,246,0.02));">
       <div class="brand-logo">🥁</div>
       <div>
-        <div class="brand-name">กลอง E-Drum Module</div>
-        <div class="brand-desc">Alesis D4/D5/DM5 · Roland TD-17/TD-27/TM-6 Pro · ต่อ Trigger, Mesh Pad ได้ทันที</div>
+        <div class="brand-name">E-Drum Module</div>
+        <div class="brand-desc">Alesis D4/D5/DM5 · Roland TD-17/TD-27/TM-6 Pro · ต่อ Trigger และ Mesh Pad ได้ทันที</div>
       </div>
     </div>
     <div class="model-grid">
       <a class="model-card" style="border-left:3px solid #8b5cf6;" href="alesis-dm5/01-overview.html">
         <span class="model-card-badge badge-alesis">Alesis</span>
-        <h3>Alesis D4 / D5 / DM5</h3>
+        <h3>D4 / D5 / DM5</h3>
         <p>Drum Sound Module ระดับ Pro, 18-bit PCM, MIDI Note Map, ใช้กับ Mesh Pad และ Trigger ต่างๆ</p>
         <div class="model-card-pages">14 บทเรียน · D4 · D5 · DM5</div>
-        <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+        <span class="model-card-cta" style="color:#8b5cf6;">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card roland" href="roland-td17/01-overview.html">
-        <span class="model-card-badge">Roland V-Drums</span>
-        <h3>Roland TD-17</h3>
+        <span class="model-card-badge badge-roland">Roland V-Drums</span>
+        <h3>TD-17</h3>
         <p>V-Drums Module, SuperNATURAL Sound, Bluetooth Audio, Coach Mode, USB Audio</p>
         <div class="model-card-pages">14 บทเรียน · TD-17 Module</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card roland" href="roland-td27/01-overview.html">
-        <span class="model-card-badge">Roland V-Drums</span>
-        <h3>Roland TD-27</h3>
-        <p>V-Drums Pro, Multi-Sensor Pad Support, SuperNATURAL Acoustic Modeling, USB Audio</p>
+        <span class="model-card-badge badge-roland">Roland V-Drums</span>
+        <h3>TD-27</h3>
+        <p>V-Drums Pro, Multi-Sensor Pad Support, SuperNATURAL Acoustic Modeling</p>
         <div class="model-card-pages">14 บทเรียน · TD-27 Module</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
       </a>
       <a class="model-card roland" href="roland-tm6pro/01-overview.html">
-        <span class="model-card-badge">Roland V-Drums</span>
-        <h3>Roland TM-6 Pro</h3>
+        <span class="model-card-badge badge-roland">Roland V-Drums</span>
+        <h3>TM-6 Pro</h3>
         <p>Trigger Module สำหรับ Acoustic Drum, 6 Trigger In, SuperNATURAL Sounds, USB Audio</p>
         <div class="model-card-pages">14 บทเรียน · TM-6 Pro</div>
         <span class="model-card-cta">เข้าสู่คู่มือ →</span>
@@ -429,7 +456,7 @@
 </div>
 
 <footer>
-  &copy; 2026 à¸„à¸¹à¹ˆà¸¡à¸·à¸­ Synthesizer à¸ à¸²à¸©à¸²à¹„à¸—à¸¢ | à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸­à¹‰à¸²à¸‡à¸­à¸´à¸‡à¸ˆà¸²à¸ Official Documentation à¸‚à¸­à¸‡à¹à¸•à¹ˆà¸¥à¸°à¸¢à¸µà¹ˆà¸«à¹‰à¸­
+  &copy; 2026 คู่มือ Synthesizer ภาษาไทย | ข้อมูลอ้างอิงจาก Official Documentation ของแต่ละยี่ห้อ
 </footer>
 
 <script>
