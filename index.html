@@ -104,7 +104,7 @@
       padding: 8px 18px; border-radius: 24px; font-size: 0.85rem; font-weight: 600;
       cursor: pointer; border: 2px solid transparent;
       background: var(--bg-card); color: var(--text-sub);
-      transition: all 0.2s; text-decoration: none;
+      transition: all 0.2s; font-family: inherit;
     }
     .brand-tab:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
     .brand-tab.yamaha.active { background: rgba(0,212,255,0.12); color: var(--cyan); border-color: var(--cyan); }
@@ -155,11 +155,11 @@
 
   <!-- BRAND TABS -->
   <div class="brand-tabs">
-    <a class="brand-tab yamaha active" href="#yamaha">🎵 Yamaha</a>
-    <a class="brand-tab roland" href="#roland">🎼 Roland</a>
-    <a class="brand-tab korg" href="#korg">🎵 Korg</a>
-    <a class="brand-tab boss" href="#boss">🥁 Boss</a>
-    <a class="brand-tab alesis" href="#alesis">🥁 Alesis</a>
+    <button class="brand-tab yamaha active" data-brand="yamaha">🎵 Yamaha</button>
+    <button class="brand-tab roland" data-brand="roland">🎼 Roland</button>
+    <button class="brand-tab korg" data-brand="korg">🎵 Korg</button>
+    <button class="brand-tab boss" data-brand="boss">🥁 Boss</button>
+    <button class="brand-tab alesis" data-brand="alesis">🥁 Alesis</button>
   </div>
 
   <!-- ═══════════════════════════════════ YAMAHA ═══ -->
@@ -485,25 +485,22 @@
 <script>
 try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
 
-// Brand tab active state on click & scroll
 const tabs = document.querySelectorAll('.brand-tab');
-tabs.forEach(t => t.addEventListener('click', () => {
-  tabs.forEach(x => x.classList.remove('active'));
-  t.classList.add('active');
+const sections = document.querySelectorAll('.brand-section');
+
+function showBrand(id) {
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.brand === id));
+  sections.forEach(s => s.style.display = s.id === id ? '' : 'none');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+tabs.forEach(t => t.addEventListener('click', e => {
+  e.preventDefault();
+  showBrand(t.dataset.brand);
 }));
 
-// Highlight tab based on scroll position
-const sections = ['yamaha','roland','korg','boss','alesis'];
-window.addEventListener('scroll', () => {
-  let current = 'yamaha';
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if (el && window.scrollY >= el.offsetTop - 120) current = id;
-  });
-  tabs.forEach(t => {
-    t.classList.toggle('active', t.getAttribute('href') === '#' + current);
-  });
-}, { passive: true });
+// Show Yamaha by default
+showBrand('yamaha');
 </script>
 </body>
 </html>
