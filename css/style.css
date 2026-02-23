@@ -85,6 +85,7 @@ ul, ol { padding-left: 1.5rem; }
 .sidebar-logo {
   padding: 20px 20px 16px;
   border-bottom: 1px solid var(--border);
+  position: relative;
 }
 .sidebar-logo-title {
   font-size: 1.1rem;
@@ -100,6 +101,44 @@ ul, ol { padding-left: 1.5rem; }
   color: var(--text-muted);
   margin-top: 2px;
 }
+
+/* Model switcher */
+.model-switcher-toggle {
+  display: flex; flex-direction: column;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  margin-top: 8px;
+  transition: border-color 0.2s;
+}
+.model-switcher-toggle:hover { border-color: var(--accent-cyan); }
+.model-current-name {
+  font-size: 0.8rem; font-weight: 600; color: var(--accent-cyan);
+}
+.model-switcher-dropdown {
+  position: absolute; left: 8px; right: 8px;
+  top: auto;
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent-cyan);
+  border-radius: var(--radius);
+  z-index: 9999;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  padding: 8px 0;
+  max-height: 60vh; overflow-y: auto;
+}
+.model-switcher-brand {
+  font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-muted);
+  padding: 8px 14px 4px;
+}
+.model-switcher-item {
+  display: block; padding: 7px 14px;
+  color: var(--text-secondary); text-decoration: none;
+  font-size: 0.83rem; transition: all 0.15s;
+}
+.model-switcher-item:hover { background: var(--bg-card); color: var(--text-primary); }
+.model-switcher-item.active { color: var(--accent-cyan); font-weight: 600; }
 
 .sidebar-search {
   padding: 12px 16px;
@@ -470,6 +509,10 @@ tbody tr:hover { background: rgba(255,255,255,0.02); }
 .badge-modx   { background: rgba(0,212,255,0.15);  color: var(--modx-color);   border: 1px solid rgba(0,212,255,0.3); }
 .badge-modxplus{ background: rgba(255,107,53,0.15); color: var(--modxplus-color); border: 1px solid rgba(255,107,53,0.3); }
 .badge-modxm  { background: rgba(168,85,247,0.15); color: var(--modxm-color);  border: 1px solid rgba(168,85,247,0.3); }
+.badge-yamaha { background: rgba(0,212,255,0.15);  color: var(--accent-cyan);   border: 1px solid rgba(0,212,255,0.3); }
+.badge-roland { background: rgba(255,68,68,0.15);  color: #ff4444;  border: 1px solid rgba(255,68,68,0.3); }
+.badge-korg   { background: rgba(245,158,11,0.15); color: #f59e0b;  border: 1px solid rgba(245,158,11,0.3); }
+.badge-all    { background: rgba(100,200,100,0.15);color: #4ade80;  border: 1px solid rgba(74,222,128,0.3); }
 .badge-all    { background: rgba(255,255,255,0.08); color: var(--text-secondary); border: 1px solid var(--border); }
 
 /* ── Code / Keyboard ── */

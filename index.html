@@ -1,195 +1,246 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yamaha MODX คู่มือภาษาไทย — MODX · MODX+ · MODXM ทุกรุ่น</title>
-  <meta name="description" content="คู่มือการใช้งาน Yamaha MODX, MODX+, MODXM ภาษาไทยอย่างละเอียด ครอบคลุมการตั้งค่า Sound Engine, Performance, Effects, MIDI และการใช้งานกับวงดนตรี">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/print.css">
+  <title>à¸„à¸¹à¹ˆà¸¡à¸·à¸­ Synthesizer à¸ à¸²à¸©à¸²à¹„à¸—à¸¢ â€” Yamaha Â· Roland Â· Korg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6824376916256036" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --bg-card: #1a1a2e; --bg-elevated: #1e1e35;
+      --border: rgba(255,255,255,0.08);
+      --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
+      --cyan: #00d4ff; --orange: #ff6b35; --purple: #a855f7;
+      --roland: #ff4444; --korg: #f59e0b;
+      --radius: 12px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans Thai', 'Inter', sans-serif; min-height: 100vh; }
+
+    /* Header */
+    .site-header {
+      background: rgba(10,10,15,0.95); border-bottom: 1px solid var(--border);
+      padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);
+    }
+    .site-logo { font-size: 1.2rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .site-header-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+
+    /* Ad */
+    .ad-header { text-align: center; padding: 12px; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); }
+
+    /* Hero */
+    .hero {
+      text-align: center; padding: 60px 24px 40px;
+      background: radial-gradient(ellipse at center top, rgba(0,212,255,0.08) 0%, transparent 70%);
+    }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff 30%, var(--cyan));
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p { color: var(--text-sub); font-size: 1.05rem; max-width: 600px; margin: 0 auto 32px; line-height: 1.7; }
+    .hero-stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-size: 1.8rem; font-weight: 700; color: var(--cyan); }
+    .hero-stat-label { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* Brand sections */
+    .brands { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+    .brand-section { margin-bottom: 52px; }
+    .brand-header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      margin-bottom: 20px; border-left: 4px solid;
+    }
+    .brand-header.yamaha { background: rgba(0,212,255,0.06); border-color: var(--cyan); }
+    .brand-header.roland { background: rgba(255,68,68,0.06); border-color: var(--roland); }
+    .brand-header.korg   { background: rgba(245,158,11,0.06); border-color: var(--korg); }
+    .brand-logo { font-size: 2.2rem; }
+    .brand-name { font-size: 1.5rem; font-weight: 700; }
+    .brand-header.yamaha .brand-name { color: var(--cyan); }
+    .brand-header.roland .brand-name { color: var(--roland); }
+    .brand-header.korg .brand-name   { color: var(--korg); }
+    .brand-desc { color: var(--text-sub); font-size: 0.88rem; margin-top: 4px; }
+
+    /* Model grid */
+    .model-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .model-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
+      text-decoration: none; color: inherit;
+      transition: all 0.2s; display: block; cursor: pointer;
+    }
+    .model-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+    .model-card.yamaha:hover { border-color: var(--cyan); }
+    .model-card.roland:hover { border-color: var(--roland); }
+    .model-card.korg:hover   { border-color: var(--korg); }
+    .model-card-badge { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+    .yamaha .model-card-badge { background: rgba(0,212,255,0.15); color: var(--cyan); border: 1px solid rgba(0,212,255,0.3); }
+    .roland .model-card-badge { background: rgba(255,68,68,0.15); color: var(--roland); border: 1px solid rgba(255,68,68,0.3); }
+    .korg .model-card-badge   { background: rgba(245,158,11,0.15); color: var(--korg); border: 1px solid rgba(245,158,11,0.3); }
+    .model-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
+    .model-card p  { font-size: 0.82rem; color: var(--text-sub); line-height: 1.5; margin-bottom: 14px; }
+    .model-card-pages { font-size: 0.75rem; color: var(--text-muted); }
+    .model-card-cta {
+      display: inline-block; margin-top: 10px; font-size: 0.82rem; font-weight: 600;
+      padding: 7px 16px; border-radius: 6px; text-decoration: none;
+    }
+    .yamaha .model-card-cta { background: rgba(0,212,255,0.15); color: var(--cyan); }
+    .roland .model-card-cta { background: rgba(255,68,68,0.15); color: var(--roland); }
+    .korg   .model-card-cta { background: rgba(245,158,11,0.15); color: var(--korg); }
+    .coming-soon { opacity: 0.55; cursor: default; }
+    .coming-soon:hover { transform: none; border-color: var(--border); box-shadow: none; }
+    .coming-tag { font-size: 0.7rem; color: var(--text-muted); padding: 4px 10px; border: 1px solid var(--border); border-radius: 20px; }
+
+    /* Footer */
+    footer { text-align: center; padding: 32px; font-size: 0.82rem; color: var(--text-muted); border-top: 1px solid var(--border); }
+
+    @media(max-width:600px) { .hero { padding: 40px 16px 28px; } .hero-stats { gap: 20px; } }
+  </style>
 </head>
 <body>
-<div id="page-body">
-  <!-- Hero -->
-  <div class="hero-section">
-    <div class="page-hero-eyebrow">คู่มือภาษาไทยฉบับสมบูรณ์</div>
-    <h1 class="hero-title">Yamaha MODX<br>คู่มือการใช้งาน</h1>
-    <p class="hero-subtitle">MODX · MODX+ · MODXM | 6 · 7 · 8 คีย์ — ภาษาไทยอย่างละเอียด พร้อมเล่นกับวงดนตรี</p>
-    <div class="hero-badges">
-      <span class="badge badge-modx hero-badge-big">MODX 6/7/8</span>
-      <span class="badge badge-modxplus hero-badge-big">MODX+ 6/7/8</span>
-      <span class="badge badge-modxm hero-badge-big">MODXM 6/7/8</span>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="hero-stat-num">14</span>
-        <span class="hero-stat-label">บทเรียน</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">3</span>
-        <span class="hero-stat-label">ตระกูล</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">9</span>
-        <span class="hero-stat-label">รุ่น</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">100%</span>
-        <span class="hero-stat-label">ภาษาไทย</span>
-      </div>
-    </div>
-  </div>
 
-  <!-- Quick Start -->
-  <div class="info-box info-ok" style="margin-bottom:32px;">
-    <span class="info-box-icon">🚀</span>
-    <div class="info-box-content">
-      <h4>เริ่มต้นที่นี่</h4>
-      <p>ถ้าคุณเพิ่งได้ MODX มาใหม่ เริ่มจาก <a href="pages/01-intro.html">แนะนำ MODX</a> → <a href="pages/02-models.html">เปรียบเทียบรุ่น</a> → <a href="pages/03-getting-started.html">การเริ่มต้นใช้งาน</a> ถ้าต้องการเซ็ทสำหรับวงดนตรีทันที ข้ามไปที่ <a href="pages/12-band-setup.html">เซ็ทสำหรับวงดนตรี</a> ได้เลย</p>
-    </div>
+<header class="site-header">
+  <div>
+    <div class="site-logo">ðŸŽ¹ Synth à¸„à¸¹à¹ˆà¸¡à¸·à¸­à¸ à¸²à¸©à¸²à¹„à¸—à¸¢</div>
+    <div class="site-header-sub">Yamaha Â· Roland Â· Korg â€” à¸‰à¸šà¸±à¸šà¸ªà¸¡à¸šà¸¹à¸£à¸“à¹Œà¸ à¸²à¸©à¸²à¹„à¸—à¸¢</div>
   </div>
+</header>
 
-  <!-- Navigation Cards -->
-  <h2>เนื้อหาทั้งหมด</h2>
-
-  <p class="nav-section-title" style="padding:0;margin:16px 0 12px;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;">เริ่มต้น</p>
-  <div class="card-grid">
-    <a class="card" href="pages/01-intro.html">
-      <div class="card-num">บทที่ 01</div>
-      <div class="card-icon">📖</div>
-      <div class="card-title">แนะนำ Yamaha MODX</div>
-      <div class="card-desc">ตระกูล MODX คืออะไร จุดเด่น การออกแบบ ความแตกต่างจาก MONTAGE</div>
-    </a>
-    <a class="card" href="pages/02-models.html">
-      <div class="card-num">บทที่ 02</div>
-      <div class="card-icon">🔢</div>
-      <div class="card-title">เปรียบเทียบทุกรุ่น</div>
-      <div class="card-desc">MODX vs MODX+ vs MODXM ข้อมูล Spec ครบ ตารางเปรียบเทียบทุกรุ่น</div>
-    </a>
-    <a class="card" href="pages/03-getting-started.html">
-      <div class="card-num">บทที่ 03</div>
-      <div class="card-icon">⚡</div>
-      <div class="card-title">เริ่มต้นใช้งาน</div>
-      <div class="card-desc">การต่อสาย ตั้งค่าครั้งแรก เปิดเครื่อง Navigate หน้าจอ Load Performance</div>
-    </a>
-  </div>
-
-  <p class="nav-section-title" style="padding:0;margin:24px 0 12px;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;">Sound Engine</p>
-  <div class="card-grid">
-    <a class="card" href="pages/04-sound-engine.html">
-      <div class="card-num">บทที่ 04</div>
-      <div class="card-icon">🎛️</div>
-      <div class="card-title">AWM2 + FM-X Engine</div>
-      <div class="card-desc">หัวใจของ MODX — Sample synthesis, 8-Operator FM, ZG Sound Generator</div>
-    </a>
-  </div>
-
-  <p class="nav-section-title" style="padding:0;margin:24px 0 12px;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;">Performance & Mixing</p>
-  <div class="card-grid">
-    <a class="card" href="pages/05-performance.html">
-      <div class="card-num">บทที่ 05</div>
-      <div class="card-icon">🎹</div>
-      <div class="card-title">Performance Mode</div>
-      <div class="card-desc">Performance, Part 1-8, Layer, Split, Single, Scene, Super Knob</div>
-    </a>
-    <a class="card" href="pages/06-live-set.html">
-      <div class="card-num">บทที่ 06</div>
-      <div class="card-icon">🎤</div>
-      <div class="card-title">Live Set & Gig</div>
-      <div class="card-desc">การจัด Set List สำหรับการแสดงสด เปลี่ยน Performance ด้วย Foot Switch</div>
-    </a>
-    <a class="card" href="pages/07-parts-mixing.html">
-      <div class="card-num">บทที่ 07</div>
-      <div class="card-icon">🎚️</div>
-      <div class="card-title">Parts & Mixing</div>
-      <div class="card-desc">Volume, Pan, EQ, Note/Velocity Limit, Mono/Poly, Detune ต่อ Part</div>
-    </a>
-    <a class="card" href="pages/08-effects.html">
-      <div class="card-num">บทที่ 08</div>
-      <div class="card-icon">✨</div>
-      <div class="card-title">Effects & EQ</div>
-      <div class="card-desc">Insertion Effect, System Reverb/Variation, Master Effect, Master EQ</div>
-    </a>
-  </div>
-
-  <p class="nav-section-title" style="padding:0;margin:24px 0 12px;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;">Advanced</p>
-  <div class="card-grid">
-    <a class="card" href="pages/09-arpeggio.html">
-      <div class="card-num">บทที่ 09</div>
-      <div class="card-icon">🔄</div>
-      <div class="card-title">Arpeggio & Motion Seq.</div>
-      <div class="card-desc">Arpeggio Pattern, Motion Sequencer 4 Lanes, Super Knob Assign</div>
-    </a>
-    <a class="card" href="pages/10-midi.html">
-      <div class="card-num">บทที่ 10</div>
-      <div class="card-icon">🔌</div>
-      <div class="card-title">MIDI Setup</div>
-      <div class="card-desc">MIDI Channel, Local Off, Clock Sync, ต่อ Controller ภายนอก</div>
-    </a>
-    <a class="card" href="pages/11-daw.html">
-      <div class="card-num">บทที่ 11</div>
-      <div class="card-icon">💻</div>
-      <div class="card-title">DAW Integration <span class="badge badge-modxplus" style="vertical-align:middle;font-size:0.6rem;">MODX+</span></div>
-      <div class="card-desc">USB Audio Interface, Cubase, Logic, Ableton, Multi-Track Recording</div>
-    </a>
-  </div>
-
-  <p class="nav-section-title" style="padding:0;margin:24px 0 12px;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;">วงดนตรี</p>
-  <div class="card-grid">
-    <a class="card" href="pages/12-band-setup.html">
-      <div class="card-num">บทที่ 12</div>
-      <div class="card-icon">🎸</div>
-      <div class="card-title">เซ็ทสำหรับวงดนตรี</div>
-      <div class="card-desc">Piano, Organ, String Pad, Brass, Synth Lead — เซ็ทครบพร้อมเล่นสด</div>
-    </a>
-    <a class="card" href="pages/13-presets.html">
-      <div class="card-num">บทที่ 13</div>
-      <div class="card-icon">🎵</div>
-      <div class="card-title">Preset Sounds List</div>
-      <div class="card-desc">รายชื่อ Preset แนะนำสำหรับวงดนตรี ค้นหาได้ จัดหมวดหมู่ครบ</div>
-    </a>
-    <a class="card" href="pages/14-videos.html">
-      <div class="card-num">บทที่ 14</div>
-      <div class="card-icon">▶️</div>
-      <div class="card-title">Tutorial Videos</div>
-      <div class="card-desc">วิดีโอสอนการใช้งานจาก Yamaha Official และ Community</div>
-    </a>
-  </div>
-
-  <!-- Model badges info -->
-  <h2>รุ่นที่รองรับในคู่มือนี้</h2>
-  <div class="spec-grid">
-    <div class="spec-item" style="border-color:rgba(0,212,255,0.3);">
-      <div class="spec-label">🔵 MODX Series (2018)</div>
-      <div class="spec-value">MODX6 · MODX7 · MODX8</div>
-      <div class="spec-note">AWM2 + FM-X, 128 Polyphony, ไม่มี USB Audio, ไม่มี BT</div>
-    </div>
-    <div class="spec-item" style="border-color:rgba(255,107,53,0.3);">
-      <div class="spec-label">🟠 MODX+ Series (2022)</div>
-      <div class="spec-value">MODX+6 · MODX+7 · MODX+8</div>
-      <div class="spec-note">เพิ่ม USB Audio 16in/4out, Bluetooth Audio, FSX Keybed (8 คีย์)</div>
-    </div>
-    <div class="spec-item" style="border-color:rgba(168,85,247,0.3);">
-      <div class="spec-label">🟣 MODXM Series (2023)</div>
-      <div class="spec-value">MODXM6 · MODXM7 · MODXM8</div>
-      <div class="spec-note">ZG SG ใหม่, Wave ROM 7.16GB, USB Audio 6in/6out, BH/NW-GH Keybed</div>
-    </div>
-  </div>
-
-  <div class="info-box info-tip" style="margin-top:32px;">
-    <span class="info-box-icon">💡</span>
-    <div class="info-box-content">
-      <h4>หมายเหตุเกี่ยวกับรุ่น</h4>
-      <p>เนื้อหาส่วนใหญ่ในคู่มือนี้ใช้ได้กับ MODX ทุกรุ่น ส่วนที่แตกต่างกัน (เช่น USB Audio, Bluetooth, จำนวน Parts) จะมีแถบสีระบุรุ่นไว้ชัดเจน <span class="badge badge-modxplus">MODX+</span> <span class="badge badge-modxm">MODXM</span></p>
-    </div>
-  </div>
+<div class="ad-header">
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px;max-width:100%;"
+    data-ad-client="ca-pub-6824376916256036" data-ad-slot="HEADER_AD_SLOT"></ins>
 </div>
 
-<script src="js/search.js"></script>
-<script src="js/main.js"></script>
+<section class="hero">
+  <h1>à¸„à¸¹à¹ˆà¸¡à¸·à¸­ Synthesizer à¸ à¸²à¸©à¸²à¹„à¸—à¸¢</h1>
+  <p>à¸„à¸¹à¹ˆà¸¡à¸·à¸­à¸à¸²à¸£à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¸‹à¸´à¸™à¸˜à¸´à¹„à¸‹à¹€à¸‹à¸­à¸£à¹Œà¸‰à¸šà¸±à¸šà¸ªà¸¡à¸šà¸¹à¸£à¸“à¹Œ à¸„à¸£à¸­à¸šà¸„à¸¥à¸¸à¸¡à¸—à¸¸à¸à¸£à¸¸à¹ˆà¸™ Yamaha, Roland, Korg â€” à¸•à¸±à¹‰à¸‡à¹à¸•à¹ˆà¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™à¸ˆà¸™à¸žà¸£à¹‰à¸­à¸¡à¹€à¸¥à¹ˆà¸™à¸à¸±à¸šà¸§à¸‡à¸”à¸™à¸•à¸£à¸µà¸ªà¸” à¸ à¸²à¸©à¸²à¹„à¸—à¸¢à¹€à¸‚à¹‰à¸²à¹ƒà¸ˆà¸‡à¹ˆà¸²à¸¢</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">à¹à¸šà¸£à¸™à¸”à¹Œ</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">9+</div><div class="hero-stat-label">à¸£à¸¸à¹ˆà¸™ Synth</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">140+</div><div class="hero-stat-label">à¸«à¸™à¹‰à¸²à¹€à¸™à¸·à¹‰à¸­à¸«à¸²</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">à¸ à¸²à¸©à¸²à¹„à¸—à¸¢</div></div>
+  </div>
+</section>
+
+<div class="brands">
+
+  <!-- YAMAHA -->
+  <section class="brand-section">
+    <div class="brand-header yamaha">
+      <div class="brand-logo">ðŸŽ¹</div>
+      <div>
+        <div class="brand-name">Yamaha</div>
+        <div class="brand-desc">ZG Sound Generator Â· AWM2 + FM-X + AN-X Â· Flagship Synthesizer à¸ˆà¸²à¸à¸à¸µà¹ˆà¸›à¸¸à¹ˆà¸™</div>
+      </div>
+    </div>
+    <div class="model-grid">
+      <a class="model-card yamaha" href="pages/01-intro.html">
+        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <h3>MODX / MODX+ / MODXM</h3>
+        <p>AWM2 + FM-X + AN-X (MODXM), USB Audio (MODX+/MODXM), 6/7/8 Keys â€” à¸„à¸¹à¹ˆà¸¡à¸·à¸­à¸„à¸£à¸š 14 à¸šà¸—</p>
+        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· MODX6/7/8 Â· MODX+6/7/8 Â· MODXM6/7/8</div>
+        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+      </a>
+      <a class="model-card yamaha" href="montage-m/01-overview.html">
+        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <h3>MONTAGE M</h3>
+        <p>Flagship Synthesizer à¸ªà¸¸à¸”à¸¢à¸­à¸” AWM2+FM-X+AN-X, 16 Parts, VCM Effects, USB Audio 32in/4out</p>
+        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· MONTAGE M6 Â· M7 Â· M8x</div>
+        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ROLAND -->
+  <section class="brand-section">
+    <div class="brand-header roland">
+      <div class="brand-logo">ðŸŽ¼</div>
+      <div>
+        <div class="brand-name">Roland</div>
+        <div class="brand-desc">ZEN-Core Engine Â· SuperNATURAL Â· Model Expansion â€” Workstation à¸£à¸°à¸”à¸±à¸šà¹‚à¸¥à¸</div>
+      </div>
+    </div>
+    <div class="model-grid">
+      <a class="model-card roland" href="roland-fantom/01-overview.html">
+        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <h3>FANTOM EX / FANTOM-0</h3>
+        <p>ZEN-Core Workstation Flagship, 16 Parts, Step Sequencer, Plug-out, USB Audio</p>
+        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· FANTOM-06/07/08 Â· FANTOM EX</div>
+        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+      </a>
+      <a class="model-card roland" href="roland-juno-x/01-overview.html">
+        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <h3>JUNO-X</h3>
+        <p>ZEN-Core + Model Expansion JUNO-106, SH-101, JX-8P â€” Recreation à¸•à¸³à¸™à¸²à¸™ Roland</p>
+        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· JUNO-X 61 Keys</div>
+        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+      </a>
+      <a class="model-card roland" href="roland-juno-d/01-overview.html">
+        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <h3>JUNO-DS2</h3>
+        <p>Performance Synth à¸™à¹‰à¸³à¸«à¸™à¸±à¸à¹€à¸šà¸² à¸žà¸à¸žà¸²à¹„à¸”à¹‰ Battery Mode, 61/76/88 Keys</p>
+        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· JUNO-DS2-61 Â· DS2-76 Â· DS2-88</div>
+        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+      </a>
+      <a class="model-card roland" href="roland-xps/01-overview.html">
+        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <h3>XPS-10 / XPS-30 / XPS-60</h3>
+        <p>Expandable Synthesizer à¸£à¸­à¸‡à¸£à¸±à¸š SD Card Sound Expansion à¸£à¸²à¸„à¸²à¹€à¸‚à¹‰à¸²à¸–à¸¶à¸‡à¹„à¸”à¹‰</p>
+        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· XPS-10 Â· XPS-30 Â· XPS-60</div>
+        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- KORG -->
+  <section class="brand-section">
+    <div class="brand-header korg">
+      <div class="brand-logo">ðŸŽµ</div>
+      <div>
+        <div class="brand-name">Korg</div>
+        <div class="brand-desc">9 Sound Engines Â· SGX-2 Piano Â· AL-1 Analog Â· MS-20 Modeling â€” Workstation à¸£à¸°à¸”à¸±à¸š Pro</div>
+      </div>
+    </div>
+    <div class="model-grid">
+      <a class="model-card korg" href="korg-nautilus/01-overview.html">
+        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <h3>Nautilus / Nautilus AT</h3>
+        <p>9 Sound Engines, TouchView, Successor to Kronos â€” Flagship Workstation à¸›à¸±à¸ˆà¸ˆà¸¸à¸šà¸±à¸™</p>
+        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· Nautilus 61/73/88 Â· Nautilus AT</div>
+        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+      </a>
+      <a class="model-card korg" href="korg-kronos/01-overview.html">
+        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <h3>Kronos 2</h3>
+        <p>Legend Workstation 9 Engines, SSD Storage, RPPR, USB Audio 16in/16out</p>
+        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· Kronos 61/73/88</div>
+        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+      </a>
+      <a class="model-card korg" href="korg-kross/01-overview.html">
+        <span class="model-card-badge">âœ… à¸žà¸£à¹‰à¸­à¸¡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™</span>
+        <h3>Kross 2</h3>
+        <p>à¸™à¹‰à¸³à¸«à¸™à¸±à¸à¹€à¸šà¸² Battery-powered à¸£à¸­à¸‡à¸£à¸±à¸š SD Card Expansion à¹€à¸«à¸¡à¸²à¸°à¸™à¸±à¸à¸”à¸™à¸•à¸£à¸µà¹€à¸”à¸´à¸™à¸—à¸²à¸‡</p>
+        <div class="model-card-pages">14 à¸šà¸—à¹€à¸£à¸µà¸¢à¸™ Â· Kross 2-61 Â· Kross 2-88</div>
+        <span class="model-card-cta">à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸„à¸¹à¹ˆà¸¡à¸·à¸­ â†’</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  &copy; 2026 à¸„à¸¹à¹ˆà¸¡à¸·à¸­ Synthesizer à¸ à¸²à¸©à¸²à¹„à¸—à¸¢ | à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸­à¹‰à¸²à¸‡à¸­à¸´à¸‡à¸ˆà¸²à¸ Official Documentation à¸‚à¸­à¸‡à¹à¸•à¹ˆà¸¥à¸°à¸¢à¸µà¹ˆà¸«à¹‰à¸­
+</footer>
+
 <script>
-  initPage({ title: null, section: null });
+try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
 </script>
 </body>
 </html>
