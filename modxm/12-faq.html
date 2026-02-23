@@ -12,12 +12,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0a0a0f; --bg-card: #1a1a2e; --bg-elevated: #1e1e35;
+      --bg: #0f1419; --bg-card: #1a2332; --bg-elevated: #1a2332;
       --border: rgba(255,255,255,0.08);
-      --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
+      --text: #f0f5fb; --text-sub: #c8d6e5; --text-muted: #8899aa;
       --accent: #fbbf24; --radius: 12px;
     }
-    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans Thai','Inter',sans-serif; font-size: 15px; line-height: 1.8; }
+    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans Thai','Inter',sans-serif; font-size: 16px; line-height: 2; }
     .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
     .sidebar {
       background: var(--bg-elevated); border-right: 1px solid var(--border);
@@ -48,13 +48,13 @@
     .intro { font-size: 0.95rem; color: var(--text-sub); max-width: 640px; margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 14px; }
     h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 32px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
     h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 20px 0 10px; }
-    p { color: var(--text-sub); margin-bottom: 12px; }
+    p { color: var(--text-sub); margin-bottom: 14px; }
     .step { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
     .step-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
     .step p { margin: 0; color: var(--text); }
     .info-box { background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
     .info-box .ib-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .info-box p { margin: 0; font-size: 0.85rem; }
+    .info-box p { margin: 0; font-size: 0.93rem; line-height: 1.8; }
     table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.83rem; }
     th { background: rgba(0,0,0,0.3); color: var(--accent); padding: 8px 12px; text-align: left; border: 1px solid var(--border); font-weight: 700; }
     td { padding: 8px 12px; border: 1px solid var(--border); color: var(--text-sub); }
@@ -134,5 +134,7 @@
 <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
 </body>
 </html>
+
+
 
 
