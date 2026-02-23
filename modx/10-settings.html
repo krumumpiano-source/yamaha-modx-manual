@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utility & การตั้งค่าทั้งหมด — Yamaha MODX คู่มือภาษาไทย | คู่มือเครื่องดนตรี</title>
+  <meta name="description" content="คู่มือ Yamaha MODX Utility & การตั้งค่าทั้งหมด ภาษาไทย step-by-step จับมือทำทีละขั้นตอน">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6824376916256036" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --bg-card: #1a1a2e; --bg-elevated: #1e1e35;
+      --border: rgba(255,255,255,0.08);
+      --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
+      --accent: #00d4ff; --radius: 12px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans Thai','Inter',sans-serif; font-size: 15px; line-height: 1.8; }
+    .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+    .sidebar {
+      background: var(--bg-elevated); border-right: 1px solid var(--border);
+      padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .sb-brand {
+      padding: 0 20px 16px; font-size: 0.95rem; font-weight: 700;
+      color: var(--accent); border-bottom: 1px solid var(--border); margin-bottom: 12px;
+    }
+    .sb-brand span { display: block; font-size: 0.7rem; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+    .sb-back { display: block; padding: 6px 20px; font-size: 0.8rem; color: var(--text-muted); text-decoration: none; margin-bottom: 8px; }
+    .sb-back:hover { color: var(--accent); }
+    .sidebar ul { list-style: none; }
+    .sidebar ul li a { display: block; padding: 8px 20px; font-size: 0.82rem; text-decoration: none; color: var(--text-muted); transition: all 0.15s; }
+    .sidebar ul li a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+    .sidebar ul li.active a { color: var(--accent); background: rgba(0,0,0,0.2); border-right: 3px solid var(--accent); font-weight: 600; }
+    .main { padding: 32px 36px 64px; max-width: 820px; }
+    .breadcrumb { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { margin: 0 6px; }
+    .chapter-badge {
+      display: inline-block; background: rgba(0,0,0,0.3); border: 1px solid var(--accent);
+      color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
+      padding: 3px 12px; border-radius: 20px; margin-bottom: 14px;
+    }
+    h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--accent); margin-bottom: 8px; line-height: 1.3; }
+    .intro { font-size: 0.95rem; color: var(--text-sub); max-width: 640px; margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 14px; }
+    h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 32px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 20px 0 10px; }
+    p { color: var(--text-sub); margin-bottom: 12px; }
+    .step { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
+    .step-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .step p { margin: 0; color: var(--text); }
+    .info-box { background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
+    .info-box .ib-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .info-box p { margin: 0; font-size: 0.85rem; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.83rem; }
+    th { background: rgba(0,0,0,0.3); color: var(--accent); padding: 8px 12px; text-align: left; border: 1px solid var(--border); font-weight: 700; }
+    td { padding: 8px 12px; border: 1px solid var(--border); color: var(--text-sub); }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .nav-btn { text-decoration: none; color: var(--accent); font-size: 0.85rem; font-weight: 600; padding: 8px 18px; border: 1px solid var(--accent); border-radius: 8px; transition: all 0.15s; }
+    .nav-btn:hover { background: var(--accent); color: #000; }
+    @media (max-width: 768px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; }
+      .main { padding: 24px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sb-brand">Yamaha MODX<span>คู่มือภาษาไทย 12 บท</span></div>
+    <a class="sb-back" href="../yamaha.html">&#8592; กลับไปหน้า Yamaha</a>
+    <ul>
+      <li><a href="01-overview.html">01. ภาพรวม</a></li>
+      <li><a href="02-specs.html">02. สเปค</a></li>
+      <li><a href="03-panel.html">03. แผงปุ่ม</a></li>
+      <li><a href="04-menu.html">04. เมนู</a></li>
+      <li><a href="05-sound-design.html">05. แต่งเสียง</a></li>
+      <li><a href="06-preset.html">06. Preset</a></li>
+      <li><a href="07-performance.html">07. Performance</a></li>
+      <li><a href="08-daw.html">08. DAW</a></li>
+      <li><a href="09-band.html">09. วงดนตรี</a></li>
+      <li class="active"><a href="10-settings.html">10. ตั้งค่า</a></li>
+      <li><a href="11-troubleshoot.html">11. แก้ปัญหา</a></li>
+      <li><a href="12-faq.html">12. FAQ</a></li>
+    </ul>
+  </nav>
+  <div class="main">
+    <div class="breadcrumb">
+      <a href="../index.html">หน้าแรก</a><span>&#62;</span>
+      <a href="../yamaha.html">Yamaha</a><span>&#62;</span>
+      <a href="01-overview.html">MODX</a><span>&#62;</span>
+      Utility & การตั้งค่าทั้งหมด
+    </div>
+    <span class="chapter-badge">บทที่ 10 / 12</span>
+    <h1>Utility & การตั้งค่าทั้งหมด</h1>
+    <p class="intro">Utility ของ MODX เก็บการตั้งค่าทั้งหมดของเครื่อง ตั้งแต่ Master Tune ไปจนถึง Firmware Update</p>
+    <h2>วิธีเข้า Utility</h2>
+    <div class="step"><div class="step-num">ขั้นที่ 1</div><p>กด <strong>[UTILITY]</strong> บนตัวเครื่อง → หน้า Utility จะปรากฏ</p></div>
+    <h2>การตั้งค่าสำคัญ</h2>
+    <h3>General Settings</h3>
+    <table>
+      <tr><th>Setting</th><th>ค่าแนะนำ</th><th>คำอธิบาย</th></tr>
+      <tr><td>Master Tune</td><td>440.0 Hz</td><td>ปรับ Tune รวมทั้งเครื่อง ± 50 cents</td></tr>
+      <tr><td>Master Transpose</td><td>0</td><td>Transpose ทั้งเครื่อง (semitone)</td></tr>
+      <tr><td>Keyboard Velocity</td><td>Normal</td><td>ความไวของ Key Velocity</td></tr>
+    </table>
+    <h3>MIDI Settings</h3>
+    <table>
+      <tr><th>Setting</th><th>ค่าแนะนำ</th><th>คำอธิบาย</th></tr>
+      <tr><td>MIDI IN/OUT</td><td>USB</td><td>เลือก USB สำหรับต่อ Computer; DIN สำหรับอุปกรณ์เก่า</td></tr>
+      <tr><td>Local Control</td><td>On</td><td>Off ถ้าส่ง MIDI ผ่าน DAW แล้ว Route กลับ (หลีกเลี่ยง Double Trigger)</td></tr>
+      <tr><td>Clock Source</td><td>Internal</td><td>เปลี่ยนเป็น MIDI ถ้า Sync กับ DAW Tempo</td></tr>
+    </table>
+    <h3>Factory Reset</h3>
+    <div class="step"><div class="step-num">วิธี Reset</div><p>Utility → Initialize → ตัวเลือก: All (ทุกอย่าง) / User Voice (User Bank เท่านั้น) / System (แค่ System Settings) — <strong>Backup ก่อนเสมอ!</strong></p></div>
+    <h3>Firmware Update</h3>
+    <div class="step"><div class="step-num">ขั้นที่ 1</div><p>ดาวน์โหลด Firmware ล่าสุดจาก yamaha.com → ใส่ใน USB Root Directory (ไม่อยู่ใน Folder)</p></div>
+    <div class="step"><div class="step-num">ขั้นที่ 2</div><p>เสียบ USB เข้าเครื่อง → Utility → Update Firmware → กด Accept → รอ Restart อัตโนมัติ</p></div>
+    <div class="info-box"><div class="ib-label">&#9888;&#65039; สำคัญ</div><p>อย่าปิดเครื่องระหว่าง Firmware Update — ถ้าไฟดับ/ปิดเครื่อง เครื่องอาจ Brick ได้ ต้องส่งซ่อม</p></div>
+    <div class="nav-bar">
+      <a class="nav-btn" href="09-band.html">&#8592; วงดนตรี</a>
+      <a class="nav-btn" href="11-troubleshoot.html">แก้ปัญหา &#8594;</a>
+    </div>
+  </div>
+</div>
+<script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+</body>
+</html>

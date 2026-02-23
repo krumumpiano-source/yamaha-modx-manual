@@ -19,24 +19,60 @@ const BRANDS = {
     logo: '🎹',
     models: {
       'modx': {
-        name: 'MODX / MODX+ / MODXM',
-        folder: 'pages',
+        name: 'MODX',
+        folder: 'modx',
         badge: 'badge-modx',
         pages: [
-          { num:'01', icon:'📖', title:'แนะนำ Yamaha MODX', sub:'ประวัติ, จุดเด่น, ความแตกต่างจาก MONTAGE' },
-          { num:'02', icon:'🔢', title:'เปรียบเทียบทุกรุ่น', sub:'MODX vs MODX+ vs MODXM — Spec ครบ' },
-          { num:'03', icon:'⚡', title:'เริ่มต้นใช้งาน', sub:'ต่อสาย, ตั้งค่าครั้งแรก, เปิดเครื่อง' },
-          { num:'04', icon:'🎛️', title:'AWM2 + FM-X Engine', sub:'ZG Sound Generator, Operator, Algorithm' },
-          { num:'05', icon:'🎹', title:'Performance Mode', sub:'Layer, Split, Scene, Super Knob' },
-          { num:'06', icon:'🎤', title:'Live Set & Gig', sub:'Set List สำหรับแสดงสด, Foot Switch' },
-          { num:'07', icon:'🎚️', title:'Parts & Mixing', sub:'Volume, EQ, Note Limit, MIDI Channel' },
-          { num:'08', icon:'✨', title:'Effects & EQ', sub:'Insertion, Reverb, Master Effect' },
-          { num:'09', icon:'🔄', title:'Arpeggio & Motion Seq.', sub:'Pattern, Motion Lane, Super Knob Assign' },
-          { num:'10', icon:'🔌', title:'MIDI Setup', sub:'Channel, Local Off, Clock Sync' },
-          { num:'11', icon:'💻', title:'DAW Integration', sub:'USB Audio, Cubase, Logic, Ableton' },
-          { num:'12', icon:'🎸', title:'เซ็ทสำหรับวงดนตรี', sub:'Piano, Organ, Brass, Synth — ทุกแนว' },
-          { num:'13', icon:'🎵', title:'Preset Sounds List', sub:'รายชื่อ Preset แนะนำ ค้นหาได้' },
-          { num:'14', icon:'▶️', title:'Tutorial Videos', sub:'วิดีโอสอนจาก Yamaha Official' },
+          { num:'01', file:'01-overview',     icon:'📖', title:'ภาพรวม MODX คืออะไร',           sub:'Sound Engine, ขนาด, เหมาะกับใคร' },
+          { num:'02', file:'02-specs',         icon:'🔢', title:'สเปค & คุณสมบัติ',              sub:'Polyphony, Parts, Connectivity' },
+          { num:'03', file:'03-panel',         icon:'⚡', title:'แผงปุ่มและอินเทอร์เฟส',         sub:'ปุ่มทุกปุ่ม, Super Knob, Scene' },
+          { num:'04', file:'04-menu',          icon:'🎛️', title:'แนะนำเมนูทุกเมนู',             sub:'ระบบเมนู, Part Edit, Utility' },
+          { num:'05', file:'05-sound-design',  icon:'🎹', title:'วิธีแต่งเสียง AWM2 & FM-X',    sub:'Filter, Envelope, Operator' },
+          { num:'06', file:'06-preset',        icon:'💾', title:'การจัดการ Preset & Library',    sub:'Store, Backup, Load' },
+          { num:'07', file:'07-performance',   icon:'🎤', title:'Performance Mode สำหรับแสดงสด', sub:'Layer, Split, Scene, Super Knob' },
+          { num:'08', file:'08-daw',           icon:'💻', title:'ต่อ DAW & MIDI Setup',          sub:'USB MIDI, Audio Interface แยก' },
+          { num:'09', file:'09-band',          icon:'🎸', title:'เซ็ตเสียงสำหรับวงดนตรี',        sub:'Piano, Organ, Pad, Split Solo' },
+          { num:'10', file:'10-settings',      icon:'🔌', title:'Utility & การตั้งค่าทั้งหมด',   sub:'Tune, MIDI, Firmware Update' },
+          { num:'11', file:'11-troubleshoot',  icon:'🔧', title:'แก้ไขปัญหาที่พบบ่อย',           sub:'ไม่มีเสียง, MIDI, Latency' },
+          { num:'12', file:'12-faq',           icon:'❓', title:'FAQ & เปรียบเทียบ MODX Series', sub:'MODX vs MODX+ vs MODXM' },
+        ]
+      },
+      'modx-plus': {
+        name: 'MODX+',
+        folder: 'modx-plus',
+        badge: 'badge-modx',
+        pages: [
+          { num:'01', file:'01-overview',     icon:'📖', title:'ภาพรวม MODX+ คืออะไร',          sub:'USB Audio 2in/2out ในตัว' },
+          { num:'02', file:'02-specs',         icon:'🔢', title:'สเปค & คุณสมบัติ MODX+',       sub:'USB Audio Spec, Polyphony' },
+          { num:'03', file:'03-panel',         icon:'⚡', title:'แผงปุ่มและอินเทอร์เฟส',         sub:'ปุ่มทุกปุ่ม, Super Knob, Scene' },
+          { num:'04', file:'04-menu',          icon:'🎛️', title:'แนะนำเมนูทุกเมนู',             sub:'ระบบเมนู, Part Edit, Utility' },
+          { num:'05', file:'05-sound-design',  icon:'🎹', title:'วิธีแต่งเสียง AWM2 & FM-X',    sub:'Filter, Envelope, Operator' },
+          { num:'06', file:'06-preset',        icon:'💾', title:'การจัดการ Preset & Library',    sub:'Store, Backup, Load' },
+          { num:'07', file:'07-performance',   icon:'🎤', title:'Performance Mode สำหรับแสดงสด', sub:'Layer, Split, Scene, Super Knob' },
+          { num:'08', file:'08-daw',           icon:'💻', title:'ต่อ DAW ผ่าน USB Audio',        sub:'USB Audio 2in/2out, ASIO, Core Audio' },
+          { num:'09', file:'09-band',          icon:'🎸', title:'เซ็ตเสียงสำหรับวงดนตรี',        sub:'Piano, Organ, Pad, Split Solo' },
+          { num:'10', file:'10-settings',      icon:'🔌', title:'Utility & การตั้งค่าทั้งหมด',   sub:'Tune, MIDI, Firmware Update' },
+          { num:'11', file:'11-troubleshoot',  icon:'🔧', title:'แก้ไขปัญหาที่พบบ่อย',           sub:'ไม่มีเสียง, USB Audio, Latency' },
+          { num:'12', file:'12-faq',           icon:'❓', title:'FAQ & เปรียบเทียบ MODX Series', sub:'MODX vs MODX+ vs MODXM' },
+        ]
+      },
+      'modxm': {
+        name: 'MODXM',
+        folder: 'modxm',
+        badge: 'badge-modx',
+        pages: [
+          { num:'01', file:'01-overview',     icon:'📖', title:'ภาพรวม MODXM คืออะไร',          sub:'AN-X Engine, Module (ไม่มี Keys)' },
+          { num:'02', file:'02-specs',         icon:'🔢', title:'สเปค & คุณสมบัติ MODXM',       sub:'AN-X Spec, USB Audio, Polyphony' },
+          { num:'03', file:'03-panel',         icon:'⚡', title:'แผงควบคุม MODXM (Module)',       sub:'ปุ่มทุกปุ่ม, Connectivity' },
+          { num:'04', file:'04-menu',          icon:'🎛️', title:'แนะนำเมนูทุกเมนู',             sub:'ระบบเมนู, Part Edit, Utility' },
+          { num:'05', file:'05-sound-design',  icon:'🎹', title:'แต่งเสียง AWM2, FM-X & AN-X',  sub:'AN-X Oscillator, Filter, LFO' },
+          { num:'06', file:'06-preset',        icon:'💾', title:'การจัดการ Preset & Library',    sub:'Store, Backup, Load' },
+          { num:'07', file:'07-performance',   icon:'🎤', title:'Performance Mode สำหรับแสดงสด', sub:'Layer, Split, Scene, Super Knob' },
+          { num:'08', file:'08-daw',           icon:'💻', title:'ต่อ DAW ผ่าน USB Audio',        sub:'USB Audio 2in/2out, ASIO, Core Audio' },
+          { num:'09', file:'09-band',          icon:'🎸', title:'เซ็ตเสียงสำหรับวงดนตรี',        sub:'AN-X Bass, Lead, Pad ในวง' },
+          { num:'10', file:'10-settings',      icon:'🔌', title:'Utility & การตั้งค่าทั้งหมด',   sub:'Tune, MIDI, Firmware Update' },
+          { num:'11', file:'11-troubleshoot',  icon:'🔧', title:'แก้ไขปัญหาที่พบบ่อย',           sub:'MIDI Controller, USB Audio, AN-X' },
+          { num:'12', file:'12-faq',           icon:'❓', title:'FAQ & เปรียบเทียบ MODX Series', sub:'MODX vs MODX+ vs MODXM' },
         ]
       },
       'montage-m': {
@@ -699,12 +735,7 @@ function buildSidebar() {
   let sameBrandHtml = '';
   for (const [mk, m2] of Object.entries(sameBrandModels)) {
     const isCurrent = mk === modelKey;
-    let href;
-    if (mk === 'modx') {
-      href = base + 'pages/01-intro.html';
-    } else {
-      href = base + m2.folder + '/01-overview.html';
-    }
+    const href = base + m2.folder + '/01-overview.html';
     sameBrandHtml += `<a class="msw-item${isCurrent ? ' active' : ''}" href="${href}">${m2.name}</a>`;
   }
 
@@ -736,7 +767,11 @@ function buildSidebar() {
       if (!page) return;
       const isActive = current === page.num;
       let href;
-      if (modelKey === 'modx') {
+      if (page.file) {
+        // New-style: explicit file name per page (e.g. 01-overview, 02-specs …)
+        const inModel = window.location.pathname.includes('/' + model.folder + '/');
+        href = inModel ? `${page.file}.html` : `${model.folder}/${page.file}.html`;
+      } else if (modelKey === 'modx') {
         const fname = fileMap[page.num] || page.num;
         href = isInPages() ? `${fname}.html` : `pages/${fname}.html`;
       } else {

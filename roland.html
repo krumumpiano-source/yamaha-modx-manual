@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คู่มือ Roland ภาษาไทย — FANTOM, JUNO-X, JUNO-DS2, E-A7, TD-17, TD-27</title>
+  <meta name="description" content="คู่มือเครื่องดนตรี Roland ภาษาไทย ครอบคลุม FANTOM EX, JUNO-X, JUNO-DS2, XPS, E-A7, TD-17, TD-27, TM-6 Pro">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6824376916256036" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --bg-card: #1a1a2e; --bg-elevated: #1e1e35;
+      --border: rgba(255,255,255,0.08);
+      --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
+      --accent: #ff4444; --cyan: #00d4ff; --korg: #f59e0b; --purple: #a855f7;
+      --radius: 12px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans Thai', 'Inter', sans-serif; font-size: 15px; line-height: 1.7; }
+    .ad-header { background: var(--bg-elevated); border-bottom: 1px solid var(--border); padding: 8px; text-align: center; min-height: 70px; }
+    .top-nav {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 24px; background: var(--bg-elevated); border-bottom: 1px solid var(--border);
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600;
+      background: var(--bg-card); color: var(--text-sub); text-decoration: none; border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .back-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .brand-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+    .brand-pill {
+      padding: 4px 12px; border-radius: 16px; font-size: 0.78rem; font-weight: 600;
+      text-decoration: none; color: var(--text-muted); background: var(--bg-card);
+      border: 1px solid var(--border); transition: all 0.18s;
+    }
+    .brand-pill:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+    .brand-pill.active { color: var(--accent); border-color: var(--accent); background: rgba(255,68,68,0.08); }
+    .page-hero {
+      padding: 40px 24px 32px; text-align: center;
+      background: linear-gradient(135deg, rgba(255,68,68,0.06) 0%, transparent 60%);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: var(--accent); }
+    .page-hero p { color: var(--text-sub); margin-top: 8px; font-size: 0.95rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 36px 24px; }
+    .type-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text-muted); margin: 28px 0 12px 2px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .type-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .model-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 14px; }
+    .model-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius); padding: 18px;
+      text-decoration: none; color: var(--text);
+      display: flex; flex-direction: column; gap: 7px;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    }
+    .model-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,68,68,0.12); border-color: var(--accent); }
+    .model-card h3 { font-size: 1rem; font-weight: 600; }
+    .model-card p { font-size: 0.81rem; color: var(--text-sub); flex: 1; }
+    .model-card-badge {
+      display: inline-block; font-size: 0.68rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 20px; width: fit-content;
+      background: rgba(255,68,68,0.12); color: var(--accent); border: 1px solid rgba(255,68,68,0.3);
+    }
+    .model-card-pages { font-size: 0.73rem; color: var(--text-muted); }
+    .model-card-cta { font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-top: 2px; }
+    footer { text-align: center; color: var(--text-muted); font-size: 0.8rem; padding: 28px 24px; border-top: 1px solid var(--border); margin-top: 20px; }
+    @media (max-width: 600px) { .brand-pills { display: none; } .model-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="ad-header">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6824376916256036"
+       data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+</div>
+
+<nav class="top-nav">
+  <a class="back-btn" href="index.html">← กลับหน้าหลัก</a>
+  <div class="brand-pills">
+    <a class="brand-pill" href="yamaha.html">🎵 Yamaha</a>
+    <a class="brand-pill active" href="roland.html">🎼 Roland</a>
+    <a class="brand-pill" href="korg.html">🎵 Korg</a>
+    <a class="brand-pill" href="boss.html">🥁 Boss</a>
+    <a class="brand-pill" href="alesis.html">🥁 Alesis</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-eyebrow">คู่มือเครื่องดนตรี</div>
+  <h1>🎼 Roland</h1>
+  <p>ZEN-Core Engine · SuperNATURAL · V-Drums · Synthesizer, Arranger &amp; E-Drum ระดับโลก</p>
+</div>
+
+<div class="container">
+
+  <p class="type-label">🎛️ Synthesizer &amp; Workstation</p>
+  <div class="model-grid">
+    <a class="model-card" href="roland-fantom/01-overview.html">
+      <span class="model-card-badge">✅ พร้อมใช้งาน</span>
+      <h3>FANTOM EX / FANTOM-0</h3>
+      <p>ZEN-Core Workstation Flagship, 16 Parts, Step Sequencer, Plug-out, USB Audio</p>
+      <div class="model-card-pages">14 บทเรียน · FANTOM-06/07/08 · FANTOM EX</div>
+      <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+    </a>
+    <a class="model-card" href="roland-juno-x/01-overview.html">
+      <span class="model-card-badge">✅ พร้อมใช้งาน</span>
+      <h3>JUNO-X</h3>
+      <p>ZEN-Core + Model Expansion JUNO-106, SH-101, JX-8P — Recreation ตำนาน Roland</p>
+      <div class="model-card-pages">14 บทเรียน · JUNO-X 61 Keys</div>
+      <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+    </a>
+    <a class="model-card" href="roland-juno-d/01-overview.html">
+      <span class="model-card-badge">✅ พร้อมใช้งาน</span>
+      <h3>JUNO-DS2</h3>
+      <p>Performance Synth น้ำหนักเบา พกพาได้ Battery Mode, 61/76/88 Keys</p>
+      <div class="model-card-pages">14 บทเรียน · JUNO-DS2-61 · DS2-76 · DS2-88</div>
+      <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+    </a>
+    <a class="model-card" href="roland-xps/01-overview.html">
+      <span class="model-card-badge">✅ พร้อมใช้งาน</span>
+      <h3>XPS-10 / XPS-30 / XPS-60</h3>
+      <p>Expandable Synthesizer รองรับ SD Card Sound Expansion ราคาเข้าถึงได้</p>
+      <div class="model-card-pages">14 บทเรียน · XPS-10 · XPS-30 · XPS-60</div>
+      <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+    </a>
+  </div>
+
+  <p class="type-label">🎹 Arranger Keyboard</p>
+  <div class="model-grid">
+    <a class="model-card" href="roland-ea7/01-overview.html">
+      <span class="model-card-badge">Arranger</span>
+      <h3>E-A7</h3>
+      <p>Arranger 61 Keys, 3,000+ Styles, Internal Memory 1GB, SuperNATURAL Sounds</p>
+      <div class="model-card-pages">14 บทเรียน · E-A7</div>
+      <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+    </a>
+  </div>
+
+  <p class="type-label">🥁 E-Drum Module — V-Drums</p>
+  <div class="model-grid">
+    <a class="model-card" href="roland-td17/01-overview.html">
+      <span class="model-card-badge">V-Drums</span>
+      <h3>TD-17</h3>
+      <p>V-Drums Module, SuperNATURAL Sound, Bluetooth Audio, Coach Mode, USB Audio</p>
+      <div class="model-card-pages">14 บทเรียน · TD-17 Module</div>
+      <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+    </a>
+    <a class="model-card" href="roland-td27/01-overview.html">
+      <span class="model-card-badge">V-Drums</span>
+      <h3>TD-27</h3>
+      <p>V-Drums Pro, Multi-Sensor Pad Support, SuperNATURAL Acoustic Modeling</p>
+      <div class="model-card-pages">14 บทเรียน · TD-27 Module</div>
+      <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+    </a>
+    <a class="model-card" href="roland-tm6pro/01-overview.html">
+      <span class="model-card-badge">V-Drums</span>
+      <h3>TM-6 Pro</h3>
+      <p>Trigger Module สำหรับ Acoustic Drum, 6 Trigger In, SuperNATURAL Sounds, USB Audio</p>
+      <div class="model-card-pages">14 บทเรียน · TM-6 Pro</div>
+      <span class="model-card-cta">เข้าสู่คู่มือ →</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 คู่มือเครื่องดนตรี &nbsp;|&nbsp; <a href="index.html" style="color:var(--text-muted)">หน้าหลัก</a> &nbsp;|&nbsp; เว็บนี้เป็นคู่มืออิสระ ไม่ใช่ตัวแทนจาก Roland
+</footer>
+
+<script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+</body>
+</html>

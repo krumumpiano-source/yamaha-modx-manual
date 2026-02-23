@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yamaha Keyboard — คู่มือภาษาไทย | คู่มือเครื่องดนตรี</title>
+  <meta name="description" content="คู่มือ Yamaha Keyboard ภาษาไทย MODX, MODX+, MODXM, MONTAGE M, Genos2, Genos, PSR-SX900/700/600 step-by-step ใช้งานได้จริง">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6824376916256036" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --bg-card: #1a1a2e; --bg-elevated: #1e1e35;
+      --border: rgba(255,255,255,0.08);
+      --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
+      --cyan: #00d4ff; --purple: #a855f7; --radius: 12px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans Thai','Inter',sans-serif; font-size: 15px; line-height: 1.7; }
+    .ad-header { background: var(--bg-elevated); border-bottom: 1px solid var(--border); padding: 8px; text-align: center; min-height: 70px; }
+    .topbar {
+      background: var(--bg-elevated); border-bottom: 1px solid var(--border);
+      padding: 12px 24px; display: flex; align-items: center; gap: 10px;
+    }
+    .topbar a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; }
+    .topbar a:hover { color: var(--cyan); }
+    .topbar .sep { color: var(--border); }
+    .hero {
+      padding: 48px 24px 36px; text-align: center;
+      background: linear-gradient(135deg, #0a0a1a 0%, #001a2e 50%, #0a0a1a 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-badge {
+      display: inline-block; background: rgba(0,212,255,0.12); color: var(--cyan);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; text-transform: uppercase;
+    }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: var(--cyan); margin-bottom: 12px; }
+    .hero-desc { font-size: 0.95rem; color: var(--text-sub); max-width: 580px; margin: 0 auto; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 44px 24px; }
+    .section-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .model-section { margin-bottom: 44px; }
+    .model-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .model-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 4px solid var(--cyan);
+      border-radius: var(--radius); padding: 22px 18px;
+      text-decoration: none; color: var(--text);
+      display: flex; flex-direction: column; gap: 8px;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+      position: relative;
+    }
+    .model-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,212,255,0.12); border-color: var(--cyan); }
+    .model-card.featured { border-left-color: #7c3aed; }
+    .model-card.featured:hover { box-shadow: 0 8px 28px rgba(124,58,237,0.18); border-color: #7c3aed; }
+    .mc-badge {
+      position: absolute; top: 12px; right: 14px;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 10px;
+    }
+    .badge-new { background: rgba(0,212,255,0.15); color: var(--cyan); }
+    .badge-pro { background: rgba(124,58,237,0.18); color: #a78bfa; }
+    .badge-module { background: rgba(245,158,11,0.15); color: #fbbf24; }
+    .badge-top { background: rgba(239,68,68,0.15); color: #f87171; }
+    .mc-name { font-size: 1.1rem; font-weight: 700; color: var(--cyan); }
+    .model-card.featured .mc-name { color: #a78bfa; }
+    .mc-sub { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+    .mc-desc { font-size: 0.8rem; color: var(--text-sub); line-height: 1.5; }
+    .mc-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }
+    .chip { font-size: 0.65rem; padding: 2px 8px; border-radius: 10px; background: rgba(255,255,255,0.06); color: var(--text-muted); }
+    .mc-cta { font-size: 0.8rem; font-weight: 700; color: var(--cyan); margin-top: 4px; }
+    .model-card.featured .mc-cta { color: #a78bfa; }
+    footer { text-align: center; color: var(--text-muted); font-size: 0.8rem; padding: 28px 24px; border-top: 1px solid var(--border); }
+    @media (max-width: 600px) { .model-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="ad-header">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6824376916256036"
+       data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+</div>
+
+<div class="topbar">
+  <a href="index.html">&#127968; หน้าแรก</a>
+  <span class="sep">&#62;</span>
+  <span style="color:var(--cyan); font-weight:600;">Yamaha</span>
+</div>
+
+<div class="hero">
+  <span class="brand-badge">&#127925; Yamaha Keyboard</span>
+  <h1>Yamaha Keyboard<br>คู่มือภาษาไทย</h1>
+  <p class="hero-desc">คู่มือ step-by-step ครอบคลุม Synthesizer Workstation และ Arranger Keyboard ทุกรุ่น จับมือทำทีละขั้นตอน</p>
+</div>
+
+<div class="container">
+
+  <!-- MODX Series -->
+  <div class="model-section">
+    <p class="section-label">&#9670; MODX Series — Synthesizer Workstation</p>
+    <div class="model-grid">
+
+      <a class="model-card" href="modx/01-overview.html">
+        <span class="mc-badge badge-new">ยอดนิยม</span>
+        <div class="mc-name">Yamaha MODX</div>
+        <div class="mc-sub">AWM2 + FM-X Synthesizer</div>
+        <div class="mc-desc">รุ่นเริ่มต้นของ MODX Series มี 6/7/8 คีย์ ให้เลือก เสียง AWM2 + FM-X ครบครัน ราคาเข้าถึงง่าย</div>
+        <div class="mc-chips">
+          <span class="chip">6/7/8 Keys</span>
+          <span class="chip">AWM2</span>
+          <span class="chip">FM-X</span>
+          <span class="chip">ZG Sound</span>
+        </div>
+        <div class="mc-cta">อ่านคู่มือ 12 บท &#8594;</div>
+      </a>
+
+      <a class="model-card featured" href="modx-plus/01-overview.html">
+        <span class="mc-badge badge-pro">อัปเกรด</span>
+        <div class="mc-name">Yamaha MODX+</div>
+        <div class="mc-sub">AWM2 + FM-X + USB Audio</div>
+        <div class="mc-desc">MODX รุ่นอัปเกรด เพิ่ม USB Audio Interface 2in/2out ในตัว ต่อ DAW ได้เลยไม่ต้องซื้อ Audio Interface แยก</div>
+        <div class="mc-chips">
+          <span class="chip">6/7/8 Keys</span>
+          <span class="chip">USB Audio 2in/2out</span>
+          <span class="chip">FM-X</span>
+          <span class="chip">AWM2</span>
+        </div>
+        <div class="mc-cta" style="color:#a78bfa;">อ่านคู่มือ 12 บท &#8594;</div>
+      </a>
+
+      <a class="model-card" href="modxm/01-overview.html" style="border-left-color:#fbbf24;">
+        <span class="mc-badge badge-module">โมดูล</span>
+        <div class="mc-name" style="color:#fbbf24;">Yamaha MODXM</div>
+        <div class="mc-sub">AWM2 + FM-X + AN-X (Module)</div>
+        <div class="mc-desc">รุ่นโมดูล ไม่มีคีย์บอร์ด เพิ่ม AN-X Analog Physical Modeling Engine ใช้ต่อกับ Master Keyboard หรือ DAW</div>
+        <div class="mc-chips">
+          <span class="chip">No Keys</span>
+          <span class="chip">AN-X Engine</span>
+          <span class="chip">USB Audio</span>
+          <span class="chip">FM-X</span>
+        </div>
+        <div class="mc-cta" style="color:#fbbf24;">อ่านคู่มือ 12 บท &#8594;</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- MONTAGE M -->
+  <div class="model-section">
+    <p class="section-label">&#9670; MONTAGE M — Flagship Synthesizer</p>
+    <div class="model-grid">
+      <div class="model-card" style="border-left-color:#ef4444; opacity:0.6; pointer-events:none;">
+        <span class="mc-badge badge-top">เร็วๆ นี้</span>
+        <div class="mc-name" style="color:#f87171;">Yamaha MONTAGE M</div>
+        <div class="mc-sub">AWM2 + FM-X + AN-X Flagship</div>
+        <div class="mc-desc">Flagship Synthesizer รุ่นสูงสุด ครบทุก Engine AWM2, FM-X, AN-X ปุ่มกดทุกตัวให้กลับแรง Keybed Super ระดับ Premium</div>
+        <div class="mc-chips">
+          <span class="chip">6/7/8 Keys</span>
+          <span class="chip">AN-X</span>
+          <span class="chip">Flagship</span>
+        </div>
+        <div class="mc-cta" style="color:#f87171;">เร็วๆ นี้ ...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arranger Series -->
+  <div class="model-section">
+    <p class="section-label">&#9670; Arranger Keyboard — Style &amp; Auto-Accompaniment</p>
+    <div class="model-grid">
+
+      <div class="model-card" style="border-left-color:#f59e0b; opacity:0.55; pointer-events:none;">
+        <span class="mc-badge" style="background:rgba(245,158,11,0.15); color:#fbbf24;">เร็วๆ นี้</span>
+        <div class="mc-name" style="color:#fbbf24;">Genos2</div>
+        <div class="mc-sub">Top-of-line Arranger</div>
+        <div class="mc-desc">Arranger Keyboard รุ่นท็อป เสียง Style ครอบคลุม จอสัมผัส 9 นิ้ว</div>
+        <div class="mc-chips"><span class="chip">61 Keys</span><span class="chip">Touch Screen</span></div>
+        <div class="mc-cta" style="color:#fbbf24;">เร็วๆ นี้...</div>
+      </div>
+
+      <div class="model-card" style="border-left-color:#f59e0b; opacity:0.55; pointer-events:none;">
+        <span class="mc-badge" style="background:rgba(245,158,11,0.15); color:#fbbf24;">เร็วๆ นี้</span>
+        <div class="mc-name" style="color:#fbbf24;">Genos</div>
+        <div class="mc-sub">Arranger Workstation</div>
+        <div class="mc-desc">Arranger Keyboard รุ่น Classic เสียง Style คุณภาพสูง ต่อไมค์ร้องเพลงได้เลย</div>
+        <div class="mc-chips"><span class="chip">61 Keys</span><span class="chip">Mic Input</span></div>
+        <div class="mc-cta" style="color:#fbbf24;">เร็วๆ นี้...</div>
+      </div>
+
+      <div class="model-card" style="border-left-color:#f59e0b; opacity:0.55; pointer-events:none;">
+        <span class="mc-badge" style="background:rgba(245,158,11,0.15); color:#fbbf24;">เร็วๆ นี้</span>
+        <div class="mc-name" style="color:#fbbf24;">PSR-SX Series</div>
+        <div class="mc-sub">PSR-SX900 · SX700 · SX600</div>
+        <div class="mc-desc">Arranger Mid-range เหมาะวงดนตรีสด งานแต่งงาน คาราโอเกะ</div>
+        <div class="mc-chips"><span class="chip">61 Keys</span><span class="chip">USB Audio</span></div>
+        <div class="mc-cta" style="color:#fbbf24;">เร็วๆ นี้...</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 คู่มือเครื่องดนตรี &nbsp;|&nbsp; เว็บนี้เป็นคู่มืออิสระ ไม่ใช่ตัวแทนจาก Yamaha
+</footer>
+
+<script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+</body>
+</html>
