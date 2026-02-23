@@ -3,30 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Performance Mode สำหรับแสดงสด — Yamaha MODXM คู่มือภาษาไทย | คู่มือเครื่องดนตรี</title>
-  <meta name="description" content="คู่มือ Yamaha MODXM Performance Mode สำหรับแสดงสด ภาษาไทย step-by-step จับมือทำทีละขั้นตอน">
+  <title>Performance Mode สำหรับแสดงสด &mdash; Yamaha MODX6/7/8 คู่มือภาษาไทย | คู่มือเครื่องดนตรี</title>
+  <meta name="description" content="คู่มือ Yamaha MODX6/7/8 Performance Mode สำหรับแสดงสด ภาษาไทย step-by-step จับมือทำทีละขั้นตอน">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6824376916256036" crossorigin="anonymous"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #0a0a0f; --bg-card: #1a1a2e; --bg-elevated: #1e1e35;
-      --border: rgba(255,255,255,0.08);
-      --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
+      --border: rgba(255,255,255,0.08); --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
       --accent: #fbbf24; --radius: 12px;
     }
     body { background: var(--bg); color: var(--text); font-family: 'Noto Sans Thai','Inter',sans-serif; font-size: 15px; line-height: 1.8; }
     .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
-    .sidebar {
-      background: var(--bg-elevated); border-right: 1px solid var(--border);
-      padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto;
-    }
-    .sb-brand {
-      padding: 0 20px 16px; font-size: 0.95rem; font-weight: 700;
-      color: var(--accent); border-bottom: 1px solid var(--border); margin-bottom: 12px;
-    }
+    .sidebar { background: var(--bg-elevated); border-right: 1px solid var(--border); padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .sb-brand { padding: 0 20px 16px; font-size: 0.95rem; font-weight: 700; color: var(--accent); border-bottom: 1px solid var(--border); margin-bottom: 12px; }
     .sb-brand span { display: block; font-size: 0.7rem; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
     .sb-back { display: block; padding: 6px 20px; font-size: 0.8rem; color: var(--text-muted); text-decoration: none; margin-bottom: 8px; }
     .sb-back:hover { color: var(--accent); }
@@ -34,45 +26,46 @@
     .sidebar ul li a { display: block; padding: 8px 20px; font-size: 0.82rem; text-decoration: none; color: var(--text-muted); transition: all 0.15s; }
     .sidebar ul li a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
     .sidebar ul li.active a { color: var(--accent); background: rgba(0,0,0,0.2); border-right: 3px solid var(--accent); font-weight: 600; }
-    .main { padding: 32px 36px 64px; max-width: 820px; }
+    .main { padding: 32px 36px 80px; max-width: 860px; }
     .breadcrumb { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 24px; }
     .breadcrumb a { color: var(--text-muted); text-decoration: none; }
     .breadcrumb a:hover { color: var(--accent); }
     .breadcrumb span { margin: 0 6px; }
-    .chapter-badge {
-      display: inline-block; background: rgba(0,0,0,0.3); border: 1px solid var(--accent);
-      color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
-      padding: 3px 12px; border-radius: 20px; margin-bottom: 14px;
-    }
+    .chapter-badge { display: inline-block; background: rgba(0,0,0,0.3); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; padding: 3px 12px; border-radius: 20px; margin-bottom: 14px; }
     h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--accent); margin-bottom: 8px; line-height: 1.3; }
-    .intro { font-size: 0.95rem; color: var(--text-sub); max-width: 640px; margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 14px; }
-    h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 32px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
-    h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 20px 0 10px; }
+    .intro { font-size: 0.95rem; color: var(--text-sub); max-width: 700px; margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 14px; }
+    h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 0.98rem; font-weight: 700; color: var(--accent); margin: 22px 0 10px; }
     p { color: var(--text-sub); margin-bottom: 12px; }
-    .step { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
-    .step-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-    .step p { margin: 0; color: var(--text); }
+    .step { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+    .step-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .step p { margin: 0 0 6px; }
+    .step p:last-child { margin: 0; }
+    .screen-result { background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; margin: 8px 0 0; font-size: 0.82rem; color: #a5f3fc; font-family: monospace; }
+    .screen-result::before { content: '&#9654; จอแสดง: '; font-weight: 700; font-family: 'Noto Sans Thai','Inter',sans-serif; color: #67e8f9; }
+    .touch-tip { background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.2); border-radius: 6px; padding: 8px 14px; margin: 8px 0 0; font-size: 0.82rem; color: #a5f3fc; }
+    .touch-tip::before { content: '&#128073; จิ้มที่จอ: '; font-weight: 700; color: var(--accent); }
+    .btn-key { display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); border-radius: 5px; padding: 1px 9px; font-size: 0.8rem; font-weight: 700; color: var(--text); font-family: monospace; }
+    .arrow { color: var(--accent); font-weight: 700; margin: 0 4px; }
     .info-box { background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
     .info-box .ib-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .info-box p { margin: 0; font-size: 0.85rem; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.83rem; }
-    th { background: rgba(0,0,0,0.3); color: var(--accent); padding: 8px 12px; text-align: left; border: 1px solid var(--border); font-weight: 700; }
-    td { padding: 8px 12px; border: 1px solid var(--border); color: var(--text-sub); }
+    .warn-box { background: rgba(234,179,8,0.06); border: 1px solid rgba(234,179,8,0.25); border-radius: 8px; padding: 14px 18px; margin: 16px 0; font-size: 0.85rem; }
+    .warn-box::before { content: '&#9888;&#65039; ข้อควรระวัง: '; font-weight: 700; color: #fbbf24; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 22px; font-size: 0.83rem; }
+    th { background: rgba(0,0,0,0.3); color: var(--accent); padding: 9px 12px; text-align: left; border: 1px solid var(--border); font-weight: 700; }
+    td { padding: 8px 12px; border: 1px solid var(--border); color: var(--text-sub); vertical-align: top; }
     tr:hover td { background: rgba(255,255,255,0.02); }
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 52px; padding-top: 24px; border-top: 1px solid var(--border); }
     .nav-btn { text-decoration: none; color: var(--accent); font-size: 0.85rem; font-weight: 600; padding: 8px 18px; border: 1px solid var(--accent); border-radius: 8px; transition: all 0.15s; }
     .nav-btn:hover { background: var(--accent); color: #000; }
-    @media (max-width: 768px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar { position: static; height: auto; }
-      .main { padding: 24px 20px 48px; }
-    }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .main { padding: 24px 20px 56px; } }
   </style>
 </head>
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <div class="sb-brand">Yamaha MODXM<span>คู่มือภาษาไทย 12 บท</span></div>
+    <div class="sb-brand">Yamaha MODX6/7/8<span>คู่มือภาษาไทย 12 บท</span></div>
     <a class="sb-back" href="../yamaha.html">&#8592; กลับไปหน้า Yamaha</a>
     <ul>
       <li><a href="01-overview.html">01. ภาพรวม</a></li>
@@ -91,34 +84,117 @@
   </nav>
   <div class="main">
     <div class="breadcrumb">
-      <a href="../index.html">หน้าแรก</a><span>&#62;</span>
-      <a href="../yamaha.html">Yamaha</a><span>&#62;</span>
-      <a href="01-overview.html">MODXM</a><span>&#62;</span>
+      <a href="../index.html">หน้าแรก</a><span>&gt;</span>
+      <a href="../yamaha.html">Yamaha</a><span>&gt;</span>
+      <a href="01-overview.html">MODX6/7/8</a><span>&gt;</span>
       Performance Mode สำหรับแสดงสด
     </div>
     <span class="chapter-badge">บทที่ 07 / 12</span>
     <h1>Performance Mode สำหรับแสดงสด</h1>
-    <p class="intro">Performance Mode คือหัวใจของการแสดงสดบน MODX ควบคุม Layer, Split, Scene, Super Knob และ Motion Sequencer ได้ในที่เดียว</p>
-    <h2>ทำความเข้าใจ Performance Structure</h2>
-    <div class="step"><div class="step-num">Performance</div><p>1 Performance = ชุดเสียงทั้งหมดสำหรับ 1 เพลง/1 ช่วง มีได้ถึง <strong>8 Parts</strong> แต่ละ Part = เสียง 1 เสียง Layer หรือ Split ได้</p></div>
-    <div class="step"><div class="step-num">Scene</div><p>แต่ละ Performance มีได้ <strong>8 Scene</strong> — แต่ละ Scene เก็บสถานะของ Super Knob + Volume ของแต่ละ Part กด Scene Button ได้ทันทีขณะเล่น</p></div>
-    <div class="step"><div class="step-num">Super Knob Assign</div><p>Super Knob ควบคุม Parameter ที่กำหนดไว้ใน Part Edit → Mod/Control → Assign ได้ถึง 8 Destinations ต่อ Part</p></div>
-    <h2>สร้าง Layer (เล่น 2 เสียงพร้อมกัน) — Step by Step</h2>
-    <div class="step"><div class="step-num">ขั้นที่ 1</div><p>กด <strong>[PERFORMANCE]</strong> → เลือก Performance ว่าง (เช่น Init Performance)</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 2</div><p>กด <strong>Part 1</strong> → Category Search → เลือกเสียง Piano</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 3</div><p>กด <strong>Part 2</strong> → Category Search → เลือกเสียง Strings Pad</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 4</div><p>Part 2: ตรวจสอบว่า Note Low = C-2, Note High = G8 (ครอบทั้งคีย์) → ทั้ง 2 Part เล่นพร้อมกัน</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 5</div><p>ปรับ Volume ของแต่ละ Part ให้สมดุล → Store</p></div>
-    <h2>สร้าง Split (ซ้าย-ขวาคนละเสียง)</h2>
-    <div class="step"><div class="step-num">ขั้นที่ 1</div><p>Part 1 (ขวา): Note Low = C3, Note High = G8 → เสียง Piano</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 2</div><p>Part 2 (ซ้าย): Note Low = C-2, Note High = B2 → เสียง Bass หรือ Organ</p></div>
-    <div class="info-box"><div class="ib-label">&#128161; เคล็ดลับ Super Knob สด</div><p>Assign Super Knob ให้ควบคุม Filter Cutoff ของ Synth Part + Reverb Send ของ Piano Part ในเวลาเดียวกัน — หมุน Super Knob = เสียงเปลี่ยน 2 มิติในครั้งเดียว</p></div>
-    <div class="nav-bar">
-      <a class="nav-btn" href="06-preset.html">&#8592; Preset</a>
-      <a class="nav-btn" href="08-daw.html">DAW &#8594;</a>
+    <p class="intro">Performance Mode คือหัวใจของ MODX — รวมเสียงหลาย Part ใน Performance เดียว ทั้ง Layer, Split, ควบคุมด้วย Scene และ Super Knob บทนี้อธิบาย <strong>ทีละขั้น</strong> พร้อมบอกว่าจอแสดงอะไรตลอดทาง</p>
+
+    <h2>Performance คืออะไร — ความสัมพันธ์ Part / Performance</h2>
+    <div class="step">
+      <div class="step-num">โครงสร้าง</div>
+      <p>1 Performance = รวม Part ได้สูงสุด <strong>8 Parts</strong> แต่ละ Part มีเสียง (Voice) ของตัวเอง มี Volume, Pan, Note Range, MIDI Channel ของตัวเอง</p>
+      <div class="screen-result">กด [HOME] → จอแสดงกริด 8 Part ด้านขวา แต่ละ Part มีชื่อเสียง + Level Meter กระพริบตามเสียงที่ดัง</div>
     </div>
+
+    <h2>สร้าง Layer — หลายเสียงดังพร้อมกัน</h2>
+    <div class="step">
+      <div class="step-num">ขั้นที่ 1 — กด [EDIT]</div>
+      <p>กด <span class="btn-key">[EDIT]</span></p>
+      <div class="screen-result">จอแสดงหน้า Performance Edit: Tab "Common/Audio" ไฮไลต์ ด้านซ้ายมีรายการ Part 1–8 + Common ด้านล่าง</div>
+    </div>
+    <div class="step">
+      <div class="step-num">ขั้นที่ 2 — เลือก Part 1 ใส่เสียง Piano</div>
+      <div class="touch-tip">จิ้ม <strong>Part 1</strong> ในรายการซ้าย → Tab "Part Settings" เปิด → จิ้มปุ่ม <strong>[Category Search]</strong> หรือจิ้มชื่อเสียงเดิม</div>
+      <div class="screen-result">หน้า Category Search: รายการหมวดหมู่เป็น Grid — Piano, Organ, Strings, ฯลฯ</div>
+      <div class="touch-tip">จิ้ม "Piano" → รายการเสียงด้านขวาปรากฏ → จิ้ม "CFX Concert" → จิ้ม <strong>[OK]</strong></div>
+      <div class="screen-result">Part 1 ชื่อเปลี่ยนเป็น "CFX Concert" + Level Meter ของ Part 1 ขยับตามคีย์ที่กด</div>
+    </div>
+    <div class="step">
+      <div class="step-num">ขั้นที่ 3 — เพิ่ม Part 2 ใส่เสียง Strings (Layer)</div>
+      <div class="touch-tip">จิ้ม <strong>Part 2</strong> ในรายการซ้าย → จิ้มสวิตช์ "Part On/Off" ให้เป็น <strong>ON</strong> (เปลี่ยนจากสีเทาเป็นสว่าง)</div>
+      <div class="touch-tip">จิ้มชื่อเสียง Part 2 → Category Search เปิด → จิ้ม "Strings" → เลือก "Mellow Strings" → [OK]</div>
+      <div class="screen-result">Part 2 ชื่อเปลี่ยนเป็น "Mellow Strings" — ตอนนี้กดคีย์จะได้ยิน Piano + Strings พร้อมกัน = Layer สำเร็จ</div>
+    </div>
+    <div class="step">
+      <div class="step-num">ขั้นที่ 4 — ปรับ Volume / Pan ของแต่ละ Part</div>
+      <div class="touch-tip">จิ้มค่า Volume ของ Part 2 ในจอ → หมุน Data Dial ปรับ Strings ให้เบากว่า Piano (เช่น 80 แทน 127)</div>
+      <div class="touch-tip">จิ้มค่า Pan → หมุน Dial ให้ Strings อยู่ขวาเล็กน้อย (Pan = R10)</div>
+    </div>
+
+    <h2>สร้าง Split — เสียงต่างกันในช่วงคีย์ต่าง</h2>
+    <div class="step">
+      <div class="step-num">ขั้นที่ 1-3 เหมือน Layer แต่เพิ่ม Part 2 ด้วยเสียง Bass</div>
+      <div class="touch-tip">Part 1 = Piano, Part 2 = Bass → ตอนนี้ยังดัง Layer กัน → ต้องกำหนด Note Range</div>
+    </div>
+    <div class="step">
+      <div class="step-num">ขั้นที่ 2 — ตั้ง Note Range ของ Part 1 (ทำนอง)</div>
+      <div class="touch-tip">จิ้ม <strong>Part 1</strong> → จิ้ม Tab <strong>"Zone/Key"</strong> (หรือ Part Settings > Note Limit)</div>
+      <div class="screen-result">จอแสดง Piano Roll แนวนอนยาวตลอดจอ มีแถบสีไฮไลต์ช่วงโน้ตที่ Part นี้ Response (ค่า Default = C-2 ถึง G8)</div>
+      <div class="touch-tip">จิ้มที่ขอบซ้ายของแถบแล้วลาก → หรือจิ้มช่อง "Note Low" → หมุน Data Dial ตั้งเป็น <strong>E3</strong> (กลางของ Piano)</div>
+      <div class="screen-result">แถบ Part 1 หดเหลือแค่ E3–G8 = Piano อยู่แค่ช่วงบน</div>
+    </div>
+    <div class="step">
+      <div class="step-num">ขั้นที่ 3 — ตั้ง Note Range ของ Part 2 (Bass)</div>
+      <div class="touch-tip">จิ้ม <strong>Part 2</strong> → Tab "Zone/Key" → ตั้ง "Note High" เป็น <strong>D#3</strong></div>
+      <div class="screen-result">แถบ Part 2 อยู่ C-2–D#3 = Bass อยู่แค่ช่วงล่าง — ตอนนี้กดคีย์สูง = Piano เท่านั้น, กดคีย์ต่ำ = Bass เท่านั้น</div>
+    </div>
+    <div class="warn-box">อย่าลืม Store Performance หลังตั้ง Split เสร็จ ไม่งั้นปิดเครื่องหรือเปลี่ยน Performance ข้อมูลหาย</div>
+
+    <h2>Scene — เก็บ Snapshot ของระดับ Volume / Knob</h2>
+    <div class="step">
+      <div class="step-num">บันทึก Scene</div>
+      <p>กด <span class="btn-key">[HOME]</span> เพื่อกลับหน้าหลัก → ปรับ Volume แต่ละ Part และ Super Knob ให้อยู่ในตำแหน่งต้องการ → กด Scene Button (ปุ่มสี 1–8) ค้าง 1 วินาที</p>
+      <div class="screen-result">Pop-up เล็กๆ: "Scene 1 Stored" โผล่ขึ้น 1 วินาทีแล้วหายไปเอง — ค่า Volume และตำแหน่ง Super Knob ถูกเก็บใน Scene นั้น</div>
+    </div>
+    <div class="step">
+      <div class="step-num">สลับ Scene ระหว่างเล่น</div>
+      <p>กด Scene Button ที่ต้องการ (1–8) ขณะแสดงสด</p>
+      <div class="screen-result">ปุ่ม Scene ที่กดสว่างขึ้น / ปุ่มอื่นหรี่ลง + Volume Part และ Super Knob ค่อยๆ Morph ไปยังค่าที่บันทึกใน Scene นั้น (ถ้าเปิด Morph Mode) หรือเปลี่ยนทันที</div>
+    </div>
+
+    <h2>Super Knob — Assign ให้ Control หลาย Parameter พร้อมกัน</h2>
+    <div class="step">
+      <div class="step-num">วิธี Assign Super Knob</div>
+      <p>กด <span class="btn-key">[EDIT]</span> → จิ้ม Tab <strong>"Common/Audio"</strong> → จิ้ม Tab ย่อย <strong>"Control"</strong> → จิ้ม <strong>"Super Knob"</strong></p>
+      <div class="screen-result">จอแสดงหน้า Super Knob Assign: รายการ Knob Connection แต่ละ Row มีช่อง "Src" (Super Knob) → "Dest" (Parameter ปลายทาง) → Depth (ความแรง)</div>
+      <div class="touch-tip">จิ้ม [+] เพื่อเพิ่ม Row ใหม่ → จิ้ม "Dest" → Browser เลือก Parameter: เช่น Part1 > Filter Cutoff → OK</div>
+      <div class="touch-tip">จิ้มช่อง "Depth" → หมุน Data Dial ตั้งค่า เช่น +63 = หมุน Super Knob ไปขวาสุด → Cutoff เพิ่มสูงสุด</div>
+    </div>
+    <div class="step">
+      <div class="step-num">ทดสอบ</div>
+      <p>กด <span class="btn-key">[HOME]</span> → หมุน Super Knob</p>
+      <div class="screen-result">ค่า Cutoff ของ Part 1 เปลี่ยนตาม Super Knob + ถ้า Assign ไว้หลาย Part จะเปลี่ยนพร้อมกันทุก Part ที่ Assign ไว้</div>
+    </div>
+
+    <h2>Motion Sequencer — Automation อัตโนมัติ</h2>
+    <div class="step">
+      <div class="step-num">เปิด Motion Sequencer</div>
+      <p>กด <span class="btn-key">[EDIT]</span> → เลือก Part → จิ้ม Tab <strong>"Mod/Control"</strong> → จิ้ม <strong>"Motion Seq"</strong></p>
+      <div class="screen-result">จอแสดง Lane 1-4 เป็น Step Sequencer แนวนอน แต่ละ Step มีปุ่มสี่เหลี่ยมที่จิ้มเพื่อเปิด/ปิดหรือลาก</div>
+      <div class="touch-tip">จิ้ม Step ที่ต้องการ Activate → Step สว่างขึ้น = เปิด / จิ้มอีกครั้ง = ปิด</div>
+      <div class="touch-tip">จิ้มค่า "Dest" ของ Lane → เลือก Parameter: เช่น Cutoff, Volume, Pan → กด [PLAY] เพื่อฟัง Motion Seq ทำงาน</div>
+      <div class="screen-result">LED ที่ Scene Button กะพริบตาม Beat / จอแสดง Step ปัจจุบันไฮไลต์ไล่ไปทีละ Step</div>
+    </div>
+
+    <h2>บันทึก Performance ที่สร้าง</h2>
+    <div class="step">
+      <div class="step-num">Store Performance</div>
+      <p>กด <span class="btn-key">[STORE]</span> → Pop-up "Store Performance" → เลือก Bank + Slot + ตั้งชื่อ → จิ้ม <strong>[OK]</strong></p>
+      <div class="screen-result">ชื่อ Performance บนจอไม่มี "*" แล้ว = บันทึกสำเร็จ</div>
+    </div>
+
+    <div class="info-box">
+      <div class="ib-label">&#128161; เคล็ดลับ Live Performance</div>
+      <p>ตั้ง Scene 1 = เสียงเบา (Intro) / Scene 2 = เสียงปกติ (Verse) / Scene 3 = เต็ม (Chorus) / Scene 8 = เสียงดังสุด (Climax) → กดสลับด้วยนิ้วโป้งขณะเล่นได้เลย ไม่ต้องหยุดมองจอ</p>
+    </div>
+    <div class="nav-bar"><a class="nav-btn" href="06-preset.html">&larr; Preset</a> <a class="nav-btn" href="08-daw.html">&rarr; DAW</a></div>
   </div>
 </div>
 <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
 </body>
 </html>
+

@@ -6,27 +6,19 @@
   <title>วิธีแต่งเสียง AWM2 & FM-X — Yamaha MODX คู่มือภาษาไทย | คู่มือเครื่องดนตรี</title>
   <meta name="description" content="คู่มือ Yamaha MODX วิธีแต่งเสียง AWM2 & FM-X ภาษาไทย step-by-step จับมือทำทีละขั้นตอน">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6824376916256036" crossorigin="anonymous"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #0a0a0f; --bg-card: #1a1a2e; --bg-elevated: #1e1e35;
-      --border: rgba(255,255,255,0.08);
-      --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
+      --border: rgba(255,255,255,0.08); --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
       --accent: #00d4ff; --radius: 12px;
     }
     body { background: var(--bg); color: var(--text); font-family: 'Noto Sans Thai','Inter',sans-serif; font-size: 15px; line-height: 1.8; }
     .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
-    .sidebar {
-      background: var(--bg-elevated); border-right: 1px solid var(--border);
-      padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto;
-    }
-    .sb-brand {
-      padding: 0 20px 16px; font-size: 0.95rem; font-weight: 700;
-      color: var(--accent); border-bottom: 1px solid var(--border); margin-bottom: 12px;
-    }
+    .sidebar { background: var(--bg-elevated); border-right: 1px solid var(--border); padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .sb-brand { padding: 0 20px 16px; font-size: 0.95rem; font-weight: 700; color: var(--accent); border-bottom: 1px solid var(--border); margin-bottom: 12px; }
     .sb-brand span { display: block; font-size: 0.7rem; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
     .sb-back { display: block; padding: 6px 20px; font-size: 0.8rem; color: var(--text-muted); text-decoration: none; margin-bottom: 8px; }
     .sb-back:hover { color: var(--accent); }
@@ -34,39 +26,40 @@
     .sidebar ul li a { display: block; padding: 8px 20px; font-size: 0.82rem; text-decoration: none; color: var(--text-muted); transition: all 0.15s; }
     .sidebar ul li a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
     .sidebar ul li.active a { color: var(--accent); background: rgba(0,0,0,0.2); border-right: 3px solid var(--accent); font-weight: 600; }
-    .main { padding: 32px 36px 64px; max-width: 820px; }
+    .main { padding: 32px 36px 80px; max-width: 860px; }
     .breadcrumb { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 24px; }
     .breadcrumb a { color: var(--text-muted); text-decoration: none; }
     .breadcrumb a:hover { color: var(--accent); }
     .breadcrumb span { margin: 0 6px; }
-    .chapter-badge {
-      display: inline-block; background: rgba(0,0,0,0.3); border: 1px solid var(--accent);
-      color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
-      padding: 3px 12px; border-radius: 20px; margin-bottom: 14px;
-    }
+    .chapter-badge { display: inline-block; background: rgba(0,0,0,0.3); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; padding: 3px 12px; border-radius: 20px; margin-bottom: 14px; }
     h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--accent); margin-bottom: 8px; line-height: 1.3; }
-    .intro { font-size: 0.95rem; color: var(--text-sub); max-width: 640px; margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 14px; }
-    h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 32px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
-    h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 20px 0 10px; }
+    .intro { font-size: 0.95rem; color: var(--text-sub); max-width: 700px; margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 14px; }
+    h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 0.98rem; font-weight: 700; color: var(--accent); margin: 22px 0 10px; }
     p { color: var(--text-sub); margin-bottom: 12px; }
-    .step { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
-    .step-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-    .step p { margin: 0; color: var(--text); }
+    .step { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+    .step-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .step p { margin: 0 0 6px; }
+    .step p:last-child { margin: 0; }
+    .screen-result { background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; margin: 8px 0 0; font-size: 0.82rem; color: #a5f3fc; font-family: monospace; }
+    .screen-result::before { content: '&#9654; จอแสดง: '; font-weight: 700; font-family: 'Noto Sans Thai','Inter',sans-serif; color: #67e8f9; }
+    .touch-tip { background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.2); border-radius: 6px; padding: 8px 14px; margin: 8px 0 0; font-size: 0.82rem; color: #a5f3fc; }
+    .touch-tip::before { content: '&#128073; จิ้มที่จอ: '; font-weight: 700; color: var(--accent); }
+    .btn-key { display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); border-radius: 5px; padding: 1px 9px; font-size: 0.8rem; font-weight: 700; color: var(--text); font-family: monospace; }
+    .arrow { color: var(--accent); font-weight: 700; margin: 0 4px; }
     .info-box { background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
     .info-box .ib-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .info-box p { margin: 0; font-size: 0.85rem; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.83rem; }
-    th { background: rgba(0,0,0,0.3); color: var(--accent); padding: 8px 12px; text-align: left; border: 1px solid var(--border); font-weight: 700; }
-    td { padding: 8px 12px; border: 1px solid var(--border); color: var(--text-sub); }
+    .warn-box { background: rgba(234,179,8,0.06); border: 1px solid rgba(234,179,8,0.25); border-radius: 8px; padding: 14px 18px; margin: 16px 0; font-size: 0.85rem; }
+    .warn-box::before { content: '&#9888;&#65039; ข้อควรระวัง: '; font-weight: 700; color: #fbbf24; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 22px; font-size: 0.83rem; }
+    th { background: rgba(0,0,0,0.3); color: var(--accent); padding: 9px 12px; text-align: left; border: 1px solid var(--border); font-weight: 700; }
+    td { padding: 8px 12px; border: 1px solid var(--border); color: var(--text-sub); vertical-align: top; }
     tr:hover td { background: rgba(255,255,255,0.02); }
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 52px; padding-top: 24px; border-top: 1px solid var(--border); }
     .nav-btn { text-decoration: none; color: var(--accent); font-size: 0.85rem; font-weight: 600; padding: 8px 18px; border: 1px solid var(--accent); border-radius: 8px; transition: all 0.15s; }
     .nav-btn:hover { background: var(--accent); color: #000; }
-    @media (max-width: 768px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar { position: static; height: auto; }
-      .main { padding: 24px 20px 48px; }
-    }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .main { padding: 24px 20px 56px; } }
   </style>
 </head>
 <body>
@@ -98,19 +91,93 @@
     </div>
     <span class="chapter-badge">บทที่ 05 / 12</span>
     <h1>วิธีแต่งเสียง AWM2 & FM-X</h1>
-    <p class="intro">การแต่งเสียงบน MODX แบ่งเป็น 2 เส้นทางหลัก: AWM2 (Sample) สำหรับเสียง Realistic และ FM-X สำหรับเสียง Electric/Digital/Metallic — บทนี้จะพาทำทีละขั้น</p>
-    <h2>แต่งเสียง AWM2 — Step by Step</h2>
-    <div class="step"><div class="step-num">ขั้นที่ 1</div><p>เลือก Performance ที่ต้องการแก้ไข → กด <strong>[EDIT]</strong> → เลือก Part ที่ใช้ AWM2 → กด <strong>Part Edit</strong></p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 2</div><p>Tab <strong>OSC/Tune</strong> → เลือก Waveform → ฟัง Preview → กำหนด Note Range ถ้าต้องการให้ Sound นี้ทำงานแค่บางส่วนของคีย์</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 3</div><p>Tab <strong>Filter</strong> → ปรับ <strong>Cutoff</strong> (ลดก็ทำให้เสียง Muffled/Warm เพิ่มก็ทำให้ Bright) → ปรับ <strong>Resonance</strong> (เพิ่มทำให้ได้ยินเสียง "Wah" รอบ Cutoff frequency)</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 4</div><p>Tab <strong>Amp</strong> → ปรับ Envelope:<br>- <strong>Attack</strong>: เสียงขึ้นเร็วหรือช้า (0 = ทันที, 127 = ค่อยขึ้น)<br>- <strong>Decay</strong>: ลดลงหลัง Attack<br>- <strong>Sustain</strong>: ระดับเสียงตอนกดค้าง<br>- <strong>Release</strong>: หางเสียงหลังปล่อยคีย์</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 5</div><p>Tab <strong>Effect</strong> → เลือก Insertion Effect เช่น Chorus, Phaser, Distortion → บันทึก Store</p></div>
-    <h2>แต่งเสียง FM-X — Step by Step</h2>
-    <div class="step"><div class="step-num">ขั้นที่ 1</div><p>เลือก Part FM-X → Part Edit → Tab <strong>Algorithm</strong> → ลอง Algorithm 1 (ง่ายที่สุด: Op1-2-3-4 เรียงตรง) แล้วค่อยลองซับซ้อนขึ้น</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 2</div><p>Tab <strong>Operator</strong> → เลือก <strong>Op1</strong> (เสียงหลัก Carrier) → ปรับ <strong>Level</strong> ให้ดัง → ปรับ <strong>Ratio</strong> (เช่น 1.00 = pitch ปกติ, 2.00 = octave ขึ้น)</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 3</div><p>เลือก <strong>Op2</strong> (Modulator ของ Op1) → เพิ่ม Level → เสียงจะ "Metallic/Bright" ขึ้น → ลอง Ratio ต่างๆ เช่น 3.5, 7.0 สำหรับเสียง Bell หรือ Gong</p></div>
-    <div class="step"><div class="step-num">ขั้นที่ 4</div><p>Tab <strong>Envelope</strong> → ปรับ Envelope ของแต่ละ Op แยกกัน → Op ที่เป็น Carrier ปรับให้ยาว, Op Modulator ให้ Decay สั้น = เสียงเปลี่ยนจาก Bright ไป Mellow ตาม Time</p></div>
-    <div class="info-box"><div class="ib-label">&#128161; เคล็ดลับ FM</div><p>เริ่มจาก Preset FM Ep (Electric Piano) แล้วเปลี่ยนเล็กน้อย ง่ายกว่าเริ่มจาก Scratch มาก FM EP ที่ดีต้องใช้ Algorithm 5 + Fine Tune Ratio ของ Op ให้ใกล้กัน</p></div>
+    <p class="intro">การแต่งเสียงบน MODX ทำบนหน้าจอ Touch Screen ทั้งหมด — อธิบายทีละขั้นว่ากดอะไร จอขึ้นหน้าไหน จิ้มตรงไหน ปรับค่าอย่างไร สำหรับทั้ง AWM2 และ FM-X</p>
+
+    <h2>ก่อนเริ่ม — เข้าหน้า Part Edit</h2>
+    <div class="step">
+      <div class="step-num">ขั้นที่ 1 — เลือก Performance ที่จะแก้</div>
+      <p>กด <span class="btn-key">[HOME]</span> → จอแสดงหน้าหลัก Performance ปัจจุบัน</p>
+      <div class="touch-tip">ถ้าต้องการเปลี่ยน Performance ก่อน: จิ้มชื่อ Performance ที่บนสุดของจอ → หน้า Category Search เปิดขึ้น → เลือก Performance → จิ้ม OK</div>
+    </div>
+    <div class="step">
+      <div class="step-num">ขั้นที่ 2 — เข้า Edit Mode</div>
+      <p>กด <span class="btn-key">[EDIT]</span> → จอเปลี่ยนเป็นหน้า Performance Edit</p>
+      <div class="screen-result">บนสุด: Tab "Common/Audio" ไฮไลต์ / ถัดมา: Tab Part 1 ถึง Part 8 (แต่ละ Tab มีสี: ส้ม=AWM2, น้ำเงิน=FM-X)</div>
+    </div>
+    <div class="step">
+      <div class="step-num">ขั้นที่ 3 — เลือก Part ที่จะแก้</div>
+      <div class="touch-tip">จิ้ม Tab "Part 1" (หรือ Part ที่ต้องการ) → จอแสดงหน้า Part Edit ของ Part นั้น</div>
+      <div class="screen-result">จอแสดง Tab แถวบนใหม่: Element / OSC Tune / Filter / Amp / Mod/Control / Effect / Arpeggio</div>
+      <p>ถ้า Part เป็น FM-X จะเห็น Tab: Algorithm / Op1-Op8 / LFO / Tune / Mod/Control / Effect</p>
+    </div>
+
+    <h2>แต่งเสียง AWM2 — Tab ทีละ Tab</h2>
+
+    <h3>Tab: OSC Tune (เลือก Waveform)</h3>
+    <div class="step">
+      <div class="step-num">จิ้ม Tab "OSC Tune"</div>
+      <div class="screen-result">จอแสดง: Wave Category, Wave Number, Wave Name (ชื่อ Sample เช่น "CFX Grand L"), Octave (-2 ถึง +2), Coarse Tune, Fine Tune, Note Range Low/High</div>
+      <div class="touch-tip">จิ้มที่ "Wave Name" (ชื่อ Sample ปัจจุบัน) → Pop-up Wave Selection เปิดขึ้น → เห็น List ของ Waveform ทั้งหมดในระบบ</div>
+      <p>หมุน Data Dial เลื่อนดู Waveform → เล่นคีย์ทดสอบเสียงได้ระหว่างเลือก → จิ้ม OK เพื่อยืนยัน</p>
+      <div class="touch-tip">จิ้มค่า "Note Range Low" → ค่าไฮไลต์ → หมุน Dial หรือกด [INC]/[DEC] เพื่อปรับว่าเสียงนี้เริ่มเล่นจากคีย์ไหน (ใช้สำหรับ Split)</div>
+    </div>
+
+    <h3>Tab: Filter (ปรับความสว่าง/ความมืดของเสียง)</h3>
+    <div class="step">
+      <div class="step-num">จิ้ม Tab "Filter"</div>
+      <div class="screen-result">จอแสดง: Filter Type Selector (LPF24, LPF18, HPF ฯลฯ), Slider: Cutoff Frequency, Resonance / ด้านล่าง: Filter EG Graphic — เส้นกราฟ Envelope มี 4 จุดที่ลากได้ (Attack, Decay, Sustain, Release)</div>
+      <div class="touch-tip">จิ้มที่ Slider <strong>"Cutoff"</strong> แล้วลากขึ้น-ลง (หรือหมุน Dial หลังจิ้ม) → เสียงจะ Bright ขึ้น (Cutoff สูง) หรือ Muffled/Dark ลง (Cutoff ต่ำ)</div>
+      <div class="touch-tip">จิ้มที่ Slider <strong>"Resonance"</strong> → เพิ่ม Resonance = เสียง "นาสิก/Wah" รอบ Cutoff Frequency เพิ่มขึ้น ลดก็เสียงนุ่มลง</div>
+      <div class="touch-tip">จิ้ม Handle จุด A (Attack) ใน EG Graph แล้วลากซ้าย-ขวา → ควบคุมว่า Filter จะ Open ช้าหรือเร็ว / จุด D (Decay) ควบคุมว่า Filter จะปิดลงหลัง Attack เร็วแค่ไหน</div>
+    </div>
+
+    <h3>Tab: Amp (ปรับ Volume + Envelope ADSR)</h3>
+    <div class="step">
+      <div class="step-num">จิ้ม Tab "Amp"</div>
+      <div class="screen-result">จอแสดง: Level Slider, Pan Knob (ซ้าย-ขวา), Amp EG Graphic — เส้นกราฟ ADSR ลากได้ 4 จุด, Velocity Sensitivity (ความไวต่อแรงกด)</div>
+      <div class="touch-tip">จิ้ม Handle จุด <strong>A (Attack)</strong> ใน Envelope Graph → ลากขวา = เสียงค่อยๆ ขึ้น ช้า (Pad) / ลากซ้าย = เสียงขึ้นทันที (Piano, Pluck)</div>
+      <div class="touch-tip">จิ้ม Handle จุด <strong>D (Decay)</strong> → ลากขวา = กดคีย์ค้างแล้วเสียงค่อยๆ ลดลงช้า / ลากซ้าย = ลดเร็ว</div>
+      <div class="touch-tip">จิ้มที่ <strong>Sustain Level</strong> (เส้นนอน) → ลากขึ้น = เสียงค้าง Level สูง / ลากลง = เสียงเงียบลงหลัง Decay</div>
+      <div class="touch-tip">จิ้ม Handle จุด <strong>R (Release)</strong> → ลากขวา = เสียงยาวหลังปล่อยคีย์ (Hall Reverb Tail) / ลากซ้าย = ตัดเสียงสั้น</div>
+      <div class="touch-tip">จิ้ม Pan Knob → หมุน Dial ซ้าย = เสียงออกซ้าย / ขวา = เสียงออกขวา / 0 = กลาง</div>
+    </div>
+
+    <h3>Tab: Mod/Control (Assign Modulation)</h3>
+    <div class="step">
+      <div class="step-num">จิ้ม Tab "Mod/Control"</div>
+      <div class="screen-result">จอแสดง: Assign Matrix ตาราง Source → Destination / บนสุดเป็น Mod Wheel Section, ถัดมา Super Knob Section, ล่างสุด Assignable Knob</div>
+      <div class="touch-tip">จิ้มช่อง <strong>"Destination"</strong> ที่ต้องการแก้ → Pop-up List: เลือก Destination เช่น Filter Cutoff, Resonance, Pitch, LFO Depth ฯลฯ</div>
+      <div class="touch-tip">จิ้มช่อง <strong>"Depth"</strong> → หมุน Dial ตั้งค่าได้ตั้งแต่ -64 ถึง +63 → ค่า Negative = Mod Wheel ลดค่า, Positive = เพิ่มค่า</div>
+    </div>
+
+    <h2>แต่งเสียง FM-X — ทีละขั้น</h2>
+
+    <h3>Tab: Algorithm (เลือก Routing ของ Operator)</h3>
+    <div class="step">
+      <div class="step-num">จิ้ม Tab "Algorithm"</div>
+      <div class="screen-result">จอแสดง: ไดอะแกรม Flowchart Algorithm ปัจจุบัน — เห็น Box Op1-Op8 เชื่อมกันด้วยลูกศร (Carrier ต่อออก Output, Modulator ต่อเข้า Carrier) / มุมขวาล่างมีตัวเลข Algorithm ปัจจุบัน</div>
+      <div class="touch-tip">จิ้มปุ่ม <strong>[&lt;]</strong> หรือ <strong>[&gt;]</strong> ใต้ไดอะแกรม → Algorithm เปลี่ยน → ไดอะแกรมอัปเดตทันที → เล่นคีย์ทดสอบ</div>
+      <div class="touch-tip">จิ้ม Operator Box ใดก็ได้ในไดอะแกรม → Box นั้น Highlight สว่าง → ด้านล่างแสดง Level + Ratio ของ Op นั้น สามารถปรับได้ทันที</div>
+    </div>
+
+    <h3>Tab: Op1 (ปรับ Operator ทีละตัว)</h3>
+    <div class="step">
+      <div class="step-num">จิ้ม Tab "Op1" (หรือ Op2-Op8)</div>
+      <div class="screen-result">จอแสดง: Level Slider (0-99), Frequency Ratio (0.50 ถึง 32.00), Detune (-7 ถึง +7), Velocity Sensitivity / ด้านล่าง: Envelope Graph ของ Op นี้มี จุด L0/L1/L2/L3/L4 + R1/R2/R3/R4 ลากได้</div>
+      <div class="touch-tip">จิ้ม <strong>Level Slider</strong> แล้วลากขึ้น → ถ้า Op นี้เป็น Carrier: เสียงดังขึ้น / ถ้าเป็น Modulator: เสียง Brighter/More Metallic ขึ้น</div>
+      <div class="touch-tip">จิ้มค่า <strong>Frequency Ratio</strong> → หมุน Dial → เปลี่ยน pitch relationship ของ Op (1.00 = Unison ของ Carrier, 2.00 = Octave ขึ้น, 0.50 = Octave ลง, 7.00 = เสียง Metallic Bell)</div>
+      <div class="touch-tip">จิ้มจุด <strong>R1 (Attack Rate)</strong> ใน Envelope → ลากซ้าย = เสียง Attack เร็ว / ลากขวา = ช้า</div>
+    </div>
+
+    <div class="info-box">
+      <div class="ib-label">&#128161; เคล็ดลับ: Copy Parameter</div>
+      <p>กด <span class="btn-key">[SHIFT]</span> แล้วจิ้ม Parameter ใดก็ตามในหน้า Edit → Pop-up "Copy / Paste / Initialize" ปรากฏ → จิ้ม <strong>Copy</strong> → ไปที่ Operator/Element อื่น → <span class="btn-key">[SHIFT]</span> + จิ้ม → จิ้ม <strong>Paste</strong> — ประหยัดเวลาแต่งเสียงมาก!</p>
+    </div>
+
+    <div class="info-box">
+      <div class="ib-label">&#128161; Compare (A/B)</div>
+      <p>ขณะแก้ไข Part ใดๆ กด <span class="btn-key">[SHIFT]</span> + <span class="btn-key">[COMPARE]</span> → เสียงสลับกลับเป็น Version ก่อนแก้ ("ต้นฉบับ") เพื่อเปรียบเทียบ → กดซ้ำเพื่อกลับ Version ที่แก้แล้ว</p>
+    </div>
     <div class="nav-bar">
       <a class="nav-btn" href="04-menu.html">&#8592; เมนู</a>
       <a class="nav-btn" href="06-preset.html">Preset &#8594;</a>

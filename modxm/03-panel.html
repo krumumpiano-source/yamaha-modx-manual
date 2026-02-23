@@ -3,30 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>แผงปุ่มและอินเทอร์เฟส — Yamaha MODXM คู่มือภาษาไทย | คู่มือเครื่องดนตรี</title>
-  <meta name="description" content="คู่มือ Yamaha MODXM แผงปุ่มและอินเทอร์เฟส ภาษาไทย step-by-step จับมือทำทีละขั้นตอน">
+  <title>แผงปุ่มและอินเทอร์เฟส — Yamaha MODX6/7/8 คู่มือภาษาไทย | คู่มือเครื่องดนตรี</title>
+  <meta name="description" content="คู่มือ Yamaha MODX6/7/8 แผงปุ่มและอินเทอร์เฟส ภาษาไทย step-by-step จับมือทำทีละขั้นตอน">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6824376916256036" crossorigin="anonymous"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #0a0a0f; --bg-card: #1a1a2e; --bg-elevated: #1e1e35;
-      --border: rgba(255,255,255,0.08);
-      --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
+      --border: rgba(255,255,255,0.08); --text: #e2e8f0; --text-sub: #94a3b8; --text-muted: #64748b;
       --accent: #fbbf24; --radius: 12px;
     }
     body { background: var(--bg); color: var(--text); font-family: 'Noto Sans Thai','Inter',sans-serif; font-size: 15px; line-height: 1.8; }
     .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
-    .sidebar {
-      background: var(--bg-elevated); border-right: 1px solid var(--border);
-      padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto;
-    }
-    .sb-brand {
-      padding: 0 20px 16px; font-size: 0.95rem; font-weight: 700;
-      color: var(--accent); border-bottom: 1px solid var(--border); margin-bottom: 12px;
-    }
+    .sidebar { background: var(--bg-elevated); border-right: 1px solid var(--border); padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .sb-brand { padding: 0 20px 16px; font-size: 0.95rem; font-weight: 700; color: var(--accent); border-bottom: 1px solid var(--border); margin-bottom: 12px; }
     .sb-brand span { display: block; font-size: 0.7rem; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
     .sb-back { display: block; padding: 6px 20px; font-size: 0.8rem; color: var(--text-muted); text-decoration: none; margin-bottom: 8px; }
     .sb-back:hover { color: var(--accent); }
@@ -34,45 +26,46 @@
     .sidebar ul li a { display: block; padding: 8px 20px; font-size: 0.82rem; text-decoration: none; color: var(--text-muted); transition: all 0.15s; }
     .sidebar ul li a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
     .sidebar ul li.active a { color: var(--accent); background: rgba(0,0,0,0.2); border-right: 3px solid var(--accent); font-weight: 600; }
-    .main { padding: 32px 36px 64px; max-width: 820px; }
+    .main { padding: 32px 36px 80px; max-width: 860px; }
     .breadcrumb { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 24px; }
     .breadcrumb a { color: var(--text-muted); text-decoration: none; }
     .breadcrumb a:hover { color: var(--accent); }
     .breadcrumb span { margin: 0 6px; }
-    .chapter-badge {
-      display: inline-block; background: rgba(0,0,0,0.3); border: 1px solid var(--accent);
-      color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
-      padding: 3px 12px; border-radius: 20px; margin-bottom: 14px;
-    }
+    .chapter-badge { display: inline-block; background: rgba(0,0,0,0.3); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; padding: 3px 12px; border-radius: 20px; margin-bottom: 14px; }
     h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--accent); margin-bottom: 8px; line-height: 1.3; }
-    .intro { font-size: 0.95rem; color: var(--text-sub); max-width: 640px; margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 14px; }
-    h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 32px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
-    h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent); margin: 20px 0 10px; }
+    .intro { font-size: 0.95rem; color: var(--text-sub); max-width: 700px; margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 14px; }
+    h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 0.98rem; font-weight: 700; color: var(--accent); margin: 22px 0 10px; }
     p { color: var(--text-sub); margin-bottom: 12px; }
-    .step { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
-    .step-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-    .step p { margin: 0; color: var(--text); }
+    .step { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+    .step-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .step p { margin: 0 0 6px; }
+    .step p:last-child { margin: 0; }
+    .screen-result { background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 14px; margin: 8px 0 0; font-size: 0.82rem; color: #a5f3fc; font-family: monospace; }
+    .screen-result::before { content: '&#9654; จอแสดง: '; font-weight: 700; font-family: 'Noto Sans Thai','Inter',sans-serif; color: #67e8f9; }
+    .touch-tip { background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.2); border-radius: 6px; padding: 8px 14px; margin: 8px 0 0; font-size: 0.82rem; color: #a5f3fc; }
+    .touch-tip::before { content: '&#128073; จิ้มที่จอ: '; font-weight: 700; color: var(--accent); }
+    .btn-key { display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); border-radius: 5px; padding: 1px 9px; font-size: 0.8rem; font-weight: 700; color: var(--text); font-family: monospace; }
+    .arrow { color: var(--accent); font-weight: 700; margin: 0 4px; }
     .info-box { background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
     .info-box .ib-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .info-box p { margin: 0; font-size: 0.85rem; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.83rem; }
-    th { background: rgba(0,0,0,0.3); color: var(--accent); padding: 8px 12px; text-align: left; border: 1px solid var(--border); font-weight: 700; }
-    td { padding: 8px 12px; border: 1px solid var(--border); color: var(--text-sub); }
+    .warn-box { background: rgba(234,179,8,0.06); border: 1px solid rgba(234,179,8,0.25); border-radius: 8px; padding: 14px 18px; margin: 16px 0; font-size: 0.85rem; }
+    .warn-box::before { content: '&#9888;&#65039; ข้อควรระวัง: '; font-weight: 700; color: #fbbf24; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 22px; font-size: 0.83rem; }
+    th { background: rgba(0,0,0,0.3); color: var(--accent); padding: 9px 12px; text-align: left; border: 1px solid var(--border); font-weight: 700; }
+    td { padding: 8px 12px; border: 1px solid var(--border); color: var(--text-sub); vertical-align: top; }
     tr:hover td { background: rgba(255,255,255,0.02); }
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 52px; padding-top: 24px; border-top: 1px solid var(--border); }
     .nav-btn { text-decoration: none; color: var(--accent); font-size: 0.85rem; font-weight: 600; padding: 8px 18px; border: 1px solid var(--accent); border-radius: 8px; transition: all 0.15s; }
     .nav-btn:hover { background: var(--accent); color: #000; }
-    @media (max-width: 768px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar { position: static; height: auto; }
-      .main { padding: 24px 20px 48px; }
-    }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .main { padding: 24px 20px 56px; } }
   </style>
 </head>
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <div class="sb-brand">Yamaha MODXM<span>คู่มือภาษาไทย 12 บท</span></div>
+    <div class="sb-brand">Yamaha MODX6/7/8<span>คู่มือภาษาไทย 12 บท</span></div>
     <a class="sb-back" href="../yamaha.html">&#8592; กลับไปหน้า Yamaha</a>
     <ul>
       <li><a href="01-overview.html">01. ภาพรวม</a></li>
@@ -93,25 +86,160 @@
     <div class="breadcrumb">
       <a href="../index.html">หน้าแรก</a><span>&#62;</span>
       <a href="../yamaha.html">Yamaha</a><span>&#62;</span>
-      <a href="01-overview.html">MODXM</a><span>&#62;</span>
+      <a href="01-overview.html">MODX6/7/8</a><span>&#62;</span>
       แผงปุ่มและอินเทอร์เฟส
     </div>
     <span class="chapter-badge">บทที่ 03 / 12</span>
     <h1>แผงปุ่มและอินเทอร์เฟส</h1>
-    <p class="intro">MODXM ไม่มีคีย์บอร์ด แต่มีแผงควบคุมด้านหน้าครบถ้วน พร้อม Knob, Super Knob, จอ Touch Screen — บทนี้แนะนำแต่ละส่วนของตัว Module</p>
-    <h2>ภาพรวมแผงด้านหน้า MODXM</h2>
-    <div class="step"><div class="step-num">จอ Touch Screen</div><p>TFT Color Touch Screen 7 นิ้ว — ใช้สัมผัส หรือ Data Dial ด้านข้างปรับได้ ใช้เหมือน MODX/MODX+ ทุกอย่าง</p></div>
-    <div class="step"><div class="step-num">Super Knob</div><p>ปุ่มกลม ขนาดใหญ่ — ควบคุม Assignable Parameter หลายตัวพร้อมกัน (Assign ได้ใน Part Edit)</p></div>
-    <div class="step"><div class="step-num">8 Assignable Knobs</div><p>Knob 1-8 ใต้ Super Knob — สามารถ Assign ให้ควบคุม Parameter ต่างๆ ได้ชั่วคราว หรือ Map กับ MIDI CC จาก Controller</p></div>
-    <div class="step"><div class="step-num">8 Scene Buttons</div><p>กด Scene 1-8 ขณะเล่นสดเพื่อสลับ State ของ Performance ทันที</p></div>
-    <div class="step"><div class="step-num">Part Select / Mute</div><p>Part 1-8 Buttons — เลือก Part, กด Shift + Part = Mute/Unmute</p></div>
-    <div class="step"><div class="step-num">Transport</div><p>Play / Stop / Record สำหรับ Motion Sequencer และ Arpeggio</p></div>
-    <h2>ด้านหลัง MODXM — Connectivity</h2>
-    <div class="step"><div class="step-num">Audio Out</div><p>OUTPUT L/MONO + R (6.3mm TRS) ต่อ Mixer หรือ Monitor Speaker</p></div>
-    <div class="step"><div class="step-num">Audio In</div><p>INPUT L + R (6.3mm TRS) — รับ Audio จากภายนอก Resample หรือ Process ผ่าน Effect ของ MODXM</p></div>
-    <div class="step"><div class="step-num">USB-B</div><p>ส่งทั้ง MIDI + USB Audio 2in/2out ไปยัง Computer ผ่าน USB เดียว</p></div>
-    <div class="step"><div class="step-num">MIDI DIN</div><p>MIDI IN + OUT (5-pin) — สำหรับ Master Keyboard ที่ไม่มี USB MIDI</p></div>
-    <div class="info-box"><div class="ib-label">&#128161; การใช้ MODXM กับ Master Keyboard</div><p>ต่อ MIDI OUT ของ Master Keyboard → MIDI IN ของ MODXM (DIN) หรือ USB MIDI → MODXM รับคำสั่ง MIDI เล่นเสียงออกมา</p></div>
+    <p class="intro">MODX มีจอ TFT Color Touch Screen 7 นิ้ว ใช้ได้ทั้งการ <strong>จิ้มหน้าจอด้วยนิ้ว</strong> และ <strong>กด/หมุน Data Dial</strong> บทนี้อธิบายปุ่มทุกปุ่มและบอกว่าจอจะแสดงอะไรหลังกดแต่ละครั้ง</p>
+
+    <h2>จอ Touch Screen — วิธีใช้งาน</h2>
+    <div class="step">
+      <div class="step-num">วิธีที่ 1 — จิ้มหน้าจอ</div>
+      <p>ใช้ปลายนิ้วแตะที่ไอคอน, ปุ่ม, หรือค่าในจอโดยตรง เหมือน Smartphone ทั่วไป</p>
+      <p>ลาก (Swipe) ซ้าย-ขวาในบาง Menu เพื่อเลื่อนดู List ได้เช่นกัน</p>
+    </div>
+    <div class="step">
+      <div class="step-num">วิธีที่ 2 — Data Dial</div>
+      <p>หมุน <span class="btn-key">Data Dial</span> (ล้อกลมด้านขวาของจอ) เพื่อเลื่อนค่าขึ้น-ลง / เลือก Item ใน List</p>
+      <p>กด <span class="btn-key">Data Dial</span> ลงเพื่อ Confirm (เหมือนกด Enter)</p>
+    </div>
+    <div class="step">
+      <div class="step-num">วิธีที่ 3 — Inc/Dec Buttons</div>
+      <p>ปุ่ม <span class="btn-key">[INC]</span> / <span class="btn-key">[DEC]</span> (บางรุ่นมี) สำหรับเพิ่ม-ลดค่าทีละ 1 เหมาะเมื่อต้องการความแม่นยำ</p>
+    </div>
+
+    <h2>ปุ่มหลักด้านซ้ายบนของจอ</h2>
+    <table>
+      <tr><th>ปุ่ม</th><th>กดแล้วจอขึ้นอะไร</th><th>ใช้ทำอะไร</th></tr>
+      <tr>
+        <td><span class="btn-key">[HOME]</span></td>
+        <td>หน้า HOME ▶ แสดงชื่อ Performance, Parts List, Super Knob, 8 Scene Buttons</td>
+        <td>กลับหน้าหลักได้เสมอ กด ตอนหลงในเมนูลึก</td>
+      </tr>
+      <tr>
+        <td><span class="btn-key">[PERFORMANCE]</span></td>
+        <td>หน้า Performance Play ▶ แสดงรูป Piano Roll + Part List + Level Meter</td>
+        <td>กลับมาโหมดเล่นปกติ</td>
+      </tr>
+      <tr>
+        <td><span class="btn-key">[EDIT]</span></td>
+        <td>หน้า Performance Edit ▶ แสดง Tab: Common/Audio, Part 1-8</td>
+        <td>เข้าแก้ไขเสียง</td>
+      </tr>
+      <tr>
+        <td><span class="btn-key">[CATEGORY SEARCH]</span></td>
+        <td>หน้า Category Search ▶ แสดงรายการ Category เป็น Grid: Piano, Organ, Strings ...</td>
+        <td>ค้นหาและเลือกเสียง</td>
+      </tr>
+      <tr>
+        <td><span class="btn-key">[UTILITY]</span></td>
+        <td>หน้า Utility ▶ แสดง 5 Tab: General, Sound, MIDI, Contents, Update</td>
+        <td>ตั้งค่าระบบทั้งหมด</td>
+      </tr>
+      <tr>
+        <td><span class="btn-key">[STORE]</span></td>
+        <td>Pop-up "Store" ▶ แสดงช่องเลือก Bank, Number, Name + ปุ่ม OK/Cancel</td>
+        <td>บันทึก Performance</td>
+      </tr>
+    </table>
+
+    <h2>Super Knob — ปุ่มใหญ่กลางเครื่อง</h2>
+    <div class="step">
+      <div class="step-num">หมุน Super Knob ขณะเล่น</div>
+      <p>จอแสดงผล: วงกลมใหญ่ตรงกลางจอหมุนตาม <span class="arrow">→</span> ค่า Super Knob เปลี่ยน 0–127 มุมบนซ้ายจอแสดงตัวเลขค่า Knob ปัจจุบัน</p>
+      <div class="screen-result">Super Knob = 64 / Parameter ที่ Assign ไว้เปลี่ยนค่าพร้อมกัน</div>
+    </div>
+    <div class="step">
+      <div class="step-num">กด Super Knob ค้าง</div>
+      <p>จอแสดง Pop-up: "Assign Super Knob" <span class="arrow">→</span> เห็นรายการ Parameter ที่ Knob นี้ควบคุมอยู่ทั้งหมด</p>
+      <div class="touch-tip">จิ้ม Parameter ในรายการเพื่อดูว่า Map กับอะไร หรือจิ้ม [EDIT] เพื่อแก้ Assign</div>
+    </div>
+
+    <h2>8 Assignable Knobs (Knob 1–8)</h2>
+    <div class="step">
+      <div class="step-num">หมุน Knob 1–8</div>
+      <p>ค่าที่ควบคุมขึ้นกับว่า Assign ไว้กับ Parameter อะไร ค่า Default ของ Knob 1-8 คือ: Volume, Cutoff, Resonance, LFO Rate, LFO Depth, Reverb, Chorus, Filter Env Depth</p>
+      <div class="screen-result">มุมล่างจอแสดงแถบ Parameter Name + ค่าปัจจุบันเป็น Pop-up ชั่วคราว 2 วินาที</div>
+    </div>
+    <div class="step">
+      <div class="step-num">กด [ASSIGN] เพื่อเปลี่ยนสิ่งที่ Knob ควบคุม</div>
+      <p>กด <span class="btn-key">[SHIFT]</span> + <span class="btn-key">[ASSIGN]</span> <span class="arrow">→</span> จอเปิดหน้า Assignable Knob Config</p>
+      <div class="touch-tip">จิ้ม Knob Number (1-8) ที่ต้องการ → จิ้ม Destination เพื่อเลือก Parameter ที่จะ Control</div>
+    </div>
+
+    <h2>8 Scene Buttons (สีต่างๆ)</h2>
+    <div class="step">
+      <div class="step-num">กด Scene Button 1–8</div>
+      <p>Scene Button ที่เลือกอยู่จะ <strong>สว่างขึ้น</strong> สีเต็ม / Scene อื่นจะหรี่ลง</p>
+      <div class="screen-result">จอ HOME แสดงไฮไลต์ที่ Scene ที่กำลังใช้งาน + ค่า Super Knob และ Part Volume อาจเปลี่ยนตาม Scene ที่บันทึกไว้</div>
+    </div>
+    <div class="step">
+      <div class="step-num">กด Scene ค้าง 1 วินาที</div>
+      <p>บันทึกสถานะปัจจุบัน (Volume, Super Knob position) ลง Scene นั้น</p>
+      <div class="screen-result">Pop-up: "Scene [number] Stored" แสดงขึ้น 1 วินาที แล้วหายไปเอง</div>
+    </div>
+
+    <h2>Part Select Buttons (Part 1–8)</h2>
+    <div class="step">
+      <div class="step-num">กด Part 1–8</div>
+      <p>Part ที่กดจะ <strong>ไฟสว่าง</strong> ขึ้น</p>
+      <div class="screen-result">จอ HOME แสดง Part นั้นถูก Highlight / ถ้าอยู่ในหน้า Edit จะ Jump ไปที่ Part Edit ของ Part นั้นทันที</div>
+    </div>
+    <div class="step">
+      <div class="step-num">กด [SHIFT] + Part Button = Mute/Unmute</div>
+      <p>ถ้า Part นั้น Active → กด Shift+Part = <strong>Mute</strong> (ไฟ Part กะพริบสีแดง) / กดอีกครั้ง = <strong>Unmute</strong></p>
+      <div class="screen-result">ไฟปุ่ม Part กะพริบแดง = Mute / สว่างปกติ = Active</div>
+      <div class="touch-tip">จิ้มที่ Part Icon ในหน้าจอ HOME ก็ทำได้เช่นกัน — จิ้มครั้งเดียว = Select, สองครั้ง = Mute Toggle</div>
+    </div>
+
+    <h2>Transport Buttons</h2>
+    <table>
+      <tr><th>ปุ่ม</th><th>กดแล้วเกิดอะไร</th></tr>
+      <tr>
+        <td><span class="btn-key">[▶ PLAY]</span></td>
+        <td>Arpeggio / Motion Sequencer เริ่มเล่น — จอแสดง Beat Counter กะพริบ + ตำแหน่ง Bar:Beat</td>
+      </tr>
+      <tr>
+        <td><span class="btn-key">[■ STOP]</span></td>
+        <td>Arpeggio/Motion Seq หยุด — จอ Beat Counter หยุดนิ่ง</td>
+      </tr>
+      <tr>
+        <td><span class="btn-key">[● REC]</span></td>
+        <td>เข้าโหมด Record Motion Sequence — จอเปลี่ยนสีพื้นหลังเป็นแดง + ข้อความ "Recording..." กระพริบ</td>
+      </tr>
+      <tr>
+        <td><span class="btn-key">[TAP TEMPO]</span></td>
+        <td>กด 4 ครั้งตาม Beat → จอแสดง BPM ที่คำนวณได้ทันที: "Tempo = 120 BPM"</td>
+      </tr>
+    </table>
+
+    <h2>ด้านหลังเครื่อง — Output & Ports</h2>
+    <div class="step">
+      <div class="step-num">OUTPUT L/MONO + R</div>
+      <p>6.3mm TRS ต่อ Mixer หรือ Active Speaker ถ้าต่อแค่ L/MONO จะได้เสียง <strong>Mono Mix</strong> ของทั้ง 2 Channel</p>
+    </div>
+    <div class="step">
+      <div class="step-num">MIDI IN / MIDI OUT (5-pin DIN)</div>
+      <p>สำหรับต่ออุปกรณ์ MIDI รุ่นเก่าที่ไม่มี USB เช่น Drum Machine, MIDI Controller รุ่นเก่า</p>
+    </div>
+    <div class="step">
+      <div class="step-num">USB-B (to Host)</div>
+      <p>ต่อ Computer ผ่าน USB Cable — MODX ส่ง MIDI เท่านั้น (ไม่มี USB Audio) ต้องติดตั้ง Driver ก่อนใช้งานครั้งแรก</p>
+    </div>
+    <div class="step">
+      <div class="step-num">Sustain / Assignable Pedal Jack</div>
+      <p>ต่อ FC3A (Sustain) หรือ FC7 (Expression Pedal) ตั้งค่าที่ Utility > General > Foot Pedal</p>
+    </div>
+    <div class="step">
+      <div class="step-num">USB-A (to Device)</div>
+      <p>ด้านหน้าเครื่อง ต่อ USB Flash Drive FAT32 สำหรับ Save/Load Performance และ Update Firmware</p>
+    </div>
+
+    <div class="info-box">
+      <div class="ib-label">&#128161; เคล็ดลับ: Short Cut บนจอ</div>
+      <p>จิ้มค้างที่ Parameter Name ใดก็ตามในจอ 1 วินาที → Pop-up "Assign to Knob?" จะปรากฏ → จิ้ม Yes แล้วหมุน Knob ที่ต้องการ → Parameter นั้น Assign ให้ Knob ได้ทันที ไม่ต้องเข้าเมนู!</p>
+    </div>
     <div class="nav-bar">
       <a class="nav-btn" href="02-specs.html">&#8592; สเปค</a>
       <a class="nav-btn" href="04-menu.html">เมนู &#8594;</a>
@@ -121,3 +249,4 @@
 <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
 </body>
 </html>
+
